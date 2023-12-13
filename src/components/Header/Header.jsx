@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.scss';
-import locationImg from '../../assets/images/location.svg';
+import locationImg from '../../assets/images/location-icon.svg';
 import profileIcon from '../../assets/images/profile-icon.svg';
 
 function Header() {
@@ -13,13 +13,13 @@ function Header() {
 				<nav className={styles.align_container}>
 					<div className={styles.link_container}>
 						<NavLink to="/" className={styles.text_link}>
-							О нас
+							<p>О нас</p>
 						</NavLink>
 						<NavLink to="/" className={styles.text_link}>
-							Поиск кофейни
+							<p>Поиск кофейни</p>
 						</NavLink>
 						<NavLink to="/" className={styles.text_link}>
-							Интересные предложения
+							<p>Интересные предложения</p>
 						</NavLink>
 					</div>
 					<div className={styles.city_container}>
@@ -28,6 +28,7 @@ function Header() {
 					</div>
 					<div className={styles.profile}>
 						<img src={profileIcon} alt="profile" />
+						<p>Иван И.</p>
 					</div>
 				</nav>
 			</nav>
