@@ -7,11 +7,11 @@ import styles from './Button.module.scss';
 Нужные для дезигна параметры указываем через пропсы кнопки
 По примеру: 
 <Button
-	children = {'любой текст'}
-	type = {'button'}
-	size = {'large'}
-	color: {'gray'} 
-	bordered: {true}
+	children = "любой текст"
+	type = "button"
+	size = "large"
+	color: "gray"
+	bordered: true
  */
 
 function Button({ children, type, size, color, bordered }) {
