@@ -1,17 +1,13 @@
 .container {
 	margin: 32px auto;
+	padding: 30px 65px 62px;
 	background-color: #ffffff;
 	max-width: 1110px;
-	font-family: Roboto Flex;
-	font-size: 18px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 20px; /* 111.111% */
-	letter-spacing: 0.18px;
 }
 
 .button_back {
 	display: flex;
+	align-items: center;
 	padding: 0;
 	border: none;
 	font: inherit;
@@ -24,7 +20,18 @@
 	}
 }
 
+.heading_container {
+	display: flex;
+}
+
 .text {
+	font-family: 'Roboto-Flex-Regular';
+	font-size: 18px;
+	margin: 0;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px; /* 111.111% */
+	letter-spacing: 0.18px;
 }
 
 .heading {
@@ -32,15 +39,54 @@
 	justify-content: space-between;
 }
 
-.rating {
+.rating_icon {
 	justify-self: left;
 }
 
 .title {
+	margin-right: 26px;
+
+	font-family: 'Roboto-Serif-Light';
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 300;
+	line-height: normal;
 }
 
 .button_review {
+	display: flex;
+	align-items: center;
+	margin-right: 63px;
+	padding: 0;
+	border: none;
+	font: inherit;
+	color: inherit;
+	background-color: transparent;
+	cursor: pointer;
+	transition: opacity 0.3s ease-in-out;
+	&:hover {
+		opacity: 0.8;
+	}
+}
+
+.review_icon {
+	
 }
 
 .button_save {
+	display: flex;
+	align-items: center;
+	padding: 0;
+	border: none;
+	font: inherit;
+	color: inherit;
+	background-color: transparent;
+	cursor: pointer;
+	transition: opacity 0.3s ease-in-out;
+	&:hover {
+		opacity: 0.8;
+	}
+}
+
+.save_icon {
 }
