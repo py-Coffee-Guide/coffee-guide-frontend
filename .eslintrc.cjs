@@ -34,5 +34,12 @@ module.exports = {
 		'react/react-in-jsx-scope': 'off',
 		'prettier/prettier': ['warn', { endOfLine: 'auto' }],
 		'import/prefer-default-export': 'off',
+		'react/jsx-props-no-spreading': 'off',
+		'react/function-component-definition': 'off',
+		'react/button-has-type': 'off',
+		'react/jsx-no-bind': 'off',
+		'jsx-a11y/control-has-associated-label': 'off',
+		'jsx-a11y/click-events-have-key-events': 'off',
+		'jsx-a11y/no-static-element-interactions': 'off',
 	},
 };

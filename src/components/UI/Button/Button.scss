@@ -1,0 +1,26 @@
+.btn {
+	font-family: Roboto Flex;
+	padding: 15px 0;
+	text-align: center;
+	border: none;
+	font-size: 18px;
+	line-height: 20px;
+	letter-spacing: 0.18px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.btn_enter {
+	background: #ca9e76;
+}
+.btn_vk {
+	background: #bdbdbd;
+	position: relative;
+	&::before {
+		content: '';
+		display: inline-block;
+		width: 23.341px;
+		height: 14.882px;
+		padding: 0 10px 0 0;
+		background: url(../../../assets/images/vk.svg) no-repeat center;
+	}
+}

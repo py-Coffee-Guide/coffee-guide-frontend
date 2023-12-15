@@ -1,0 +1,110 @@
+.content {
+	display: flex;
+	flex-direction: column;
+}
+.container {
+	display: flex;
+	flex-direction: column;
+	font-size: 24px;
+	line-height: 28px;
+	letter-spacing: 0.24px;
+	color: #4f4f4f;
+	margin: 0 0 32px;
+}
+.title {
+	padding: 0 0 0 10px;
+	font-family:
+		Roboto Serif,
+		Arial,
+		sans-serif;
+	font-size: 32px;
+	font-weight: 300;
+	margin: 0 0 47px;
+}
+.description {
+	margin: 15px 0 0;
+	color: #333;
+	font-size: 12px;
+	line-height: 16px;
+	letter-spacing: 0.12px;
+}
+.btnContainer {
+	display: flex;
+	flex-direction: column;
+	margin: 18px 0 0;
+}
+.input {
+	padding: 10px 16px;
+	margin: 15px 0 0;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 20px;
+	letter-spacing: 0.18px;
+	border-radius: 5px;
+	border: 1px solid #000;
+}
+.transfer {
+	text-align: center;
+	color: #000;
+	font-size: 20px;
+	font-weight: 300;
+	margin: 25px 0;
+}
+
+.auth {
+	position: fixed;
+	top: 90px;
+	right: 48px;
+	width: 255px;
+	height: 587px;
+	background-color: #fff;
+	border-radius: 5px;
+	padding: 64px 25px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow: hidden;
+	opacity: 0;
+	visibility: hidden;
+	transition:
+		opacity,
+		visibility,
+		overflow,
+		0.5s ease;
+}
+.open {
+	z-index: 2;
+	opacity: 1;
+	visibility: visible;
+	overflow: visible;
+	transition:
+		opacity,
+		visibility,
+		overflow,
+		0.5s ease;
+}
+
+.avatar {
+	width: 100px;
+	height: 100px;
+	background-color: #d9d9d9;
+	border-radius: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 30px;
+	color: #fff;
+	font-weight: 500;
+	margin: 0 0 16px;
+}
+.name {
+	margin: 0 0 32px;
+	color: #333;
+	font-size: 20px;
+	font-weight: 500;
+}
+.authContainer {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
