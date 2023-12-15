@@ -1,5 +1,7 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './Card.module.scss';
 import Button from '../../assets/ui-kit/Button/Button';
+import CardPhoto from '../CardPhoto/CardPhoto';
 
 import arrowLeft from '../../assets/images/arrow-left.svg';
 import rating from '../../assets/images/rating.svg';
@@ -7,9 +9,10 @@ import reviewIcon from '../../assets/images/review-icon.svg';
 import saveIcon from '../../assets/images/save-icon.svg';
 
 function Card() {
+	const navigate = useNavigate();
 	return (
 		<section className={styles.card}>
-			<button type="button" className={styles.button_back}>
+			<button onClick={() => navigate(-1)} type="button" className={styles.button_back}>
 				<img src={arrowLeft} alt="кнопка назад" />
 				<p className={styles.text}>Назад</p>
 			</button>
@@ -33,14 +36,9 @@ function Card() {
 			</div>
 			<div className={styles.content}>
 				<div className={styles.caption}>
-					<div className={styles.container_button}>
-						<Button size="medium" color="gray" />
-						{/* <button type="button" className={styles.button_medium}>
-							Oткрыто сейчас
-						</button>
-						<button type="button" className={styles.button_medium}>
-							Кофе с собой
-						</button> */}
+					<div className={styles.container_tags}>
+						<Button size="tag" color="gray" text="Oткрыто сейчас" />
+						<Button size="tag" color="gray" text="Кофе с собой" />
 					</div>
 					<div className={styles.container_info}>
 						<p className={styles.text}>ул. Улица , д. 12</p>
@@ -53,16 +51,11 @@ function Card() {
 						ассортименте вы найдёте разные сорта и смеси со всех концов света.
 					</p>
 				</div>
-				<img className={styles.image_1} src="" alt="" />
-				<img className={styles.image_2} src="" alt="" />
-				<img className={styles.image_3} src="" alt="" />
+				<CardPhoto />
 			</div>
-			<div>
-				<Button type="button" />
+			<div className={styles.container_button}>
+				<Button type="button" text="Построить маршрут" />
 			</div>
-			{/* <button className={styles.button_large} type="button">
-				Построить маршрут
-			</button> */}
 		</section>
 	);
 }

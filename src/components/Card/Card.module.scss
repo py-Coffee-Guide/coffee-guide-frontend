@@ -102,7 +102,7 @@
 	background-color: #ffffff;
 }
 
-.container_button {
+.container_tags {
 	display: flex;
 	justify-content: space-between;
 }
@@ -113,23 +113,11 @@
 	gap: 16px;
 }
 
-.image_1 {
-	grid-area: image_1;
-	border-radius: 8px;
-	background: #eaeaea;
+.container_button {
+	display: flex;
+	justify-content: center;
 }
 
-.image_2 {
-	grid-area: image_2;
-	border-radius: 8px;
-	background: #eaeaea;
-}
-
-.image_3 {
-	grid-area: image_3;
-	border-radius: 8px;
-	background: #eaeaea;
-}
 
 // .button_large {
 // 	@include button;
