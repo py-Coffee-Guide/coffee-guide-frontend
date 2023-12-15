@@ -1,4 +1,5 @@
 import styles from './Card.module.scss';
+import Button from '../../assets/ui-kit/Button/Button';
 
 import arrowLeft from '../../assets/images/arrow-left.svg';
 import rating from '../../assets/images/rating.svg';
@@ -33,12 +34,13 @@ function Card() {
 			<div className={styles.content}>
 				<div className={styles.caption}>
 					<div className={styles.container_button}>
-						<button type="button" className={styles.button_medium}>
+						<Button size="medium" color="gray" />
+						{/* <button type="button" className={styles.button_medium}>
 							Oткрыто сейчас
 						</button>
 						<button type="button" className={styles.button_medium}>
 							Кофе с собой
-						</button>
+						</button> */}
 					</div>
 					<div className={styles.container_info}>
 						<p className={styles.text}>ул. Улица , д. 12</p>
@@ -55,9 +57,12 @@ function Card() {
 				<img className={styles.image_2} src="" alt="" />
 				<img className={styles.image_3} src="" alt="" />
 			</div>
-			<button className={styles.button_large} type="button">
+			<div>
+				<Button type="button" />
+			</div>
+			{/* <button className={styles.button_large} type="button">
 				Построить маршрут
-			</button>
+			</button> */}
 		</section>
 	);
 }
