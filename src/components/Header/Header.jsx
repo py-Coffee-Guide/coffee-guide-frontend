@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import Button from '../../assets/ui-kit/Button/Button';
 import styles from './Header.module.scss';
 import locationImg from '../../assets/images/location-icon.svg';
 import profileIcon from '../../assets/images/profile-icon.svg';

@@ -1,0 +1,47 @@
+.button {
+	font-family: 'Roboto-Flex-Regular';
+	font-size: 28px;
+	height: 64px;
+	color: black;
+	border: 0;
+	padding: 0;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+//Btn size
+.large {
+	width: 350px;
+}
+
+.medium {
+	width: 176px;
+}
+
+.tag {
+	font-size: 20px;
+	min-width: 50px;
+	height: 36px;
+}
+
+//Btn colors
+.orange {
+	background-color: orange;
+}
+
+.gray {
+	background-color: #e0e0e0;
+}
+
+.dark-gray {
+	background-color: #bdbdbd;
+}
+
+.transparent {
+	background-color: transparent;
+}
+
+//Additions
+.bordered {
+	border: 1px solid #7b7b7b;
+}
