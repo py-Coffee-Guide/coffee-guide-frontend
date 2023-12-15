@@ -13,13 +13,13 @@ function Card() {
 				<p className={styles.text}>Назад</p>
 			</button>
 			<div className={styles.heading}>
-				<div className={styles.heading_container}>
+				<div className={styles.container_heading}>
 					<h2 className={styles.title}>Кофейня 1</h2>
 					<img className={styles.rating_icon} src={rating} alt="рейтинг кофейни" />
 					<img className={styles.rating_icon} src={rating} alt="рейтинг кофейни" />
 					<img className={styles.rating_icon} src={rating} alt="рейтинг кофейни" />
 				</div>
-				<div className={styles.heading_container}>
+				<div className={styles.container_heading}>
 					<button type="button" className={styles.button_review}>
 						<img className={styles.review_icon} src={reviewIcon} alt="кнопка отзыв" />
 						<p className={styles.text}>Отзыв</p>
@@ -40,10 +40,12 @@ function Card() {
 							Кофе с собой
 						</button>
 					</div>
-					<p className={styles.text}>ул. Улица , д. 12</p>
-					<p className={styles.text}>Сегодня с 8.00 - 21.00 </p>
-					<p className={styles.text}>Телефон +7 495 000 00 00 </p>
-					<p className={styles.text}>https://</p>
+					<div className={styles.container_info}>
+						<p className={styles.text}>ул. Улица , д. 12</p>
+						<p className={styles.text}>Сегодня с 8.00 - 21.00 </p>
+						<p className={styles.text}>Телефон +7 495 000 00 00 </p>
+						<p className={styles.text}>https://</p>
+					</div>
 					<p className={styles.text}>
 						У нас всегда есть свежеобжаренный кофе, который оценят любители этого напитка. В
 						ассортименте вы найдёте разные сорта и смеси со всех концов света.

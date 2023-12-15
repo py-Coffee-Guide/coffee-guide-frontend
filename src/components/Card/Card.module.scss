@@ -26,6 +26,7 @@
 	padding: 30px 65px 62px;
 	background-color: #ffffff;
 	max-width: 1110px;
+	box-sizing: border-box;
 }
 
 .button_back {
@@ -34,7 +35,7 @@
 	align-items: center;
 }
 
-.heading_container {
+.container_heading {
 	display: flex;
 }
 
@@ -88,12 +89,28 @@
 		'capt image_1 image_2'
 		'capt image_1 image_3';
 	grid-template-columns: 1fr 350px minmax(0, 204px);
+	grid-template-rows: repeat(2, 167px);
 	grid-gap: 15px;
+	margin-bottom: 64px;
 }
 
 .caption {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
 	grid-area: capt;
-	background-color: #8ffff9;
+	background-color: #ffffff;
+}
+
+.container_button {
+	display: flex;
+	justify-content: space-between;
+}
+
+.container_info {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
 }
 
 .image_1 {
@@ -105,39 +122,29 @@
 .image_2 {
 	grid-area: image_2;
 	border-radius: 8px;
-	background: #f8ff91;
+	background: #eaeaea;
 }
 
 .image_3 {
 	grid-area: image_3;
 	border-radius: 8px;
-	background: #fcb3b3;
-}
-
-.container_button {
-	display: flex;
-	justify-content: space-between;
+	background: #eaeaea;
 }
 
 .button_large {
 	@include button;
 
+	display: block;
+	margin: auto;
 	width: 350px;
 	height: 64px;
 	padding: 10px;
-	justify-content: center;
-	align-items: center;
-	gap: 10px;
-	flex-shrink: 0;
 	border-radius: 8px;
 	background: var(--Orange, #f2994a);
 
 	font-family: 'Roboto-Flex-Regular';
 	font-size: 24px;
-	font-style: normal;
 	font-weight: 400;
-	line-height: 28px; /* 116.667% */
-	letter-spacing: 0.24px;
 }
 
 .button_medium {
