@@ -1,0 +1,226 @@
+.overlay {
+  margin: 0;
+  background: rgba(41, 41, 41, 0.34);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto-Flex-Regular';
+
+  .modal {
+    border-radius: 20px;
+    background: #FFF;
+    padding: 32px 65px;
+    position: relative;
+    max-width: 1110px;
+    max-height: 806px;
+
+    .header {
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+      margin-bottom: 32px;
+
+      .title {
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        margin: 0;
+      }
+
+      .resetBtn {
+        all: unset;
+        color: #AAA;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.16;
+        letter-spacing: 0.24px;
+      }
+    }
+
+    .closeBtn {
+      all: unset;
+      position: absolute;
+      top: 35px;
+      right: 64px;
+      width: 16px;
+      height: 16px;
+    }
+
+    
+
+    .fltrContainer {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      max-width: 980px;
+
+      .fltrContainerForTags, .fltrContainerForCheck {
+        display: flex;
+        flex-direction: row;
+        gap: 34px;
+        margin-bottom: 32px;
+      }
+
+      .hoursContainer, .raitingContainer {
+        // width: 280px;
+        width: 30%;
+      }
+
+      .infoContainer {
+        // width: 350px;
+        width: 35%;
+      }
+
+      .availabilityContainer {
+        // width: 276px;
+        width: 28%;
+      }
+
+      .chainContainer {
+        width: 68%;
+      }
+
+      .fltrTitle {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.16;
+        letter-spacing: 0.24px;
+      }
+
+      .filtersTags, .filtersCheck {
+        padding: 0;
+        margin: 12px 0 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .filtersTags {
+        gap: 8px;
+      }
+      
+      .filter {
+        list-style-type: none;
+      }
+
+      .filterButton {
+        all: unset;
+        display: flex;
+        padding: 8px 32px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        background: #E0E0E0;  
+        font-size: 13px; //изменен шрифт
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.11;
+        letter-spacing: 0.18px;
+      }
+
+      .chainOption, .saveFilters, .ratingOption {
+        align-items: center;
+        display: flex;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.11;
+        letter-spacing: 0.18px;
+        gap: 8px;
+      }
+
+      .star {
+        display: inline-block;
+        background-image: url(../../images/star.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 12px;
+        height: 12px;
+        margin-left: 8px;
+      }
+
+      .ratingOption {
+        margin-right: 16px;
+      }
+
+      .chainOption {
+        min-width: 200px;
+      }
+
+      .saveFilters {
+        margin-top: 32px;
+        padding: 8px 0;
+        color: #5D3612;
+        
+      }
+    }
+
+    .checkBox {
+      display: none;
+    }
+
+    .newCheckBox {
+      width: 24px;
+      height: 24px;
+      margin: 8px 8px 8px 0;
+      border: 1px solid black;
+      border-radius: 3px;
+      display: inline-block;
+      // margin-right: 8px;
+    }
+
+    .checked {
+      background-color: black;
+    }
+
+    .btnsContainer {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      width: 100%;
+      justify-content: center;
+
+      .applyBtn, .cancelBtn {
+        all: unset;
+        height: 64px;
+        border-radius: 8px;
+        justify-content: center;
+        text-align: center;
+        padding: 10px;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.16;
+        letter-spacing: 0.24px;
+      }
+      
+      .applyBtn {
+        background: #F2994A;
+        width: 350px;
+      }
+
+      .cancelBtn {
+        border: 1px solid #000;
+        width: 172px;
+      }
+    }
+
+    .closeBtn:hover,
+    .resetBtn:hover,
+    .applyBtn:hover,
+    .cancelBtn:hover,
+    .filterButton:hover,
+    .newCheckBox:hover {
+      cursor: pointer;  
+    }
+  }
+}
