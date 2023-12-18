@@ -7,18 +7,18 @@ import styles from './Button.module.scss';
 Нужные для дезигна параметры указываем через пропсы кнопки
 По примеру: 
 <Button
-	children = "любой текст"
+	text = "любой текст"
 	type = "button"
 	size = "large"
 	color: "gray"
 	bordered: true
  */
 
-function Button({ children, type, size, color, bordered }) {
+function Button({ text, type, size, color, bordered }) {
 	const btnClassName = cn(styles.button, styles[size], styles[color], bordered && styles.bordered);
 	return (
 		<button type={type} className={btnClassName}>
-			{children}
+			{text}
 		</button>
 	);
 }

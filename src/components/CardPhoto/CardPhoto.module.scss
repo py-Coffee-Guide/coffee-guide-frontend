@@ -1,0 +1,30 @@
+.image_1 {
+	grid-area: image_1;
+	border-radius: 8px;
+	background: #eaeaea;
+}
+
+.image_2 {
+	grid-area: image_2;
+	border-radius: 8px;
+	background: #eaeaea;
+}
+
+.image_3 {
+	grid-area: image_3;
+	border-radius: 8px;
+	background: #eaeaea;
+}
+
+.link {
+	grid-area: image_3;
+	align-self: flex-end;
+	justify-self: center;
+	padding-bottom: 12px;
+
+	text-decoration: none;
+	transition: opacity 0.3s ease-in-out;
+	&:hover {
+		opacity: 0.7;
+	}
+}
