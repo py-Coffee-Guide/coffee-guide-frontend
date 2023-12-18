@@ -1,6 +1,9 @@
 import { useSelector } from 'react-redux';
 import Header from '../Header/Header';
+
 import Card from '../Card/Card';
+import Main from '../Main/Main';
+
 import styles from './App.module.scss';
 
 function App() {
@@ -8,6 +11,7 @@ function App() {
 	return (
 		<div className={styles.root}>
 			<Header />
+			<Main />
 			<Card />
 		</div>
 	);
