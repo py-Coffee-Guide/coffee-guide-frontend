@@ -12,7 +12,6 @@ function App() {
 		<div className={styles.root}>
 			<Header />
 			<Main />
-			<Card />
 		</div>
 	);
 }

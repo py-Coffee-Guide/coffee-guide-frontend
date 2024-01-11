@@ -1,37 +1,21 @@
-import { NavLink } from 'react-router-dom';
-import Button from '../../assets/ui-kit/Button/Button';
+import logoPath from '../../assets/images/logo.svg';
+import favouriteIcon from '../../assets/images/favourites.svg';
+import switcherIcon from '../../assets/images/switcher-icon.svg';
+
 import styles from './Header.module.scss';
-import locationImg from '../../assets/images/location-icon.svg';
-import profileIcon from '../../assets/images/profile-icon.svg';
 
 function Header() {
 	return (
 		<header className={styles.header}>
-			<nav className={styles.container}>
-				<NavLink to="/">
-					<div className={styles.logo} />
-				</NavLink>
-				<nav className={styles.align_container}>
-					<div className={styles.link_container}>
-						<NavLink to="/" className={styles.text_link}>
-							<p>О нас</p>
-						</NavLink>
-						<NavLink to="/" className={styles.text_link}>
-							<p>Поиск кофейни</p>
-						</NavLink>
-						<NavLink to="/" className={styles.text_link}>
-							<p>Интересные предложения</p>
-						</NavLink>
-					</div>
-					<div className={styles.city_container}>
-						<img src={locationImg} alt="location" />
-						<p>Москва</p>
-					</div>
-					<div className={styles.profile}>
-						<img src={profileIcon} alt="profile" />
-						<p>Иван И.</p>
-					</div>
-				</nav>
+			<img className={styles.logo} src={logoPath} alt="Лого" />
+			<nav className={styles.align_container}>
+				<div className={styles.favourites}>
+					<img src={favouriteIcon} alt="Избарнное" />
+					<p>ИЗБРАННОЕ</p>
+				</div>
+				<div className={styles.switcher}>
+					<img src={switcherIcon} alt="Switcher" />
+				</div>
 			</nav>
 		</header>
 	);

@@ -1,15 +1,13 @@
-import AboutProject from '../AboutProject/AboutProject';
-import TagSection from '../TagSection/TagSection';
-import SpecialOffers from '../SpecialOffers/SpecialOffers';
-
 import styles from './Main.module.scss';
+
+import SearchSection from '../SearchSection/SearchSection';
+import TagSection from '../TagSection/TagSection';
 
 function Main() {
 	return (
 		<main className={styles.main}>
-			<AboutProject />
+			<SearchSection />
 			<TagSection />
-			<SpecialOffers />
 		</main>
 	);
 }

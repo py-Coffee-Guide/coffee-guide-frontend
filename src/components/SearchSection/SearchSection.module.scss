@@ -1,0 +1,57 @@
+$font-base: 'SourceSansPro-Regular';
+$base-color: #0b109e;
+
+.container {
+	width: 100%;
+	height: 68px;
+	border: 2px solid $base-color;
+	border-radius: 152px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: transparent;
+    box-shadow: 4px 4px #CFBAF0;
+}
+
+.input {
+    text-transform: uppercase;
+    margin-left: 26px;
+	width: 880px;
+	height: 20px;
+    padding-left: 38px;
+	color: $base-color;
+	font-family: $font-base;
+	font-size: 18px;
+	border: 0;
+	background-color: transparent;
+	background-image: url('../../assets/images/search-icon.svg');
+	background-repeat: no-repeat;
+	background-size: 22px 22px;
+	&::placeholder {
+		font-family: $font-base;
+		font-size: 18px;
+		color: #cfbaf0;
+	}
+	&:focus {
+		outline: none;
+        background-image: url('../../assets/images/search-icon-active.svg');
+	}
+}
+
+.button {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	background-color: $base-color;
+	color: white;
+	font-family: $font-base;
+	font-size: 18px;
+	width: 152px;
+	height: 68px;
+	border-radius: 152px;
+	cursor: pointer;
+	&:hover {
+		background-color: #90dbf4;
+		color: $base-color;
+	}
+}
