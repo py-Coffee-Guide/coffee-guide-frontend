@@ -7,36 +7,47 @@ export default {
 	component: Button,
 };
 
-export const LargeOrange = {
+export const DefaultButton = {
 	args: {
-		children: 'Найти кофейню',
-		color: 'orange',
-		size: 'large',
+		text: 'Button',
+		type: 'button',
+		preset: 'tag',
+		additions: 'default',
+	},
+};
+
+export const DefaultButtonDisabled = {
+	args: {
+		text: 'Disabled',
+		type: 'button',
+		preset: 'tag',
+		additions: 'disabled',
+	},
+};
+
+export const DefaultButtonActive = {
+	args: {
+		text: 'Active',
+		type: 'button',
+		preset: 'tag',
+		additions: 'active',
 	},
 };
 
 export const SearchButton = {
 	args: {
-		children: 'Найти',
-		color: 'dark-gray',
-		size: 'medium',
-		bordered: true,
+		text: 'Найти',
+		type: 'submit',
+		preset: 'search',
+		additions: 'default',
 	},
 };
 
-export const CancelBordered = {
+export const SearchButtonActive = {
 	args: {
-		children: 'Отмена',
-		color: 'transparent',
-		size: 'medium',
-		bordered: true,
-	},
-};
-
-export const Tag = {
-	args: {
-		children: 'тег',
-		color: 'gray',
-		size: 'tag',
+		text: 'Найти',
+		type: 'submit',
+		preset: 'search',
+		additions: 'active',
 	},
 };

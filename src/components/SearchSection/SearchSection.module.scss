@@ -10,15 +10,15 @@ $base-color: #0b109e;
 	align-items: center;
 	justify-content: space-between;
 	background-color: transparent;
-    box-shadow: 4px 4px #CFBAF0;
+	box-shadow: 4px 4px #cfbaf0;
 }
 
 .input {
-    text-transform: uppercase;
-    margin-left: 26px;
+	text-transform: uppercase;
+	margin-left: 26px;
 	width: 880px;
 	height: 20px;
-    padding-left: 38px;
+	padding-left: 38px;
 	color: $base-color;
 	font-family: $font-base;
 	font-size: 18px;
@@ -34,7 +34,7 @@ $base-color: #0b109e;
 	}
 	&:focus {
 		outline: none;
-        background-image: url('../../assets/images/search-icon-active.svg');
+		background-image: url('../../assets/images/search-icon-active.svg');
 	}
 }
 
