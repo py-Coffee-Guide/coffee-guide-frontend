@@ -2,7 +2,7 @@ import styles from './CardSmall.module.scss';
 
 function CardSmall({ card, onSave, onDelete }) {
 	return (
-		<section className={styles.card}>
+		<div className={styles.card}>
 			<div className={styles.photo_container}>
 				<img className={styles.photo} src={card.image} alt="фото кофейни" />
 				<button
@@ -25,7 +25,7 @@ function CardSmall({ card, onSave, onDelete }) {
 				<p className={styles.text}>{card.schedule[0].text}</p>
 				<p className={styles.text}>{card.schedule[1].text}</p>
 			</div>
-		</section>
+		</div>
 	);
 }
 

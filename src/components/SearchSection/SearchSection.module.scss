@@ -4,7 +4,8 @@ $base-color: #0b109e;
 .container {
 	width: 100%;
 	height: 68px;
-	border: 2px solid $base-color;
+	outline: 2px solid $base-color;
+	outline-offset: -2px;
 	border-radius: 152px;
 	display: flex;
 	align-items: center;
