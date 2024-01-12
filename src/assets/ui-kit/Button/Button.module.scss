@@ -1,4 +1,4 @@
-@mixin shadowColor ($color) {
+@mixin shadowColor($color) {
 	box-shadow: 4px 4px $color;
 }
 
@@ -7,7 +7,7 @@
 	width: 169px;
 	height: 40px;
 	border-radius: 12px;
-	border: 2px solid #0B109E;
+	border: 2px solid #0b109e;
 }
 
 .button {
@@ -22,15 +22,15 @@
 
 .tag {
 	@include defaultTag;
-	color: #0B109E;
-	@include shadowColor(#CFBAF0);
+	color: #0b109e;
+	@include shadowColor(#cfbaf0);
 	&:hover {
-		@include shadowColor(#90DBF4);
+		@include shadowColor(#90dbf4);
 	}
 }
 
 .tag_active {
-	background-color: #FBF8CC;
+	background-color: #fbf8cc;
 }
 
 .tag_disabled {
@@ -47,16 +47,16 @@
 	font-family: 'SourceSansPro-Regular';
 	text-transform: uppercase;
 	font-size: 18px;
-	background-color: #0B109E;
+	background-color: #0b109e;
 	border-radius: 89px;
 	color: white;
-	&:hover{
-		color: #0B109E;
-		background-color: #90DBF4;
+	&:hover {
+		color: #0b109e;
+		background-color: #90dbf4;
 	}
 }
 
 .search_active {
-	background-color: #CFBAF0;
-	color:#0B109E;
+	background-color: #cfbaf0;
+	color: #0b109e;
 }

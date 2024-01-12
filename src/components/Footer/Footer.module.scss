@@ -1,7 +1,7 @@
 .footer {
 	display: flex;
 	align-items: center;
-    justify-content: center;
+	justify-content: center;
 	margin: 32px auto 0;
 	width: 100%;
 	min-height: 96px;
@@ -9,10 +9,10 @@
 	font-family: 'SourceSansPro-Regular';
 	color: #90dbf4;
 	div {
-        display: flex;
-        justify-content: space-between;
+		display: flex;
+		justify-content: space-between;
 		width: 1132px;
-        flex-direction: row;
+		flex-direction: row;
 		p {
 			font-weight: 12px;
 			line-height: 16px;
