@@ -5,7 +5,7 @@ import { cards } from '../../utils/cards';
 
 function Cards() {
 	return (
-		<div className={styles.cardContainer}>
+		<div className={styles.container}>
 			<ul>
 				{cards.map(item => (
 					<li key={item.id}>

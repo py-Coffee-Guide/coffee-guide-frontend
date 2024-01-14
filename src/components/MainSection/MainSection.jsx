@@ -5,8 +5,8 @@ import Map from '../Map/Map';
 
 function MainSection() {
 	return (
-		<section className={styles.mainSectionContainer}>
-			<p className={styles.mainSectionText}>ПОДОБРАЛИ ДЛЯ ТЕБЯ КОФЕӢНИ </p>
+		<section className={styles.main}>
+			<p className={styles.text}>ПОДОБРАЛИ ДЛЯ ТЕБЯ КОФЕӢНИ </p>
 			<div className={styles.container}>
 				<Cards />
 				<Map />

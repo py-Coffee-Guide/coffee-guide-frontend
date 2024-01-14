@@ -1,4 +1,4 @@
-.mapContainer {
+.container {
 	display: flex;
 	width: 556px;
 	height: 612px;
@@ -9,7 +9,7 @@
 	background-image: url('../../assets/images/map-template.png');
 	object-fit: cover;
 	flex-direction: row-reverse;
-	.mapIcon {
+	.zoom_icon {
 		width: 56px;
 		height: 56px;
 		margin: 21px 17px 0 0;

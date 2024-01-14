@@ -9,7 +9,7 @@ function Header() {
 			<img className={styles.logo} src={logoPath} alt="Лого" />
 			<nav className={styles.align_container}>
 				<div className={styles.favourites}>
-					<div className={styles.favouriteIcon} />
+					<div className={styles.icon} />
 					<p>ИЗБРАННОЕ</p>
 				</div>
 				<div className={styles.switcher}>

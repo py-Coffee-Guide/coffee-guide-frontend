@@ -1,4 +1,4 @@
-.cardContainer {
+.container {
 	width: 556px;
 	height: 612px;
 	border-radius: 16px;
@@ -21,6 +21,6 @@
 		}
 	}
 }
-.cardContainer::-webkit-scrollbar {
+.container::-webkit-scrollbar {
 	display: none;
 }
