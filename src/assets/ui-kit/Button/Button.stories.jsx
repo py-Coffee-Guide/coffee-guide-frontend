@@ -51,3 +51,27 @@ export const SearchButtonActive = {
 		additions: 'active',
 	},
 };
+
+export const SaveButton = {
+	args: {
+		type: 'button',
+		preset: 'action',
+		additions: 'default',
+	},
+};
+
+export const SaveButtonActive = {
+	args: {
+		type: 'button',
+		preset: 'action',
+		additions: 'active',
+	},
+};
+
+export const CloseButton = {
+	args: {
+		type: 'button',
+		preset: 'action',
+		additions: 'close',
+	},
+};

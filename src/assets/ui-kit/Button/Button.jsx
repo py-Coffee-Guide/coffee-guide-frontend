@@ -13,8 +13,8 @@ function Button({ text, type, preset, additions }) {
 
 Button.propTypes = {
 	type: PropTypes.oneOf(['submit', 'button']),
-	preset: PropTypes.oneOf(['search', 'tag']),
-	additions: PropTypes.oneOf(['default', 'active', 'disabled']),
+	preset: PropTypes.oneOf(['search', 'tag', 'action']),
+	additions: PropTypes.oneOf(['default', 'active', 'disabled', 'close']),
 };
 
 Button.defaultProps = {

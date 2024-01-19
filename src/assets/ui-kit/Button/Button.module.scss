@@ -60,3 +60,22 @@
 	background-color: #cfbaf0;
 	color: #0b109e;
 }
+
+.action {
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background-color: #fff;
+	background-image: url('../../images/favourites.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+}
+
+.action_active {
+	background-image: url('../../images/favourites-active.svg');
+}
+
+.action_close {
+	background-image: url('../../images/close-icon.svg');
+}

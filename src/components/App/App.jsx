@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import Header from '../Header/Header';
 
-import Card from '../Card/Card';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 
