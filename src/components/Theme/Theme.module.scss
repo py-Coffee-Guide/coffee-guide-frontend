@@ -1,15 +1,14 @@
 .root {
-  opacity: 0;
-  width: 0;
-  height: 0;
-  display: flex;
-  width: 48px;
-  height: 32px;
-  padding: 4px 20px 4px 4px;
-  align-items: center;
-  border-radius: 16px;
-  border: 2px solid  #08109D;
-
+	opacity: 0;
+	width: 0;
+	height: 0;
+	display: flex;
+	width: 48px;
+	height: 32px;
+	padding: 4px 20px 4px 4px;
+	align-items: center;
+	border-radius: 16px;
+	border: 2px solid #08109d;
 
 	overflow: hidden;
 	transition: 0.5s all ease;
