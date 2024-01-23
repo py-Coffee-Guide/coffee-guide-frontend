@@ -1,6 +1,7 @@
 import logoPath from '../../assets/images/logo.svg';
 import switcherIcon from '../../assets/images/switcher-icon.svg';
 import Button from '../../assets/ui-kit/Button/Button';
+import Theme from '../Theme/Theme';
 
 import styles from './Header.module.scss';
 
@@ -14,6 +15,7 @@ function Header() {
 					{/* <div className={styles.icon} /> */}
 					<p>ИЗБРАННОЕ</p>
 				</div>
+				<Theme />
 				<div className={styles.switcher}>
 					<img src={switcherIcon} alt="Switcher" />
 				</div>

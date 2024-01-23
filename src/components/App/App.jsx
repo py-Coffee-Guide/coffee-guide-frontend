@@ -7,7 +7,7 @@ import Footer from '../Footer/Footer';
 import styles from './App.module.scss';
 
 function App() {
-	const { user } = useSelector(state => state);
+	// const { user } = useSelector(state => state);
 	return (
 		<div className={styles.root}>
 			<Header />
