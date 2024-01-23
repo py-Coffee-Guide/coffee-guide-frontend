@@ -21,7 +21,9 @@ const Theme = ({ className }) => {
 	return (
 		<label className={styles.switch} htmlFor="checkbox">
 			<input id="checkbox" type="checkbox" onClick={handleChange} aria-label="switch" />
-			<span className={styles.slider} />
+			<div className={styles.slider}>
+				<span className={styles.icon} />
+			</div>
 		</label>
 	);
 };
