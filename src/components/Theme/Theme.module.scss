@@ -1,40 +1,42 @@
 .switch {
-  position: relative;
-  display: inline-block;
-  width: 48px;
-  height: 32px;
-  border: 2px solid #08109D;
-  border-radius: 16px;
+	position: relative;
+	display: inline-block;
+	width: 48px;
+	height: 32px;
+	border: 2px solid #08109d;
+	border-radius: 16px;
 }
 
 /* Hide default HTML checkbox */
-.switch input {display:none;}
+.switch input {
+	display: none;
+}
 
 /* The slider */
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ffffff;
-  border-radius: 14px;
-  -webkit-transition: .4s;
-  transition: .4s all ease;
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ffffff;
+	border-radius: 14px;
+	-webkit-transition: 0.4s;
+	transition: 0.4s all ease;
 }
 
 .slider:before {
-  position: absolute;
-  content: "";
-  height: 24px;
-  width: 24px;
-  left: 4px;
-  bottom: 4px;
-  background-color: #08109D;
-  border-radius: 50%;
-  -webkit-transition: .4s;
-  transition: .4s;
+	position: absolute;
+	content: '';
+	height: 24px;
+	width: 24px;
+	left: 4px;
+	bottom: 4px;
+	background-color: #08109d;
+	border-radius: 50%;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
 }
 
 // input:checked + .slider {
@@ -46,21 +48,19 @@
 // }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(16px);
-  -ms-transform: translateX(16px);
-  transform: translateX(16px);
+	-webkit-transform: translateX(16px);
+	-ms-transform: translateX(16px);
+	transform: translateX(16px);
 }
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 34px;
+	border-radius: 34px;
 }
 
 .slider.round:before {
-  border-radius: 50%;
+	border-radius: 50%;
 }
-
-
 
 // .root {
 // 	position: relative;
@@ -149,9 +149,6 @@ input:checked + .slider:before {
 //   width: 45px;
 //   height: 45px;
 
-
-
-
 // 	overflow: hidden;
 // 	transition: 0.5s all ease;
 //   cursor: pointer;
@@ -160,6 +157,5 @@ input:checked + .slider:before {
 //     background-color: aqua;
 
 //   }
-
 
 // }
