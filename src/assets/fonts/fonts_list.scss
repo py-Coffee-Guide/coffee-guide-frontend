@@ -1,0 +1,25 @@
+@mixin sfpro-large {
+    font-family: 'SFPro-Heavy';
+    font-size: 28px;
+}
+
+@mixin sfpro-small {
+    font-family: 'SFPro-Heavy';
+    font-size: 12px;
+}
+
+@mixin sanspro-medium {
+    font-family: 'SourceSansPro-Regular';
+    font-size: 18px;
+    line-height: 20px;
+}
+
+@mixin sanspro-small {
+    font-family: 'SourceSansPro-Regular';
+    font-size: 12px;
+}
+
+@mixin lora-medium {
+    font-family: 'Lora-Bold';
+    font-size: 18px;
+}
