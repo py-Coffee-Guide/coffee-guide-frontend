@@ -1,0 +1,171 @@
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 48px;
+	height: 32px;
+	border: 2px solid #08109d;
+	border-radius: 16px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+	display: none;
+}
+
+/* The slider */
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ffffff;
+	border-radius: 14px;
+	-webkit-transition: 0.4s;
+	transition: 0.4s all ease;
+	// box-shadow: 5px 0 0 -3.5px;
+}
+
+.slider::before {
+	position: absolute;
+	content: '';
+	height: 24px;
+	width: 24px;
+	left: 4px;
+	bottom: 4px;
+	background-color: #08109d;
+	border-radius: 50%;
+	-webkit-transition: 0.4s;
+	transition: 0.4s all ease;
+}
+
+.slider::after {
+	position: absolute;
+	content: '';
+	width: 16px;
+	height: 16px;
+	left: 8px;
+	bottom: 8px;
+	border-radius: 50%;
+	background-color: rgb(255, 255, 168);
+	transition: 0.4s all ease;
+}
+
+// input:checked + .slider {
+//   background-color: #2196F3;
+// }
+
+// input:focus + .slider {
+//   box-shadow: 0 0 1px #2196F3;
+// }
+
+input:checked + .slider::before {
+	-webkit-transform: translateX(16px);
+	-ms-transform: translateX(16px);
+	transform: translateX(16px);
+}
+
+input:checked + .slider::after {
+	-webkit-transform: translateX(16px);
+	-ms-transform: translateX(16px);
+	transform: translateX(16px);
+}
+
+// .root {
+// 	position: relative;
+//   border-radius: 50%;
+//   display: block;
+//   height: 24px;
+//   overflow: hidden;
+//   width: 24px;
+//   transition: 0.5s all ease;
+//   input {
+//     display: none;
+//   }
+//   &:hover {
+//     cursor: pointer;
+//   }
+//   &:before {
+//     content: "";
+//     display: block;
+//     position: absolute;
+//   }
+//   &.light:before {
+//     animation-duration: 0.5s;
+//     animation-name: sun;
+//     background-color: var(--text-color);
+//     border-radius: 50%;
+//     box-shadow: 10px 0 0 -3.5px var(--text-color),
+//       -10px 0 0 -3.5px var(--text-color),
+//       0 -10px 0 -3.5px var(--text-color),
+//       0 10px 0 -3.5px var(--text-color),
+//       7px -7px 0 -3.5px var(--text-color),
+//       7px 7px 0 -3.5px var(--text-color),
+//       -7px 7px 0 -3.5px var(--text-color),
+//       -7px -7px 0 -3.5px var(--text-color);
+//     height: 10px;
+//     left: 7px;
+//     top: 7px;
+//     width: 10px;
+//     &:hover {
+//       background-color: var(--background-color);
+//       box-shadow: 10px 0 0 -3.5px var(--background-color),
+//                   -10px 0 0 -3.5px var(--background-color),
+//                   0 -10px 0 -3.5px var(--background-color),
+//                   0 10px 0 -3.5px var(--background-color),
+//                   7px -7px 0 -3.5px var(--background-color),
+//                   7px 7px 0 -3.5px var(--background-color),
+//                   -7px 7px 0 -3.5px var(--background-color),
+//                   -7px -7px 0 -3.5px var(--background-color);
+//     }
+//   }
+//   &.dark {
+//     &:before {
+//       animation-duration: .5s;
+//       animation-name: moon;
+//       background-color: var(--text-color);
+//       border-radius: 50%;
+//       height: 20px;
+//       left: 2px;
+//       top: 2px;
+//       width: 20px;
+//       z-index: 1;
+//       &:hover {
+//         background-color: var(--background-color);
+//       }
+//     }
+//     &:after {
+//       animation-duration: .5s;
+//       animation-name: moon-shadow;
+//       background: var(--background-color);
+//       border-radius: 50%;
+//       content: "";
+//       display: block;
+//       height: 18px;
+//       position: absolute;
+//       right: -2px;
+//       top: -2px;
+//       width: 18px;
+//       z-index: 2;
+//     }
+//   }
+// }
+
+// .switch {
+//   padding: 0;
+//   border: none;
+//   background-color: yellowgreen;
+//   width: 45px;
+//   height: 45px;
+
+// 	overflow: hidden;
+// 	transition: 0.5s all ease;
+//   cursor: pointer;
+
+//   &.dark {
+//     background-color: aqua;
+
+//   }
+
+// }
