@@ -1,25 +1,10 @@
-@mixin sfpro-large {
-    font-family: 'SFPro-Heavy';
-    font-size: 28px;
-}
+$lora: 'Lora-Bold';
+$sans: 'SourceSansPro-Regular';
+$sfpro: 'SFPro-Heavy';
 
-@mixin sfpro-small {
-    font-family: 'SFPro-Heavy';
-    font-size: 12px;
-}
-
-@mixin sanspro-medium {
-    font-family: 'SourceSansPro-Regular';
-    font-size: 18px;
-    line-height: 20px;
-}
-
-@mixin sanspro-small {
-    font-family: 'SourceSansPro-Regular';
-    font-size: 12px;
-}
-
-@mixin lora-medium {
-    font-family: 'Lora-Bold';
-    font-size: 18px;
+@mixin font($font, $size, $lineheight, $letterspacing) {
+	font-family: $font;
+	font-size: $size;
+	line-height: $lineheight;
+	letter-spacing: $letterspacing;
 }

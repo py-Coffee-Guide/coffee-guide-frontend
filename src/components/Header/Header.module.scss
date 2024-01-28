@@ -42,7 +42,7 @@
 	}
 	p {
 		padding: 0;
-		@include sanspro-medium;
+		@include font($sans, 18px, 20px, 0.18px);
 		color: black;
 		margin: 4px 16px 0 4px;
 	}

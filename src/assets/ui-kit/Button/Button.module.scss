@@ -1,11 +1,10 @@
 @use '../../fonts/fonts_list' as *;
 
 @mixin defaultTag {
-	@include sfpro-small;
+	@include font($sans, 16px, 18px, 0);
 	width: 129px;
 	height: 99px;
 	border-radius: 10px;
-
 }
 
 .button {
@@ -28,9 +27,8 @@
 .tag {
 	@include defaultTag;
 	color: black;
-	@include sanspro-medium;
 	&:hover {
-		background-color: #2E3231;
+		background-color: #2e3231;
 		color: white;
 	}
 }
@@ -50,14 +48,14 @@
 .search {
 	width: 152px;
 	height: 68px;
-	@include sfpro-small;
+
 	text-transform: uppercase;
 	background-color: #0b109e;
 	border-radius: 89px;
 	color: white;
 	&:hover {
 		color: white;
-		background-color: #3DA083;
+		background-color: #3da083;
 	}
 }
 

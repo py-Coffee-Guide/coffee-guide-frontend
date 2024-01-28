@@ -19,7 +19,7 @@ $base-color: #0b109e;
 	justify-content: space-between;
 	background-color: transparent;
 	&:focus-within {
-		border-color: #3DA083;;
+		border-color: #3da083;
 	}
 }
 
@@ -29,7 +29,7 @@ $base-color: #0b109e;
 	height: 20px;
 	padding-left: 38px;
 	color: $base-color;
-	@include sanspro-medium;
+	@include font($sans, 18px, 20px, 0.18px);
 	color: black;
 	border: 0;
 	background-color: transparent;
@@ -37,7 +37,7 @@ $base-color: #0b109e;
 	background-repeat: no-repeat;
 	background-size: 22px 22px;
 	&::placeholder {
-		@include sanspro-medium;
+		@include font($sans, 18px, 20px, 0.18px);
 		color: rgba(23, 22, 20, 0.2);
 		text-transform: none;
 	}
@@ -51,16 +51,16 @@ $base-color: #0b109e;
 	padding: 0;
 	margin: 0;
 	border: 0;
-	background-color: #91E0C8;
+	background-color: #91e0c8;
 	color: black;
-	@include sanspro-medium;
+	@include font($sans, 16px, 18px, 0);
 	width: 115px;
 	height: 52px;
-	border: 1px solid #3DA083;
+	border: 1px solid #3da083;
 	border-radius: 152px;
 	cursor: pointer;
 	&:hover {
-		background-color: #3DA083;
+		background-color: #3da083;
 		color: white;
 	}
 }

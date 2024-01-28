@@ -8,7 +8,7 @@ export const BASE_TAGS = [
 		},
 	},
 	{
-		text: 'Безлактозное молоко',
+		text: 'Без лактозы',
 		icon: {
 			black: '/src/assets/images/milk.svg',
 			white: '/src/assets/images/milk-white.svg',
