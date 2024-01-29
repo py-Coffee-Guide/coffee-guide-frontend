@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import styles from './CardMedium.module.scss';
-import Button from '../../assets/ui-kit/Button/Button';
+// import Button from '../../assets/ui-kit/Button/Button';
 
 import photo from '../../assets/images/photo/66be5a14bddf717c1205b56a1ed80d15.jpg';
 
@@ -41,7 +41,7 @@ function CardSmall({ card, onSave, onDelete }) {
 					<img className={styles.img} src={photo} alt="" />
 					<div className={styles.favourites}>
 						{' '}
-						<Button type="button" preset="action" additions="default" />
+						<button type="button" className={styles.save} aria-label="добавить в избранное" />
 					</div>
 				</div>
 				<div className={styles.features}>

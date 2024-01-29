@@ -53,6 +53,7 @@ $base-color: #0b109e;
 	border: 0;
 	background-color: #91e0c8;
 	color: black;
+	text-transform: uppercase;
 	@include font($sans, 16px, 18px, 0);
 	width: 115px;
 	height: 52px;
