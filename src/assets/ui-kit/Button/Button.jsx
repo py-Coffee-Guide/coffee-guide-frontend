@@ -1,40 +1,25 @@
-import { useState } from 'react';
-
-import cn from 'classnames';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import styles from './Button.module.scss';
 
-function Button({ text, icon, type, preset, additions }) {
-	const [isHovered, setIsHovered] = useState(false);
-	const { black, white } = icon;
-
-	const btnClassName = cn(styles.button, styles[preset], styles[`${preset}_${additions}`]);
+function Button({ type, text, size }) {
+	const btnClassName = cn(styles.button, styles[size]);
 
 	return (
-		<button
-			type={type}
-			className={btnClassName}
-			onMouseOver={() => setIsHovered(true)}
-			onFocus={() => setIsHovered(true)}
-			onMouseOut={() => setIsHovered(false)}
-			onBlur={() => setIsHovered(false)}
-		>
-			<img src={isHovered ? white : black} alt="icon" className={styles.icon} />
-			<p className={styles.text}>{text}</p>
+		<button type={type} className={btnClassName}>
+			<p>{text}</p>
 		</button>
 	);
 }
 
 Button.propTypes = {
 	type: PropTypes.oneOf(['submit', 'button']),
-	preset: PropTypes.oneOf(['search', 'tag', 'action']),
-	additions: PropTypes.oneOf(['default', 'active', 'disabled', 'close']),
+	size: PropTypes.oneOf(['large', 'small']),
 };
 
 Button.defaultProps = {
 	type: 'button',
-	preset: 'tag',
-	additions: 'default',
+	size: 'large',
 };
 
 export default Button;

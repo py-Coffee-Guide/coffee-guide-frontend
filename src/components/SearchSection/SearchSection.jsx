@@ -1,4 +1,5 @@
 import styles from './SearchSection.module.scss';
+import Button from '../../assets/ui-kit/Button/Button';
 
 function SearchSection() {
 	return (
@@ -6,7 +7,7 @@ function SearchSection() {
 			<div className={styles.input_container}>
 				<input className={styles.input} placeholder="Название кофеӣни / адрес" />
 			</div>
-			<button className={styles.button}>Найти</button>
+			<Button text="найти" size="small" />
 		</section>
 	);
 }
