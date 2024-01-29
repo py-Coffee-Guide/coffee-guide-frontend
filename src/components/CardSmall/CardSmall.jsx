@@ -7,17 +7,11 @@ function CardSmall({ card, onSave, onDelete }) {
 			<div className={styles.photo_container}>
 				<img className={styles.photo} src={card.image} alt="фото кофейни" />
 				<div className={styles.favourite}>
-					<Button preset="action" additions="active" />
+					<Button preset="action" additions="active" aria-label="добавить в избранное" />
 				</div>
-				<div className={styles.close}>
-					<Button preset="action" additions="close" />
-				</div>
-				{/* <button
-					type="button"
-					onClick={onDelete}
-					className={styles.delete}
-					aria-label="удалить из избранного"
-				/> */}
+				{/* <div className={styles.close}>
+					<Button preset="action" additions="close" aria-label="удалить из избранного" />
+				</div> */}
 			</div>
 
 			<div className={styles.info}>

@@ -1,16 +1,15 @@
 $font-base: 'SourceSansPro-Regular';
 $font-title: 'Lora-Bold';
-$base-color: #0b109e;
+$base-color: #171614;
 
 .card {
-	width: 265px;
+	width: 268px;
 	height: 342px;
 	border-radius: 12px;
-	border: 1.5px solid $base-color;
+	border: 0.5px solid var(--1111, rgba(23, 22, 20, 0.20));
 	background: #fff;
-	box-shadow: 3px 3px 0px 0px #cfbaf0;
 	&:hover {
-		box-shadow: 3px 3px 0px 0px #90dbf4;
+		box-shadow: 1px 1px 4px 0px rgba(70, 119, 104, 0.40);
 	}
 }
 
