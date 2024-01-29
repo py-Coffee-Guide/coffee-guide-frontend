@@ -26,6 +26,7 @@
 .align_container {
 	display: flex;
 	flex-direction: row;
+	align-items: center;
 }
 
 .favourites {
@@ -49,17 +50,3 @@
 	}
 }
 
-.switcher {
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	width: 48px;
-	height: 32px;
-	border: 2px solid #0b109e;
-	border-radius: 16px;
-	img {
-		width: 24px;
-		height: 24px;
-		margin: 4px;
-	}
-}

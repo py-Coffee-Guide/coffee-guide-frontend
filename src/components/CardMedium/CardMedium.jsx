@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 import styles from './CardMedium.module.scss';
 // import Button from '../../assets/ui-kit/Button/Button';
@@ -5,9 +6,11 @@ import styles from './CardMedium.module.scss';
 import photo from '../../assets/images/photo/66be5a14bddf717c1205b56a1ed80d15.jpg';
 
 function CardSmall({ card, onSave, onDelete }) {
+	const navigate = useNavigate();
+
 	return (
-		<div className={styles.container}>
-			<button className={styles.back}>
+		<section className={styles.container}>
+			<button className={styles.back} onClick={() => navigate(-1)}>
 				<div className={styles.back_icon} />
 				Назад
 			</button>
@@ -89,7 +92,7 @@ function CardSmall({ card, onSave, onDelete }) {
 					</ul>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 }
 
