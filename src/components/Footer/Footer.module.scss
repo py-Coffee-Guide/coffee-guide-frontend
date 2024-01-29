@@ -21,17 +21,16 @@
 		margin: 0;
 		text-transform: uppercase;
 	}
-	
 }
 
 .link {
 	text-decoration: none;
-	color: #3DA083;
+	color: #3da083;
 	opacity: 1;
 	margin-right: 60px;
-	transition: opacity .5s ease-in;
+	transition: opacity 0.5s ease-in;
 	&:hover {
-		opacity: .5;
+		opacity: 0.5;
 	}
 }
 
