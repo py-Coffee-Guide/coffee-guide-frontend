@@ -17,9 +17,6 @@ function Header() {
 						<p>Избранное</p>
 					</div>
 					<Theme />
-					{/* <div className={styles.switcher}>
-					<img src={switcherIcon} alt="Switcher" />
-				</div> */}
 				</nav>
 			</div>
 		</header>
