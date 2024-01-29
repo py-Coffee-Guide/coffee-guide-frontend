@@ -8,13 +8,10 @@ import HorizontalLine from '../HorizontalLine/HorizontalLine';
 
 function Main() {
 	return (
-		<>
-			<main className={styles.main}>
-				<TagSection />
-				<MainSection />
-			</main>
-			<HorizontalLine />
-		</>
+		<main className={styles.main}>
+			<TagSection />
+			<MainSection />
+		</main>
 	);
 }
 

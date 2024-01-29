@@ -1,0 +1,39 @@
+@use '../../assets/fonts/fonts_list.scss' as *;
+
+.container {
+	@include font($sans, 14px, 18px, 0.14px);
+	color: #2e3231;
+	min-height: 547px;
+	margin: 0 auto;
+	padding: 300px 0 80px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.text {
+	padding: 0;
+	margin: 0;
+	width: 362px;
+	min-height: 44px;
+	text-align: center;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.link {
+	text-decoration: none;
+	@include font($sans, 14px, 18px, 0.14px);
+	color: #2e3231;
+    opacity: 1;
+    transition: opacity .3s ease;
+    &:hover {
+        opacity: .5;
+    }
+}
