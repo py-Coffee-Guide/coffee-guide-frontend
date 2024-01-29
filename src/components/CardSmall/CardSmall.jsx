@@ -2,10 +2,11 @@ import styles from './CardSmall.module.scss';
 import Button from '../../assets/ui-kit/Button/Button';
 
 function CardSmall({ card, onSave, onDelete }) {
+	const { adress, name, schedule, image } = card;
 	return (
 		<div className={styles.card}>
 			<div className={styles.photo_container}>
-				<img className={styles.photo} src={card.image} alt="фото кофейни" />
+				<img className={styles.photo} src={image} alt="фото кофейни" />
 				<div className={styles.favourite}>
 					<Button preset="action" additions="active" aria-label="добавить в избранное" />
 				</div>
@@ -15,10 +16,10 @@ function CardSmall({ card, onSave, onDelete }) {
 			</div>
 
 			<div className={styles.info}>
-				<h3 className={styles.title}>{card.name}</h3>
-				<p className={styles.text}>{card.address}</p>
-				<p className={styles.text}>{card.schedule[0].text}</p>
-				<p className={styles.text}>{card.schedule[1].text}</p>
+				<h3 className={styles.title}>{name}</h3>
+				<p className={styles.text}>{adress}</p>
+				<p className={styles.text}>{schedule[0].text}</p>
+				<p className={styles.text}>{schedule[1].text}</p>
 			</div>
 		</div>
 	);

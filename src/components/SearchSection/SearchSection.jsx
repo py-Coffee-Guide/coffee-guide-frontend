@@ -3,7 +3,9 @@ import styles from './SearchSection.module.scss';
 function SearchSection() {
 	return (
 		<section className={styles.container}>
-			<input className={styles.input} placeholder="НАЗВАНИЕ КОФЕЙНИ, АДРЕС" />
+			<div className={styles.input_container}>
+				<input className={styles.input} placeholder="Название кофеӣни / адрес" />
+			</div>
 			<button className={styles.button}>НАЙТИ</button>
 		</section>
 	);

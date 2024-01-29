@@ -6,9 +6,9 @@ import Map from '../Map/Map';
 function MainSection() {
 	return (
 		<section className={styles.main}>
-			<p className={styles.text}>ПОДОБРАЛИ ДЛЯ ТЕБЯ КОФЕӢНИ </p>
+			<p className={styles.text}>Подобрали для тебя кофейни</p>
 			<div className={styles.container}>
-				<Cards />
+				{/* <Cards /> */}
 				<Map />
 			</div>
 		</section>

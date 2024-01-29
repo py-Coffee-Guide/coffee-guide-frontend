@@ -1,7 +1,11 @@
 .tags {
-	margin: 36px auto 0;
+	margin: 36px auto 8px;
 	max-width: 1132px;
 	min-height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 	ul {
 		display: flex;
 		flex-direction: row;
@@ -11,7 +15,7 @@
 			cursor: pointer;
 			text-decoration: none;
 			list-style: none;
-			margin-right: 23px;
+			margin-right: 36px;
 			&:last-of-type {
 				margin-right: 0;
 			}

@@ -1,10 +1,26 @@
+@use '../../assets/fonts/fonts_list' as *;
+
 .header {
 	margin: 36px auto 0;
 	max-width: 1132px;
-	min-height: 36px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+}
+
+.logo {
+	width: 172px;
+	height: 54px;
+	cursor: pointer;
+}
+
+.container {
+	width: 100%;
+	min-height: 54px;
+	flex-direction: row;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .align_container {
@@ -16,19 +32,18 @@
 	display: flex;
 	align-items: center;
 	margin-right: 66px;
-	// .icon {
-	// 	width: 28px;
-	// 	height: 26px;
-	// 	cursor: pointer;
-	// 	background-image: url('../../assets/images/favourites.svg');
-	// 	background-repeat: no-repeat;
-	// 	background-position: center;
-	// }
+	.icon {
+		width: 28px;
+		height: 26px;
+		cursor: pointer;
+		background-image: url('../../assets/images/favourites.svg');
+		background-repeat: no-repeat;
+		background-position: center;
+	}
 	p {
 		padding: 0;
-		font-family: 'SourceSansPro-Regular';
-		font-size: 18px;
-		color: #0b109e;
+		@include font($sans, 18px, 20px, 0.18px);
+		color: black;
 		margin: 4px 16px 0 4px;
 	}
 }
