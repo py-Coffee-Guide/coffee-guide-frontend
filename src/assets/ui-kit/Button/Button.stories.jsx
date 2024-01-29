@@ -6,10 +6,18 @@ export default {
 	component: Button,
 };
 
-export const DefaultButton = {
+export const DefaultLargeButton = {
+	args: {
+		text: 'войти',
+		type: 'button',
+	},
+};
+
+export const DefaultMediumButton = {
 	args: {
 		text: 'добавить кофейню',
 		type: 'button',
+		size: 'medium',
 	},
 };
 
