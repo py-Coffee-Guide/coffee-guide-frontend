@@ -6,7 +6,7 @@ function SearchSection() {
 			<div className={styles.input_container}>
 				<input className={styles.input} placeholder="Название кофеӣни / адрес" />
 			</div>
-			<button className={styles.button}>НАЙТИ</button>
+			<button className={styles.button}>Найти</button>
 		</section>
 	);
 }

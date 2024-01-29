@@ -5,7 +5,7 @@
 	flex-direction: column;
 	margin: 36px auto 0;
 	@include font($sans, 18px, 20px, 0.18px);
-	color: black;
+	color: var(--text-color);
 	max-width: 1132px;
 	text-transform: uppercase;
 	.text {

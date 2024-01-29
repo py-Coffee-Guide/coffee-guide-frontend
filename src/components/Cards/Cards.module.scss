@@ -2,7 +2,6 @@
 	width: 556px;
 	height: 612px;
 	border-radius: 16px;
-	border: 1px solid black;
 	overflow-y: scroll;
 	ul {
 		width: 100%;
@@ -12,7 +11,7 @@
 		padding: 0;
 		margin: 0;
 		li {
-			width: 265px;
+			width: 268px;
 			list-style: none;
 			margin-bottom: 12px;
 			&:nth-last-child(-n + 2) {
