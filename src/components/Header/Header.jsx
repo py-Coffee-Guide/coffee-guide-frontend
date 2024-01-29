@@ -1,5 +1,5 @@
 import logoPath from '../../assets/images/logo.svg';
-import Button from '../../assets/ui-kit/Button/Button';
+import Button from '../../assets/ui-kit/TagButton/TagButton';
 import Theme from '../Theme/Theme';
 import SearchSection from '../SearchSection/SearchSection';
 

@@ -18,6 +18,7 @@ $base-color: #0b109e;
 	align-items: center;
 	justify-content: space-between;
 	background-color: transparent;
+	box-sizing: border-box;
 	&:focus-within {
 		border-color: #3da083;
 	}
@@ -44,24 +45,5 @@ $base-color: #0b109e;
 	&:focus {
 		outline: none;
 		background-image: url('../../assets/images/search-icon-active.svg');
-	}
-}
-
-.button {
-	padding: 0;
-	margin: 0;
-	border: 0;
-	background-color: #91e0c8;
-	color: black;
-	text-transform: uppercase;
-	@include font($sans, 16px, 18px, 0);
-	width: 115px;
-	height: 52px;
-	border: 1px solid #3da083;
-	border-radius: 152px;
-	cursor: pointer;
-	&:hover {
-		background-color: #3da083;
-		color: white;
 	}
 }

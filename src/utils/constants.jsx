@@ -2,37 +2,26 @@ export const BASE_TAGS = [
 	{
 		id: '1',
 		text: 'Альтернатива',
-		icon: {
-			black: '/src/assets/images/coffee-pot.svg',
-			white: '/src/assets/images/coffee-pot-white.svg',
-		},
+		tag: 'alternative',
 	},
 	{
+		id: '2',
 		text: 'Без лактозы',
-		icon: {
-			black: '/src/assets/images/milk.svg',
-			white: '/src/assets/images/milk-white.svg',
-		},
+		tag: 'milk',
 	},
 	{
+		id: '3',
 		text: 'Submarine',
-		icon: {
-			black: '/src/assets/images/coffee-bag.svg',
-			white: '/src/assets/images/coffee-bag-white.svg',
-		},
+		tag: 'roaster',
 	},
 	{
+		id: '4',
 		text: 'La Marzocco',
-		icon: {
-			black: '/src/assets/images/coffee-machine.svg',
-			white: '/src/assets/images/coffee-machine-white.svg',
-		},
+		tag: 'coffeemachine',
 	},
 	{
+		id: '5',
 		text: 'Сварщица',
-		icon: {
-			black: '/src/assets/images/coffee-bag.svg',
-			white: '/src/assets/images/coffee-bag-white.svg',
-		},
+		tag: 'roaster',
 	},
 ];

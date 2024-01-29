@@ -1,5 +1,5 @@
 import styles from './CardSmall.module.scss';
-import Button from '../../assets/ui-kit/Button/Button';
+import Button from '../../assets/ui-kit/TagButton/TagButton';
 
 function CardSmall({ card, onSave, onDelete }) {
 	const { adress, name, schedule, image } = card;
