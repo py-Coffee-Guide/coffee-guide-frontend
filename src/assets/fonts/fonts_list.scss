@@ -2,9 +2,10 @@ $lora: 'Lora-Bold';
 $sans: 'SourceSansPro-Regular';
 $sfpro: 'SFPro-Heavy';
 
-@mixin font($font, $size, $lineheight, $letterspacing) {
+@mixin font($font, $size, $lineheight, $letterspacing: normal, $weight: 400) {
 	font-family: $font;
 	font-size: $size;
 	line-height: $lineheight;
 	letter-spacing: $letterspacing;
+	font-weight: $weight;
 }
