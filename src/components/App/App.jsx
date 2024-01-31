@@ -3,6 +3,7 @@ import Header from '../Header/Header';
 
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
+import NewCoffeeshop from '../NewCoffeeshop/NewCoffeeshop';
 
 import styles from './App.module.scss';
 
@@ -13,6 +14,7 @@ function App() {
 			<Header />
 			<Main />
 			<Footer />
+			<NewCoffeeshop />
 		</div>
 	);
 }
