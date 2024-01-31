@@ -12,6 +12,7 @@ import Favourites from '../Favourites/Favourites';
 import NotFound from '../NotFound/NotFound';
 
 import Register from '../Register/Register';
+import NewCoffeeshop from '../NewCoffeeshop/NewCoffeeshop';
 
 import styles from './App.module.scss';
 
