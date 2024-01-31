@@ -19,7 +19,7 @@ $base-color: #0b109e;
 	justify-content: space-between;
 	background-color: transparent;
 	&:focus-within {
-		border-color: #3DA083;;
+		border-color: #3da083;
 	}
 }
 
@@ -51,16 +51,16 @@ $base-color: #0b109e;
 	padding: 0;
 	margin: 0;
 	border: 0;
-	background-color: #91E0C8;
+	background-color: #91e0c8;
 	color: black;
 	@include sanspro-medium;
 	width: 115px;
 	height: 52px;
-	border: 1px solid #3DA083;
+	border: 1px solid #3da083;
 	border-radius: 152px;
 	cursor: pointer;
 	&:hover {
-		background-color: #3DA083;
+		background-color: #3da083;
 		color: white;
 	}
 }
