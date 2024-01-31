@@ -7,6 +7,7 @@ import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
 import CardMedium from '../CardMedium/CardMedium';
 import Register from '../Register/Register';
+import NewCoffeeshop from '../NewCoffeeshop/NewCoffeeshop';
 
 import styles from './App.module.scss';
 
