@@ -30,6 +30,7 @@ function App() {
 				<Route path="/signin" element={<Login />} />
 				<Route path="/signup" element={<Register />} />
 				<Route path="/favourites" element={<Favourites />} />
+				<Route path="/add-coffeeshop" element={<NewCoffeeshop />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 			<Footer />
