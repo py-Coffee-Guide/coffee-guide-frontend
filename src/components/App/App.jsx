@@ -1,5 +1,6 @@
 // import { useSelector } from 'react-redux';
 import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import Header from '../Header/Header';
 import Main from '../Main/Main';
@@ -11,6 +12,9 @@ import NotFound from '../NotFound/NotFound';
 import styles from './App.module.scss';
 
 function App() {
+	const theme = useSelector(state => state.theme);
+
+	console.log(theme);
 	// const { user } = useSelector(state => state);
 	return (
 		<div className={styles.root}>
