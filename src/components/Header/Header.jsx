@@ -1,23 +1,34 @@
+import { useLocation } from 'react-router-dom';
 import logoPath from '../../assets/images/logo.svg';
-import Button from '../../assets/ui-kit/TagButton/TagButton';
 import Theme from '../Theme/Theme';
 import SearchSection from '../SearchSection/SearchSection';
 
 import styles from './Header.module.scss';
 
+const FullRenderedSection = () => (
+	<>
+		<SearchSection />
+		<nav className={styles.align_container}>
+			<div className={styles.favourites}>
+				<div className={styles.icon} />
+				<p>Избранное</p>
+			</div>
+			<Theme />
+		</nav>
+	</>
+);
+
 function Header() {
+	const location = useLocation();
 	return (
 		<header className={styles.header}>
 			<div className={styles.container}>
 				<img className={styles.logo} src={logoPath} alt="Лого" />
-				<SearchSection />
-				<nav className={styles.align_container}>
-					<div className={styles.favourites}>
-						<div className={styles.icon} />
-						<p>Избранное</p>
-					</div>
+				{!['/signin', '/signup'].some(path => location.pathname.match(path)) ? (
+					<FullRenderedSection />
+				) : (
 					<Theme />
-				</nav>
+				)}
 			</div>
 		</header>
 	);
