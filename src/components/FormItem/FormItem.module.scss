@@ -25,6 +25,7 @@ $base-width: 364px;
 	width: 100%;
 	margin: 16px;
 	height: 20px;
+	background-color: transparent;
 	&::placeholder {
 		@include font($sans, 18px, 20px, 0.18px);
 		color: #809992;
