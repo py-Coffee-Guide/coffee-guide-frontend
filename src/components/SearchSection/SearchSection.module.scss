@@ -1,5 +1,4 @@
 @use '../../assets/fonts/fonts_list.scss' as *;
-$base-color: #0b109e;
 
 .container {
 	max-width: 563px;
@@ -22,6 +21,7 @@ $base-color: #0b109e;
 	&:focus-within {
 		border-color: #3da083;
 	}
+	position: relative;
 }
 
 .input {
@@ -29,7 +29,6 @@ $base-color: #0b109e;
 	width: 440px;
 	height: 20px;
 	padding-left: 38px;
-	color: $base-color;
 	@include font($sans, 18px, 20px, 0.18px);
 	color: black;
 	border: 0;
