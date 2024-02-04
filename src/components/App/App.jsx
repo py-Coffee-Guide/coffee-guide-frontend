@@ -23,6 +23,7 @@ function App() {
 				<Route path="/signup" element={<Register />} />
 			</Routes>
 			<Footer />
+			<NewCoffeeshop />
 		</div>
 	);
 }
