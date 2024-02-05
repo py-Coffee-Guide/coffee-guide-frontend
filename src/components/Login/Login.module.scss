@@ -29,11 +29,11 @@
 
 .link {
 	text-decoration: none;
-	@include font($sans, 14px, 18px, .14px);
+	@include font($sans, 14px, 18px, 0.14px);
 	color: #2e3231;
 	opacity: 1;
-	transition: opacity .3s ease;
+	transition: opacity 0.3s ease;
 	&:hover {
-		opacity: .5;
+		opacity: 0.5;
 	}
 }
