@@ -1,7 +1,4 @@
-
 import { Link, useLocation } from 'react-router-dom';
-
-
 import logoPath from '../../assets/images/logo.svg';
 import Theme from '../Theme/Theme';
 import SearchSection from '../SearchSection/SearchSection';
@@ -26,11 +23,9 @@ function Header() {
 	return (
 		<header className={styles.header}>
 			<div className={styles.container}>
-
 				<Link to="/" className={styles.logo}>
 					<img className={styles.logo} src={logoPath} alt="Лого" />{' '}
 				</Link>
-
 
 				{!['/signin', '/signup'].some(path => location.pathname.match(path)) ? (
 					<FullRenderedSection />
