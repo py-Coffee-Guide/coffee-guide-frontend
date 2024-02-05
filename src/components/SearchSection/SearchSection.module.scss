@@ -10,7 +10,7 @@
 .input_container {
 	width: 440px;
 	height: 52px;
-	border: 1px solid rgba(23, 22, 20, 0.2);
+	border: 1px solid var(--line-color);
 	border-radius: 152px;
 	margin-right: 8px;
 	display: flex;
@@ -18,8 +18,9 @@
 	justify-content: space-between;
 	background-color: transparent;
 	box-sizing: border-box;
+	box-shadow: var(--box-shadow);
 	&:focus-within {
-		border-color: #3da083;
+		border-color: var(--decoration-color);
 	}
 	position: relative;
 }
@@ -29,8 +30,10 @@
 	width: 440px;
 	height: 20px;
 	padding-left: 38px;
+
+
 	@include font($sans, 18px, 20px, 0.18px);
-	color: black;
+	color: var(--text-color);
 	border: 0;
 	background-color: transparent;
 	background-image: url('../../assets/images/search-icon.svg');
@@ -38,7 +41,7 @@
 	background-size: 22px 22px;
 	&::placeholder {
 		@include font($sans, 18px, 20px, 0.18px);
-		color: rgba(23, 22, 20, 0.2);
+		color: var(--line-color);
 		text-transform: none;
 	}
 	&:focus {
