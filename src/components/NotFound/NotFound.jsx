@@ -6,7 +6,7 @@ function NotFound() {
 		<section className={styles.container}>
 			{/* <HorizontalLine className={styles.line} /> */}
 			<h1 className={styles.heading}>404</h1>
-			<p className={styles.text}>такая страница не наӣдена :( </p>
+			<p className={styles.text}>такая страница не наӣдена :&#40; </p>
 		</section>
 	);
 }

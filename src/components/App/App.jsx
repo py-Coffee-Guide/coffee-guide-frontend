@@ -23,7 +23,7 @@ function App() {
 				<Route path="/" element={<Main />} />
 				<Route path="/card" element={<CardMedium />} />
 				<Route path="/signin" element={<Login />} />
-				<Route path="/not-found" element={<NotFound />} />
+				<Route path="*" element={<NotFound />} />
 			</Routes>
 			<Footer />
 		</div>

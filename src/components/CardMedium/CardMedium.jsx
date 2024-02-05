@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import cn from 'classnames';
 import styles from './CardMedium.module.scss';
@@ -8,8 +7,6 @@ import BackButton from '../../assets/ui-kit/BackButton/BackButton';
 import photo from '../../assets/images/photo/66be5a14bddf717c1205b56a1ed80d15.jpg';
 
 function CardSmall({ card, onSave, onDelete }) {
-	const navigate = useNavigate();
-	const goBack = () => navigate(-1);
 	const theme = useSelector(state => state.theme);
 
 	console.log(theme);
@@ -20,7 +17,7 @@ function CardSmall({ card, onSave, onDelete }) {
 				<div className={styles.back_icon} />
 				Назад
 			</button> */}
-			<BackButton type="button" func={goBack} theme={theme} text="Назад" />
+			<BackButton type="button" theme={theme} text="Назад" />
 
 			<div className={styles.heading}>
 				<div className={styles.title}>
