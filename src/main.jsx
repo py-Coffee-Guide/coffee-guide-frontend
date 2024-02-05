@@ -7,7 +7,7 @@ import App from './components/App/App';
 import store from './store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-	<BrowserRouter>
+	<BrowserRouter basename="/coffee-guide-frontend/">
 		<Provider store={store}>
 			<App />
 		</Provider>

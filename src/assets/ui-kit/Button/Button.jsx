@@ -14,7 +14,7 @@ function Button({ type, text, size }) {
 
 Button.propTypes = {
 	type: PropTypes.oneOf(['submit', 'button']),
-	size: PropTypes.oneOf(['large', 'small']),
+	size: PropTypes.oneOf(['large', 'medium', 'small']),
 };
 
 Button.defaultProps = {
