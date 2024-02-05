@@ -7,11 +7,11 @@ import Main from '../Main/Main';
 import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
 import CardMedium from '../CardMedium/CardMedium';
+import Favourites from '../Favourites/Favourites';
 
 import NotFound from '../NotFound/NotFound';
 
 import Register from '../Register/Register';
-
 
 import styles from './App.module.scss';
 
@@ -27,11 +27,9 @@ function App() {
 				<Route path="/" element={<Main />} />
 				<Route path="/card" element={<CardMedium />} />
 				<Route path="/signin" element={<Login />} />
-
-				<Route path="*" element={<NotFound />} />
-
 				<Route path="/signup" element={<Register />} />
-
+				<Route path="/favourites" element={<Favourites />} />
+				<Route path="*" element={<NotFound />} />
 			</Routes>
 			<Footer />
 		</div>

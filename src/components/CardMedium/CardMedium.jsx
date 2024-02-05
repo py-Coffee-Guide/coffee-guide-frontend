@@ -13,10 +13,6 @@ function CardSmall({ card, onSave, onDelete }) {
 
 	return (
 		<section className={styles.container}>
-			{/* <button className={styles.back} onClick={() => navigate(-1)}>
-				<div className={styles.back_icon} />
-				Назад
-			</button> */}
 			<BackButton type="button" theme={theme} text="Назад" />
 
 			<div className={styles.heading}>
