@@ -19,6 +19,7 @@ function App() {
 	const theme = useSelector(state => state.theme);
 
 	console.log(theme);
+	// a0303f06-4ef8-4bd2-bef5-7e2e5e6b3ff6
 	// const { user } = useSelector(state => state);
 	return (
 		<div className={styles.root}>

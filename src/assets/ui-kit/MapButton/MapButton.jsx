@@ -4,17 +4,24 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 import styles from './MapButton.module.scss';
 
-function MapButton({ type, theme, active }) {
+function MapButton({ type, theme, active, click }) {
 	const [isActive, setIsActive] = useState(active);
 
 	const buttonClassName = cn(styles.default);
 	const buttonActiveClassName = cn(styles.default, styles.active);
 
+	const handleClick = () => {
+		click();
+	};
+
 	return (
 		<button
 			type={type}
 			className={isActive ? buttonActiveClassName : buttonClassName}
-			onClick={() => setIsActive(!isActive)}
+			onClick={() => {
+				setIsActive(!isActive);
+				handleClick();
+			}}
 			aria-label="MapButton"
 		/>
 	);
