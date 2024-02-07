@@ -26,14 +26,17 @@
 	margin: 4px 0 0 0;
 }
 
-.text_active {
-	color: #3da083;
-}
-
 .icon {
 	width: 45px;
 	height: 50px;
 	object-fit: contain;
+}
+
+.checked {
+	background-image: url('../../images/chosen-filter.svg');
+	background-repeat: no-repeat;
+	background-position: top right 20%;
+	background-size: 15px 20px;
 }
 
 // .action {

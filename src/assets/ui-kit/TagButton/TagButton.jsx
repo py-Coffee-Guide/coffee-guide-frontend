@@ -10,7 +10,7 @@ function TagButton({ text, type, tag, theme, active }) {
 	const [isActive, setIsActive] = useState(active);
 	const { light, dark } = TAG_ICONS[tag];
 
-	const btnClassName = cn(styles.button);
+	const btnClassName = cn(styles.button, [isActive && styles.checked]);
 	const textClassName = cn(styles.text);
 
 	return (
