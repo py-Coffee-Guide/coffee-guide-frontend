@@ -31,6 +31,7 @@ module.exports = {
 		'no-var': 'error',
 		'prefer-const': 'warn',
 		'no-unused-vars': 'off',
+		'no-shadow': 'off',
 		'react/react-in-jsx-scope': 'off',
 		'prettier/prettier': ['warn', { endOfLine: 'auto' }],
 		'import/prefer-default-export': 'off',

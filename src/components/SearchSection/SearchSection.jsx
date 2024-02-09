@@ -17,6 +17,7 @@ function SearchSection() {
 	const [isQuery, setIsQuery] = useState(false);
 
 	// функция фильтрации карточек
+	// eslint-disable-next-line no-shadow
 	const onFilter = (inputValue, cardsArray) => {
 		localStorage.setItem('inputValue', JSON.stringify(inputValue));
 		localStorage.setItem('cards', JSON.stringify(cardsArray));
@@ -31,6 +32,7 @@ function SearchSection() {
 				return searchText;
 			});
 		}
+		dispatch(reset());
 		dispatch(setCards(searchResult));
 		// console.log('searchResult ==>', searchResult);
 	};
@@ -39,7 +41,7 @@ function SearchSection() {
 		// !e.target.value ? setIsQuery(false) : setIsQuery(true);
 
 		setInputVlaue(e.target.value);
-		dispatch(reset());
+		// dispatch(reset());
 		onFilter(e.target.value, cardsArray);
 	};
 
