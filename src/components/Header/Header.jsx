@@ -27,7 +27,7 @@ function Header() {
 					<img className={styles.logo} src={logoPath} alt="Лого" />{' '}
 				</Link>
 
-				{!['/signin', '/signup'].some(path => location.pathname.match(path)) ? (
+				{!['/signin', '/signup', '/add-coffeeshop'].some(path => location.pathname.match(path)) ? (
 					<FullRenderedSection />
 				) : (
 					<Theme />

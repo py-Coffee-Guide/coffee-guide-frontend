@@ -12,6 +12,7 @@ import Favourites from '../Favourites/Favourites';
 import NotFound from '../NotFound/NotFound';
 
 import Register from '../Register/Register';
+import NewCoffeeshop from '../NewCoffeeshop/NewCoffeeshop';
 
 import styles from './App.module.scss';
 
@@ -30,6 +31,7 @@ function App() {
 				<Route path="/signin" element={<Login />} />
 				<Route path="/signup" element={<Register />} />
 				<Route path="/favourites" element={<Favourites />} />
+				<Route path="/add-coffeeshop" element={<NewCoffeeshop />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 			<Footer />
