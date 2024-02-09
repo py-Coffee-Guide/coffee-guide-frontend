@@ -1,9 +1,16 @@
+import { useSelector, useDispatch } from 'react-redux';
 import styles from './Cards.module.scss';
 
 import CardSmall from '../CardSmall/CardSmall';
-import { cards } from '../../utils/cards';
+import { setCards } from '../../slices/cardsSlice/cardsSlice';
+import { cardsArray } from '../../utils/cardsArray';
 
 function Cards() {
+	const cards = useSelector(state => state.cards);
+	const dispatch = useDispatch();
+
+	// dispatch(setCards( ))
+
 	return (
 		<div className={styles.container}>
 			<ul>

@@ -1,15 +1,15 @@
 import styles from './MainSection.module.scss';
 
 import Cards from '../Cards/Cards';
-import Map from '../Map/Map';
+import MapComponent from '../Map/MapComponent';
 
 function MainSection() {
 	return (
 		<section className={styles.main}>
 			<p className={styles.text}>Подобрали для тебя кофейни</p>
 			<div className={styles.container}>
-				{/* <Cards /> */}
-				<Map />
+				<Cards />
+				<MapComponent />
 			</div>
 		</section>
 	);

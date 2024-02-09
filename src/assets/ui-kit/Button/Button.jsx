@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './Button.module.scss';
 
-function Button({ type, text, size }) {
+function Button({ type, text, size, onClick }) {
 	const btnClassName = cn(styles.button, styles[size]);
 
 	return (
-		<button type={type} className={btnClassName}>
+		<button onClick={onClick} type={type} className={btnClassName}>
 			<p>{text}</p>
 		</button>
 	);
@@ -14,7 +14,7 @@ function Button({ type, text, size }) {
 
 Button.propTypes = {
 	type: PropTypes.oneOf(['submit', 'button']),
-	size: PropTypes.oneOf(['large', 'small']),
+	size: PropTypes.oneOf(['large', 'medium', 'small']),
 };
 
 Button.defaultProps = {
