@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setFilteredCards, resetFilteredCards } from '../../slices/filteredCards/filteredCards';
 import { setCards, clear } from '../../slices/cardsSlice/cardsSlice';
@@ -12,6 +13,7 @@ import SearchResult from '../SearchResult/SearchResult';
 
 function SearchSection() {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const [inputValue, setInputVlaue] = useState('');
 	const [placeholder, setPlaceholder] = useState('Название кофеӣни / адрес');
@@ -55,12 +57,12 @@ function SearchSection() {
 		if (!isQuery) {
 			setPlaceholder('Нужно ввести ключевое слово');
 		} else {
-			// onFilter(inputValue, cardsArray);
 			const result = onFilter(inputValue, cardsArray);
 
 			dispatch(clear());
 			dispatch(setCards(result));
 			setIsSearchSuccess(false);
+			navigate('/');
 		}
 	};
 
