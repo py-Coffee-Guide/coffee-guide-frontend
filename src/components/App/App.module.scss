@@ -11,6 +11,7 @@
 	--decoration-color-inversed: #91e0c8;
 	--line-color: rgba(23, 22, 20, 0.2);
 	--box-shadow: 4px 4px 10px 0px rgba(55, 82, 74, 0.1);
+	--hover: rgba(242, 242, 242, 1);
 }
 
 :root[data-theme='dark'] {
@@ -20,6 +21,8 @@
 	--decoration-color-inversed: #3da083;
 	--line-color: rgba(255, 255, 255, 0.3);
 	--box-shadow: 1px 1px 4px 0px rgba(70, 119, 104, 0.4);
+	--hover: rgba(46, 50, 49, 1);
+
 }
 
 body {

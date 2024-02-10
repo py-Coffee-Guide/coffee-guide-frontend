@@ -13,8 +13,8 @@
 }
 
 .result_container {
-	min-height: 324px;
-	background-color: white;
+	// min-height: 324px;
+	background-color: var(--background-color);
 	position: absolute;
 	top: 100%;
 	margin-top: 14px;
@@ -43,6 +43,7 @@
 	margin: 0;
 	padding: 0;
 	text-transform: uppercase;
+	color: var(--decoration-color);
 }
 
 .address {
@@ -50,4 +51,14 @@
 	margin: 0;
 	padding: 0;
 	font-style: normal;
+	color: var(--decoration-color);
+}
+
+.link {
+	text-decoration: none;
+}
+
+.item:hover {
+	background-color: var(--hover);
+	border-radius: 10px;
 }

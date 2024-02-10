@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setCards, reset } from '../../slices/cardsSlice/cardsSlice';
+import { setFilteredCards, resetFilteredCards } from '../../slices/filteredCards/filteredCards';
+import { setCards, clear } from '../../slices/cardsSlice/cardsSlice';
 
 import { cardsArray } from '../../utils/cardsArray';
 
@@ -15,9 +16,9 @@ function SearchSection() {
 	const [inputValue, setInputVlaue] = useState('');
 	const [placeholder, setPlaceholder] = useState('Название кофеӣни / адрес');
 	const [isQuery, setIsQuery] = useState(false);
+	const [isSearchSuccess, setIsSearchSuccess] = useState(false);
 
 	// функция фильтрации карточек
-	// eslint-disable-next-line no-shadow
 	const onFilter = (inputValue, cardsArray) => {
 		localStorage.setItem('inputValue', JSON.stringify(inputValue));
 		localStorage.setItem('cards', JSON.stringify(cardsArray));
@@ -32,29 +33,34 @@ function SearchSection() {
 				return searchText;
 			});
 		}
-		dispatch(reset());
-		dispatch(setCards(searchResult));
-		// console.log('searchResult ==>', searchResult);
+
+		searchResult.length > 0 ? setIsSearchSuccess(true) : setIsSearchSuccess(false);
+		return searchResult;
 	};
 
 	const handleChange = e => {
-		// !e.target.value ? setIsQuery(false) : setIsQuery(true);
-
+		!e.target.value ? setIsQuery(false) : setIsQuery(true);
 		setInputVlaue(e.target.value);
-		// dispatch(reset());
-		onFilter(e.target.value, cardsArray);
+
+		// сбрасываем стейт перед новой фильтрацией
+		dispatch(resetFilteredCards());
+		const result = onFilter(e.target.value, cardsArray);
+
+		// передаем отфильтрованные карточки в стейт
+		dispatch(setFilteredCards(result));
 	};
 
 	const handleSubmit = e => {
 		e.preventDefault();
 		if (!isQuery) {
 			setPlaceholder('Нужно ввести ключевое слово');
-			// console.log('Нужно ввести ключевое слово');
 		} else {
-			dispatch(reset());
+			// onFilter(inputValue, cardsArray);
+			const result = onFilter(inputValue, cardsArray);
 
-			onFilter(inputValue, cardsArray);
-			// console.log('submit 2');
+			dispatch(clear());
+			dispatch(setCards(result));
+			setIsSearchSuccess(false);
 		}
 	};
 
@@ -67,7 +73,7 @@ function SearchSection() {
 					defaultValue={inputValue}
 					onChange={handleChange}
 				/>
-				<SearchResult isVisible={inputValue !== ''} />
+				<SearchResult isVisible={isSearchSuccess} />
 			</div>
 			<Button onClick={handleSubmit} text="найти" size="small" />
 		</section>
