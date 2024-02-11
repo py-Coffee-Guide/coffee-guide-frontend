@@ -1,6 +1,9 @@
 // import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
+import { api } from '../../utils/Api';
 
 import Header from '../Header/Header';
 import Main from '../Main/Main';
@@ -19,14 +22,25 @@ import styles from './App.module.scss';
 function App() {
 	const theme = useSelector(state => state.theme);
 
-	console.log(theme);
+	const [cards, setCards] = useState([]);
+
+	useEffect(() => {
+		api
+			.getOrganizations()
+			.then(res => setCards(res))
+			.catch(err => {
+				console.log(err);
+			});
+	});
+
+	console.log(cards);
 	// a0303f06-4ef8-4bd2-bef5-7e2e5e6b3ff6
 	// const { user } = useSelector(state => state);
 	return (
 		<div className={styles.root}>
 			<Header />
 			<Routes>
-				<Route path="/" element={<Main />} />
+				<Route path="/" element={<Main cards={cards} />} />
 				<Route path="/card" element={<CardMedium />} />
 				<Route path="/signin" element={<Login />} />
 				<Route path="/signup" element={<Register />} />

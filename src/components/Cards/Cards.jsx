@@ -1,9 +1,8 @@
 import styles from './Cards.module.scss';
 
 import CardSmall from '../CardSmall/CardSmall';
-import { cards } from '../../utils/cards';
 
-function Cards() {
+function Cards({ cards }) {
 	return (
 		<div className={styles.container}>
 			<ul>
