@@ -5,7 +5,6 @@ import BackButton from '../../assets/ui-kit/BackButton/BackButton';
 
 // import photo from '../../assets/images/photo/66be5a14bddf717c1205b56a1ed80d15.jpg';
 
-
 function CardMedium({ card, onSave, onDelete }) {
 	const theme = useSelector(state => state.theme);
 	console.log('card from Medium ==>', card);
@@ -22,7 +21,6 @@ function CardMedium({ card, onSave, onDelete }) {
 		schedule,
 		tag,
 	} = card;
-
 
 	return (
 		<section className={styles.container}>
@@ -46,7 +44,7 @@ function CardMedium({ card, onSave, onDelete }) {
 					<div>
 						{' '}
 						<p>{schedule[0].text}</p>
-						<p>{schedule[0].text}</p>
+						<p>{schedule[1].text}</p>
 					</div>
 				</div>
 			</div>
@@ -61,36 +59,31 @@ function CardMedium({ card, onSave, onDelete }) {
 				<div className={styles.features}>
 					<h3 className={cn(styles.tag1, styles.tag)}>Доступно</h3>
 					<ul className={cn(styles.list1, styles.list)}>
-						<li>Безлактозное</li>
-						<li>Submarine</li>
-						<li>Альтернатива</li>
+						{filter.map((item, i) => (
+							<li key={item[i]}>{item.name}</li>
+						))}
 					</ul>
 
 					<h3 className={cn(styles.tag2, styles.tag)}>Напитки</h3>
 					<div className={cn(styles.list2)}>
 						<ul className={cn(styles.list)}>
-							<li>Эспрессо: 200 ₽ </li>
-							<li>Капучино: 300 ₽ </li>
-							<li>Американо: 300 ₽ </li>
-						</ul>
-						<ul className={cn(styles.list)}>
-							<li>Латте: 200 ₽ </li>
-							<li>Флэт-уайт: 400 ₽ </li>
-							<li>Фильтр-кофе: 400 ₽ </li>
+							{drink.map((item, i) => (
+								<li key={item[i]}>{item.name}</li>
+							))}
 						</ul>
 					</div>
 
 					<h3 className={cn(styles.tag3, styles.tag)}>Обжарщик</h3>
 					<ul className={cn(styles.list3, styles.list)}>
-						<li>Adept x Common Coffee</li>
+						{roaster.map((item, i) => (
+							<li key={item[i]}>{item.name}</li>
+						))}
 					</ul>
 					<h3 className={cn(styles.tag4, styles.tag)}>Альтернатива</h3>
 					<div className={cn(styles.list4, styles.list)}>
 						<ul className={cn(styles.list)}>
 							<li>V60</li>
 							<li>Кемекс</li>
-						</ul>
-						<ul className={cn(styles.list)}>
 							<li>Френч-пресс</li>
 							<li>Аэропресс</li>
 						</ul>
