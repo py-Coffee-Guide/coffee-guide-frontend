@@ -1,5 +1,5 @@
 // import { useSelector } from 'react-redux';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import Header from '../Header/Header';
@@ -14,10 +14,10 @@ import Register from '../Register/Register';
 import { card } from '../../utils/card';
 import NewCoffeeshop from '../NewCoffeeshop/NewCoffeeshop';
 
-
 import styles from './App.module.scss';
 
 function App() {
+	const location = useLocation();
 	const theme = useSelector(state => state.theme);
 	const cards = useSelector(state => state.cards);
 
@@ -30,7 +30,14 @@ function App() {
 			<Header />
 			<Routes>
 				<Route path="/" element={<Main />} />
-				<Route path="/card/:cardId" element={<CardMedium card={card} />} />
+				<Route
+					path="/card/:cardId"
+					element={
+						<CardMedium
+							card={cards.find(item => item.id === location.pathname.replace('/card/', ''))}
+						/>
+					}
+				/>
 				<Route path="/signin" element={<Login />} />
 				<Route path="/signup" element={<Register />} />
 				<Route path="/favourites" element={<Favourites />} />

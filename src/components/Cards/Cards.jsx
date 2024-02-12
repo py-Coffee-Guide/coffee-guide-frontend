@@ -12,9 +12,9 @@ function Cards() {
 			<ul>
 				{cards.map(item => (
 					<li key={item.id}>
-						<Link to={`/card/${item.id}`}>
-							<CardSmall card={item} />
-						</Link>
+						{/* <Link to={`/card/${item.id}`}> */}
+						<CardSmall card={item} />
+						{/* </Link> */}
 					</li>
 				))}
 			</ul>
