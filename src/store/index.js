@@ -3,7 +3,7 @@ import user from '../slices/userSlice/userSlice';
 import themeReducer from '../slices/themeSlice/themeSlice';
 import cardsReducer from '../slices/cardsSlice/cardsSlice';
 import filteredCardsReducer from '../slices/filteredCards/filteredCards';
-import fullCardReducer from '../slices/fullCardSice/fullCardSice';
+import cardReducer from '../slices/cardSice/cardSice';
 
 const store = configureStore({
 	reducer: {
@@ -11,7 +11,7 @@ const store = configureStore({
 		theme: themeReducer,
 		cards: cardsReducer,
 		filteredCards: filteredCardsReducer,
-		fullCard: fullCardReducer,
+		card: cardReducer,
 	},
 });
 

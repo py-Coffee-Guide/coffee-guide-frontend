@@ -1,14 +1,21 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import cn from 'classnames';
+import { setCard } from '../../slices/cardSice/cardSice';
 
 import styles from './SearchResult.module.scss';
 import CardMedium from '../CardMedium/CardMedium';
 
 function SearchResult({ isPopupOpened, fullCard, setFullCard }) {
 	const filteredCards = useSelector(state => state.filteredCards);
+	const card = useSelector(state => state.card);
+	const dispatch = useDispatch();
 
 	function handleClick(item) {
+		console.log('click', item.id);
+		console.log('fullCard', fullCard);
+
+		// dispatch(setCard(item));
 		setFullCard(item);
 	}
 
@@ -25,8 +32,6 @@ function SearchResult({ isPopupOpened, fullCard, setFullCard }) {
 						<Link
 							onClick={() => {
 								handleClick(item);
-								console.log('click', item.id);
-								console.log('fullCard', fullCard);
 							}}
 							to={`/card/${item.id}`}
 							className={styles.link}
