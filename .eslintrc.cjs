@@ -39,5 +39,7 @@ module.exports = {
 		'react/jsx-props-no-spreading': 'off',
 		'react/function-component-definition': 'off',
 		'react/button-has-type': 'off',
+		'jsx-a11y/no-noninteractive-element-interactions': 'off',
+		'jsx-a11y/click-events-have-key-events': 'off',
 	},
 };
