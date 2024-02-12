@@ -72,7 +72,7 @@ function SearchSection() {
 				<input
 					className={styles.input}
 					placeholder={placeholder}
-					defaultValue={inputValue}
+					value={inputValue}
 					onChange={handleChange}
 				/>
 				<SearchResult isVisible={isSearchSuccess} />

@@ -42,9 +42,17 @@
 		@include font($sans, 18px, 20px, 0.18px);
 		color: var(--line-color);
 		text-transform: none;
+		opacity: 1;
+		transition: opacity 0.3s ease;
 	}
+
 	&:focus {
 		outline: none;
 		background-image: url('../../assets/images/search-icon-active.svg');
 	}
+}
+
+.input:focus::placeholder {
+	opacity: 0;
+	transition: opacity 0.3s ease;
 }

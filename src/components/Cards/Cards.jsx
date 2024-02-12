@@ -1,7 +1,8 @@
-import { useSelector, useDispatch } from 'react-redux';
-import styles from './Cards.module.scss';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import CardSmall from '../CardSmall/CardSmall';
+import styles from './Cards.module.scss';
 
 function Cards() {
 	const cards = useSelector(state => state.cards);
@@ -11,7 +12,9 @@ function Cards() {
 			<ul>
 				{cards.map(item => (
 					<li key={item.id}>
-						<CardSmall card={item} />
+						<Link to={`/card/${item.id}`}>
+							<CardSmall card={item} />
+						</Link>
 					</li>
 				))}
 			</ul>
