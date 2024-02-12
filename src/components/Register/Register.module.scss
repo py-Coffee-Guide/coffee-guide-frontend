@@ -1,6 +1,7 @@
 @use '../../assets/fonts/fonts_list.scss' as *;
 $base-width: 364px;
 
+
 .container {
 	@include font($sans, 14px, 18px, 0.14px);
 	color: #2e3231;
@@ -23,7 +24,6 @@ $base-width: 364px;
 
 .links {
 	margin-top: 20px;
-
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -40,6 +40,7 @@ $base-width: 364px;
 		opacity: 0.5;
 	}
 }
+
 
 .form {
 	display: flex;
@@ -87,3 +88,4 @@ $base-width: 364px;
 	align-self: flex-start;
 	margin-top: 4px;
 }
+

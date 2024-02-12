@@ -2,14 +2,27 @@ import { useSelector } from 'react-redux';
 import cn from 'classnames';
 import styles from './CardMedium.module.scss';
 import BackButton from '../../assets/ui-kit/BackButton/BackButton';
-// import Button from '../../assets/ui-kit/Button/Button';
 
-import photo from '../../assets/images/photo/66be5a14bddf717c1205b56a1ed80d15.jpg';
+// import photo from '../../assets/images/photo/66be5a14bddf717c1205b56a1ed80d15.jpg';
 
-function CardSmall({ card, onSave, onDelete }) {
+
+function CardMedium({ card, onSave, onDelete }) {
 	const theme = useSelector(state => state.theme);
+	console.log('card from Medium ==>', card);
+	const {
+		address,
+		alternative,
+		description,
+		drink,
+		filter,
+		id,
+		image,
+		name,
+		roaster,
+		schedule,
+		tag,
+	} = card;
 
-	console.log(theme);
 
 	return (
 		<section className={styles.container}>
@@ -17,11 +30,8 @@ function CardSmall({ card, onSave, onDelete }) {
 
 			<div className={styles.heading}>
 				<div className={styles.title}>
-					<h1>Adept x Common Coffee</h1>
-					<p>
-						У нас всегда есть свежеобжаренный кофе, который оценят любители этого напитка. В
-						ассортименте вы найдёте разные сорта и смеси со всех концов света.
-					</p>
+					<h1>{name}</h1>
+					<p>{description}</p>
 				</div>
 				<div className={styles.map}>
 					<div className={styles.map_mini} />
@@ -31,18 +41,18 @@ function CardSmall({ card, onSave, onDelete }) {
 				</div>
 				<div className={styles.info}>
 					<div className={styles.point_icon} />
-					<p>Бережсковская набережная, 20с13</p>
+					<p>{address}</p>
 					<div className={styles.schedule_icon} />
 					<div>
 						{' '}
-						<p>Пн—Пт 9:00—19:00</p>
-						<p>Сб—Вс Выходной</p>
+						<p>{schedule[0].text}</p>
+						<p>{schedule[0].text}</p>
 					</div>
 				</div>
 			</div>
 			<div className={styles.desription}>
 				<div className={styles.photo}>
-					<img className={styles.img} src={photo} alt="" />
+					<img className={styles.img} src={image} alt="фото кофейни" />
 					<div className={styles.favourites}>
 						{' '}
 						<button type="button" className={styles.save} aria-label="добавить в избранное" />
@@ -97,4 +107,4 @@ function CardSmall({ card, onSave, onDelete }) {
 	);
 }
 
-export default CardSmall;
+export default CardMedium;
