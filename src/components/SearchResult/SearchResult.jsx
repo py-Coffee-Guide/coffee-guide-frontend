@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import cn from 'classnames';
-import { setCard } from '../../slices/cardSice/cardSice';
+import { setCard } from '../../slices/cardSlice/cardSlice';
 
 import styles from './SearchResult.module.scss';
 import CardMedium from '../CardMedium/CardMedium';

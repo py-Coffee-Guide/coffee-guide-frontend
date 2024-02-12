@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import cn from 'classnames';
 import styles from './CardMedium.module.scss';
 import BackButton from '../../assets/ui-kit/BackButton/BackButton';
+import FavouritesButton from '../../assets/ui-kit/FavouritesButton/FavouritesButton';
 
 // import photo from '../../assets/images/photo/66be5a14bddf717c1205b56a1ed80d15.jpg';
 
@@ -53,7 +54,8 @@ function CardMedium({ card, onSave, onDelete }) {
 					<img className={styles.img} src={image} alt="фото кофейни" />
 					<div className={styles.favourites}>
 						{' '}
-						<button type="button" className={styles.save} aria-label="добавить в избранное" />
+						<FavouritesButton />
+						{/* <button type="button" className={styles.save} aria-label="добавить в избранное" /> */}
 					</div>
 				</div>
 				<div className={styles.features}>

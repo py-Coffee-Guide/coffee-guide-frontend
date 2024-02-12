@@ -3,7 +3,7 @@ import user from '../slices/userSlice/userSlice';
 import themeReducer from '../slices/themeSlice/themeSlice';
 import cardsReducer from '../slices/cardsSlice/cardsSlice';
 import filteredCardsReducer from '../slices/filteredCards/filteredCards';
-import cardReducer from '../slices/cardSice/cardSice';
+import cardReducer from '../slices/cardSlice/cardSlice';
 
 const store = configureStore({
 	reducer: {
