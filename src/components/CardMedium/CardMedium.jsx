@@ -5,6 +5,7 @@ import BackButton from '../../assets/ui-kit/BackButton/BackButton';
 
 // import photo from '../../assets/images/photo/66be5a14bddf717c1205b56a1ed80d15.jpg';
 
+
 function CardMedium({ card, onSave, onDelete }) {
 	const theme = useSelector(state => state.theme);
 	console.log('card from Medium ==>', card);
@@ -21,6 +22,7 @@ function CardMedium({ card, onSave, onDelete }) {
 		schedule,
 		tag,
 	} = card;
+
 
 	return (
 		<section className={styles.container}>

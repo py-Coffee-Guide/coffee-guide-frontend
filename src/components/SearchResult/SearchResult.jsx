@@ -1,3 +1,4 @@
+
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import cn from 'classnames';
@@ -8,6 +9,7 @@ import CardMedium from '../CardMedium/CardMedium';
 function SearchResult({ isVisible }) {
 	const filteredCards = useSelector(state => state.filteredCards);
 
+
 	const resultClassName = cn(
 		styles.result_container,
 		isVisible ? styles.popup_opened : styles.popup,
@@ -16,6 +18,7 @@ function SearchResult({ isVisible }) {
 	return (
 		<div className={resultClassName}>
 			<ul className={styles.result}>
+
 				{filteredCards.slice(0, 4).map(item => (
 					<li className={styles.item} key={item.id}>
 						<Link to="/card" className={styles.link}>
@@ -24,6 +27,7 @@ function SearchResult({ isVisible }) {
 						</Link>
 					</li>
 				))}
+
 			</ul>
 		</div>
 	);

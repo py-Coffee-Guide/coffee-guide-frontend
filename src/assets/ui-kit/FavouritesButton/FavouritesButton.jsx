@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import styles from './FavouritesButton.module.scss';
 
 function FavouritesButton({ type, theme, active }) {
+
+
 	const [isActive, setIsActive] = useState(active);
 
 	const buttonClassName = cn(styles.default);
@@ -16,6 +18,7 @@ function FavouritesButton({ type, theme, active }) {
 			className={isActive ? buttonActiveClassName : buttonClassName}
 			onClick={() => {
 				setIsActive(!isActive);
+
 			}}
 			aria-label="FavouritesButton"
 		/>

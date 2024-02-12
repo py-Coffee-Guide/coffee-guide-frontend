@@ -23,6 +23,7 @@ const FullRenderedSection = () => (
 
 function Header() {
 	const location = useLocation();
+
 	const dispatch = useDispatch();
 
 	return (
@@ -35,6 +36,7 @@ function Header() {
 				</Link>
 
 				{!['/signin', '/signup'].some(path => location.pathname.match(path)) ? (
+
 					<FullRenderedSection />
 				) : (
 					<Theme />
