@@ -8,9 +8,9 @@ import SearchSection from '../SearchSection/SearchSection';
 
 import styles from './Header.module.scss';
 
-const FullRenderedSection = () => (
+const FullRenderedSection = ({ fullCard, setFullCard }) => (
 	<>
-		<SearchSection />
+		<SearchSection fullCard={fullCard} setFullCard={setFullCard} />
 		<nav className={styles.align_container}>
 			<div className={styles.favourites}>
 				<div className={styles.icon} />
@@ -21,7 +21,7 @@ const FullRenderedSection = () => (
 	</>
 );
 
-function Header() {
+function Header({ fullCard, setFullCard }) {
 	const location = useLocation();
 
 	const dispatch = useDispatch();
@@ -36,8 +36,7 @@ function Header() {
 				</Link>
 
 				{!['/signin', '/signup'].some(path => location.pathname.match(path)) ? (
-
-					<FullRenderedSection />
+					<FullRenderedSection fullCard={fullCard} setFullCard={setFullCard} />
 				) : (
 					<Theme />
 				)}

@@ -1,4 +1,4 @@
-// import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -10,10 +10,9 @@ import CardMedium from '../CardMedium/CardMedium';
 import Favourites from '../Favourites/Favourites';
 import NotFound from '../NotFound/NotFound';
 import Register from '../Register/Register';
-
-import { card } from '../../utils/card';
 import NewCoffeeshop from '../NewCoffeeshop/NewCoffeeshop';
 
+import { card } from '../../utils/card';
 
 import styles from './App.module.scss';
 
@@ -21,16 +20,18 @@ function App() {
 	const theme = useSelector(state => state.theme);
 	const cards = useSelector(state => state.cards);
 
+	const [fullCard, setFullCard] = useState({});
+
 	console.log('cards state ==>', cards);
 
 	// a0303f06-4ef8-4bd2-bef5-7e2e5e6b3ff6
 	// const { user } = useSelector(state => state);
 	return (
 		<div className={styles.root}>
-			<Header />
+			<Header fullCard={fullCard} setFullCard={setFullCard} />
 			<Routes>
 				<Route path="/" element={<Main />} />
-				<Route path="/card/:cardId" element={<CardMedium card={card} />} />
+				<Route path="/card/:cardId" element={<CardMedium card={fullCard} />} />
 				<Route path="/signin" element={<Login />} />
 				<Route path="/signup" element={<Register />} />
 				<Route path="/favourites" element={<Favourites />} />

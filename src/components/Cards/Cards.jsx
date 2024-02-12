@@ -12,7 +12,7 @@ function Cards() {
 			<ul>
 				{cards.map(item => (
 					<li key={item.id}>
-						<Link to={`/card/${item.id}`}>
+						<Link to={`/card/${item.id}`} className={styles.card}>
 							<CardSmall card={item} />
 						</Link>
 					</li>

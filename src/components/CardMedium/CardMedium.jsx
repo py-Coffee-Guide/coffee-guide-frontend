@@ -7,7 +7,7 @@ import BackButton from '../../assets/ui-kit/BackButton/BackButton';
 
 function CardMedium({ card, onSave, onDelete }) {
 	const theme = useSelector(state => state.theme);
-	console.log('card from Medium ==>', card);
+	// console.log('card from Medium ==>', card);
 	const {
 		address,
 		alternative,

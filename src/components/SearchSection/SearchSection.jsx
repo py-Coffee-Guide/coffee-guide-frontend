@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -13,15 +12,14 @@ import styles from './SearchSection.module.scss';
 import Button from '../../assets/ui-kit/Button/Button';
 import SearchResult from '../SearchResult/SearchResult';
 
-function SearchSection() {
-
+function SearchSection({ fullCard, setFullCard }) {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
 	const [inputValue, setInputVlaue] = useState('');
 	const [placeholder, setPlaceholder] = useState('Название кофеӣни / адрес');
 	const [isQuery, setIsQuery] = useState(false);
-	const [isSearchSuccess, setIsSearchSuccess] = useState(false);
+	const [isPopupOpened, setIsPopupOpened] = useState(false);
 
 	// функция фильтрации карточек
 	const onFilter = (inputValue, cardsArray) => {
@@ -39,7 +37,7 @@ function SearchSection() {
 			});
 		}
 
-		searchResult.length > 0 ? setIsSearchSuccess(true) : setIsSearchSuccess(false);
+		searchResult.length > 0 ? setIsPopupOpened(true) : setIsPopupOpened(false);
 		return searchResult;
 	};
 
@@ -64,11 +62,9 @@ function SearchSection() {
 
 			dispatch(clear());
 			dispatch(setCards(result));
-			setIsSearchSuccess(false);
+			setIsPopupOpened(false);
 			navigate('/');
 		}
-
-
 	};
 
 	return (
@@ -76,13 +72,11 @@ function SearchSection() {
 			<div className={styles.input_container}>
 				<input
 					className={styles.input}
-
 					placeholder={placeholder}
 					value={inputValue}
 					onChange={handleChange}
 				/>
-				<SearchResult isVisible={isSearchSuccess} />
-
+				<SearchResult isPopupOpened={isPopupOpened} fullCard={fullCard} setFullCard={setFullCard} />
 			</div>
 			<Button onClick={handleSubmit} text="найти" size="small" />
 		</section>
