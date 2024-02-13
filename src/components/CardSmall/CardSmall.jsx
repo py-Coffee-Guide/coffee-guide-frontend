@@ -3,7 +3,7 @@ import FavouritesButton from '../../assets/ui-kit/FavouritesButton/FavouritesBut
 import CloseButton from '../../assets/ui-kit/CloseButton/CloseButton'; // Добавил иконку удаления
 
 function CardSmall({ card, onSave, onDelete }) {
-	const { address, name, schedule, image } = card; // Поменял с adress на address так как в базе address
+	const { address, name, schedules, image } = card; // Поменял с adress на address так как в базе address
 	return (
 		<div className={styles.card}>
 			<div className={styles.photo_container}>
@@ -16,9 +16,16 @@ function CardSmall({ card, onSave, onDelete }) {
 
 			<div className={styles.info}>
 				<h3 className={styles.title}>{name}</h3>
-				<p className={styles.text}>{address}</p>
-				<p className={styles.text}>{schedule[0].text}</p>
-				<p className={styles.text}>{schedule[1].text}</p>
+				<p className={styles.text}>{address.name}</p>
+				<ul className={styles.schedules}>
+					{schedules.map(item => (
+						<li key={item.id} className={styles.schedules_item}>
+							<p> {item.name}</p>
+							<p> {item.start}</p>
+							<p> {item.end}</p>
+						</li>
+					))}
+				</ul>
 			</div>
 		</div>
 	);

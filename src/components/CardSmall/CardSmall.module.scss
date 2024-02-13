@@ -92,3 +92,22 @@ $base-color: #171614;
 	letter-spacing: 0.14px;
 	color: $base-color;
 }
+
+.schedules {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+}
+
+.schedules_item {
+	display: flex;
+	flex-direction: row;
+	p {
+		margin: 0 8px 0 0;
+		font-family: $font-base;
+		font-size: 14px;
+		letter-spacing: 0.14px;
+		color: $base-color;
+	}
+}

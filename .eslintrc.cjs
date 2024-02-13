@@ -38,5 +38,6 @@ module.exports = {
 		'react/function-component-definition': 'off',
 		'react/button-has-type': 'off',
 		'no-underscore-dangle': 'off',
+		'class-methods-use-this': 'off',
 	},
 };

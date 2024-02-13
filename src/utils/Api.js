@@ -4,15 +4,15 @@ class Api {
 		this._headers = headers;
 	}
 
-	_isResOk() {
-		if (this.ok) {
-			return this.json();
+	_isResOk(res) {
+		if (res.ok) {
+			return res.json();
 		}
-		return Promise.reject(new Error(`Error: ${this.status}`));
+		return Promise.reject(new Error(`Error: ${res.status}`));
 	}
 
 	getOrganizations() {
-		return fetch(`${this._baseUrl}/api/v1/cafe/`, {
+		return fetch(`${this._baseUrl}/api/v1/cafes/`, {
 			headers: {
 				'Content-Type': 'application/json',
 			},
@@ -47,7 +47,7 @@ class Api {
 }
 
 export const api = new Api({
-	baseUrl: 'http://localhost:8000/',
+	baseUrl: 'http://127.0.0.1:8000',
 	headers: {
 		'Content-Type': 'application/json',
 	},

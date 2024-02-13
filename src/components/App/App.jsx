@@ -25,17 +25,17 @@ function App() {
 	const [cards, setCards] = useState([]);
 
 	useEffect(() => {
-		api
-			.getOrganizations()
-			.then(res => setCards(res))
+		Promise.all([api.getOrganizations()])
+			.then(([card]) => {
+				setCards(card.results);
+			})
 			.catch(err => {
 				console.log(err);
 			});
-	});
-
-	console.log(cards);
+	}, []);
 	// a0303f06-4ef8-4bd2-bef5-7e2e5e6b3ff6
 	// const { user } = useSelector(state => state);
+	console.log(cards);
 	return (
 		<div className={styles.root}>
 			<Header />
