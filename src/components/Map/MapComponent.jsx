@@ -7,7 +7,7 @@ import BalloonModal from '../BalloonModal/BalloonModal';
 import Button from '../../assets/ui-kit/Button/Button';
 import CardSmall from '../CardSmall/CardSmall';
 import MapButton from '../../assets/ui-kit/MapButton/MapButton';
-import { cards } from '../../utils/cards';
+import { cardsArray } from '../../utils/cardsArray';
 
 import styles from './MapComponent.module.scss';
 import location from '../../assets/images/location-pin.svg';
@@ -45,7 +45,7 @@ function MapComponent() {
 				instanceRef={setPlace}
 				onClick={handleCloseBalloon}
 			>
-				{cards.map(card => (
+				{cardsArray.map(card => (
 					<Placemark
 						key={card.id}
 						geometry={card.coordinate.split(', ')}

@@ -1,5 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { reset } from '../../slices/cardsSlice/cardsSlice';
+
 import logoPath from '../../assets/images/logo.svg';
+import iconPath from '../../assets/images/profile-icon.svg';
 import Theme from '../Theme/Theme';
 import SearchSection from '../SearchSection/SearchSection';
 
@@ -11,7 +15,7 @@ const FullRenderedSection = () => (
 		<nav className={styles.align_container}>
 			<div className={styles.favourites}>
 				<div className={styles.icon} />
-				<p>Избранное</p>
+				<p className={styles.text}>Избранное</p>
 			</div>
 			<Theme />
 		</nav>
@@ -20,17 +24,30 @@ const FullRenderedSection = () => (
 
 function Header() {
 	const location = useLocation();
+
+	const dispatch = useDispatch();
+
 	return (
 		<header className={styles.header}>
 			<div className={styles.container}>
-				<Link to="/" className={styles.logo}>
-					<img className={styles.logo} src={logoPath} alt="Лого" />{' '}
+				<Link to="/">
+					<button type="button" onClick={() => dispatch(reset())} className={styles.logo}>
+						<img className={styles.logo} src={logoPath} alt="Лого" />{' '}
+					</button>
 				</Link>
 
-				{!['/signin', '/signup', '/add-coffeeshop'].some(path => location.pathname.match(path)) ? (
+				{!['/signin', '/signup', '/profile'].some(path => location.pathname.match(path)) ? (
 					<FullRenderedSection />
 				) : (
-					<Theme />
+					<nav className={styles.align_container}>
+						{location.pathname.match('/profile') && (
+							<div className={styles.profile}>
+								<img src={iconPath} className={styles.profile_icon} alt="profile" />
+								<p className={styles.text}>pochta@email.ru</p>
+							</div>
+						)}
+						<Theme />
+					</nav>
 				)}
 			</div>
 		</header>

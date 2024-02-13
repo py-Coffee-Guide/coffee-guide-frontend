@@ -75,6 +75,7 @@ function Register() {
 					</div>
 					<Button type="submit" size="large" text="получить пароль" />
 				</form>
+
 				<div className={styles.links}>
 					<p>Уже зарегистрированы?</p>
 					<NavLink to="/signin" className={styles.link}>

@@ -1,6 +1,6 @@
 // import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { api } from '../../utils/Api';
@@ -11,15 +11,17 @@ import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
 import CardMedium from '../CardMedium/CardMedium';
 import Favourites from '../Favourites/Favourites';
-
 import NotFound from '../NotFound/NotFound';
-
 import Register from '../Register/Register';
 import NewCoffeeshop from '../NewCoffeeshop/NewCoffeeshop';
+import Profile from '../Profile/Profile';
+
+import { card } from '../../utils/card';
 
 import styles from './App.module.scss';
 
 function App() {
+	const location = useLocation();
 	const theme = useSelector(state => state.theme);
 
 	const [cards, setCards] = useState([]);
@@ -41,11 +43,18 @@ function App() {
 			<Header />
 			<Routes>
 				<Route path="/" element={<Main cards={cards} />} />
-				<Route path="/card" element={<CardMedium />} />
+				<Route
+					path="/card/:cardId"
+					element={
+						<CardMedium
+							card={cards.find(item => item.id === location.pathname.replace('/card/', ''))}
+						/>
+					}
+				/>
 				<Route path="/signin" element={<Login />} />
 				<Route path="/signup" element={<Register />} />
 				<Route path="/favourites" element={<Favourites />} />
-				<Route path="/add-coffeeshop" element={<NewCoffeeshop />} />
+				<Route path="/profile" element={<Profile />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 			<Footer />

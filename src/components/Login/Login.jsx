@@ -17,7 +17,7 @@ function Login() {
 
 	const onSubmit = data => {
 		console.log(data);
-		navigate('/', { replace: true });
+		navigate('/profile', { replace: true });
 		reset();
 	};
 	const inputItemClassName = type => cn(styles.input, [errors[type] && styles.input_error]);
