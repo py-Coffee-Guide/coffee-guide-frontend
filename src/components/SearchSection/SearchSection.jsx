@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -14,7 +13,6 @@ import Button from '../../assets/ui-kit/Button/Button';
 import SearchResult from '../SearchResult/SearchResult';
 
 function SearchSection() {
-
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
@@ -67,8 +65,6 @@ function SearchSection() {
 			setIsSearchSuccess(false);
 			navigate('/');
 		}
-
-
 	};
 
 	return (
@@ -76,13 +72,11 @@ function SearchSection() {
 			<div className={styles.input_container}>
 				<input
 					className={styles.input}
-
 					placeholder={placeholder}
 					value={inputValue}
 					onChange={handleChange}
 				/>
 				<SearchResult isVisible={isSearchSuccess} />
-
 			</div>
 			<Button onClick={handleSubmit} text="найти" size="small" />
 		</section>

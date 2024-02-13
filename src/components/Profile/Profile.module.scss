@@ -12,7 +12,7 @@
 }
 
 .content {
-    margin-top: 28px;
+	margin-top: 28px;
 }
 
 .grid {
@@ -20,7 +20,7 @@
 	margin: 0;
 	list-style: none;
 	display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(268px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(268px, 1fr));
 	gap: 20px;
 }
 
@@ -28,5 +28,5 @@
 	@include font($sans, 14px, 18px, 0);
 	width: 362px;
 	text-align: center;
-    margin: 40px auto 0;
+	margin: 40px auto 0;
 }
