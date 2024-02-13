@@ -13,6 +13,12 @@
 	padding: 24px;
 }
 
+.close {
+	position: absolute;
+	margin: auto;
+	right: 0;
+}
+
 .popup_coffee {
 	width: 140px;
 	height: 36px;
@@ -38,11 +44,14 @@
 }
 
 .container {
+	margin: 0 auto;
+	width: 1132px;
 	display: flex;
 	flex-direction: row;
 	column-gap: 20px;
 	margin-top: 28px;
 	align-items: flex-start;
+	position: relative;
 }
 
 .title {
