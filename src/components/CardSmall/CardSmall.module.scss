@@ -26,6 +26,10 @@ $base-color: #171614;
 	cursor: pointer;
 }
 
+.photo_null {
+	object-fit: fill;
+}
+
 .favourite {
 	grid-area: 1 / 1;
 	justify-self: end;

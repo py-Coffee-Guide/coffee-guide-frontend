@@ -9,7 +9,6 @@ import { cards } from '../../utils/cards';
 
 function Profile() {
 	const [isOpen, setIsOpen] = useState(false);
-	console.log(isOpen);
 	return isOpen ? (
 		<NewCoffeeshop onClose={() => setIsOpen(false)} />
 	) : (

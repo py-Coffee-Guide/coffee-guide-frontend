@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
+import cn from 'classnames';
 
+import nullImage from '../../assets/images/logo.svg';
 import styles from './CardSmall.module.scss';
 import FavouritesButton from '../../assets/ui-kit/FavouritesButton/FavouritesButton';
 import CloseButton from '../../assets/ui-kit/CloseButton/CloseButton'; // Добавил иконку удаления
@@ -12,12 +14,14 @@ function CardSmall({ card, onSave, onDelete }) {
 		navigate(`/card/${card.id}`, { state: { key: card.id } });
 	};
 
+	const photoClassName = cn(styles.photo, [!image && styles.photo_null]);
+
 	return (
 		<div className={styles.card}>
 			<div className={styles.photo_container}>
 				<img
-					className={styles.photo}
-					src={image}
+					className={photoClassName}
+					src={!image ? nullImage : image}
 					alt="фото кофейни"
 					onClick={() => handleClick(card)}
 				/>
