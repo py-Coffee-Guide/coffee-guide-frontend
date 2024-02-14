@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
+import { useSelector } from 'react-redux';
 import { Map, Placemark, FullscreenControl } from '@pbe/react-yandex-maps';
 import cn from 'classnames';
 
+import { useGetCardsQuery } from '../../slices/apiSlice/apiSlice';
 import BalloonModal from '../BalloonModal/BalloonModal';
-import Button from '../../assets/ui-kit/Button/Button';
 import CardSmall from '../CardSmall/CardSmall';
-import MapButton from '../../assets/ui-kit/MapButton/MapButton';
+
 import { cardsArray } from '../../utils/cardsArray';
 
 import styles from './MapComponent.module.scss';
@@ -19,6 +19,7 @@ function MapComponent() {
 	const [place, setPlace] = useState({});
 	const [zoom, setZoom] = useState();
 	const mapContainerClassName = cn(styles.container);
+	const card = useSelector(state => state.queries.getCards.data);
 
 	const handleZoom = () => {
 		setIsZoom(!isZoom);
@@ -34,6 +35,7 @@ function MapComponent() {
 		place.balloon.close();
 	};
 
+	console.log(card);
 	return (
 		<div className={mapContainerClassName}>
 			<Map
@@ -45,10 +47,10 @@ function MapComponent() {
 				instanceRef={setPlace}
 				onClick={handleCloseBalloon}
 			>
-				{cardsArray.map(card => (
+				{card.results.map(card => (
 					<Placemark
 						key={card.id}
-						geometry={card.coordinate.split(', ')}
+						geometry={[card.address.lat, card.address.lon]}
 						options={{
 							preset: 'islands#circleIcon',
 							iconLayout: 'default#image',

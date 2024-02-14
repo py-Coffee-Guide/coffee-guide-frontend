@@ -13,7 +13,6 @@ import CardMedium from '../CardMedium/CardMedium';
 import Favourites from '../Favourites/Favourites';
 import NotFound from '../NotFound/NotFound';
 import Register from '../Register/Register';
-import NewCoffeeshop from '../NewCoffeeshop/NewCoffeeshop';
 import Profile from '../Profile/Profile';
 
 import { card } from '../../utils/card';
@@ -24,33 +23,33 @@ function App() {
 	const location = useLocation();
 	const theme = useSelector(state => state.theme);
 
-	const [cards, setCards] = useState([]);
+	// const [cards, setCards] = useState([]);
 
-	useEffect(() => {
-		Promise.all([api.getOrganizations()])
-			.then(([card]) => {
-				setCards(card.results);
-			})
-			.catch(err => {
-				console.log(err);
-			});
-	}, []);
+	// useEffect(() => {
+	// 	Promise.all([api.getOrganizations()])
+	// 		.then(([card]) => {
+	// 			setCards(card.results);
+	// 		})
+	// 		.catch(err => {
+	// 			console.log(err);
+	// 		});
+	// }, []);
+
 	// a0303f06-4ef8-4bd2-bef5-7e2e5e6b3ff6
 	// const { user } = useSelector(state => state);
-	console.log(cards);
 	return (
 		<div className={styles.root}>
 			<Header />
 			<Routes>
-				<Route path="/" element={<Main cards={cards} />} />
-				<Route
+				<Route path="/" element={<Main />} />
+				{/* <Route
 					path="/card/:cardId"
 					element={
 						<CardMedium
 							card={cards.find(item => item.id === location.pathname.replace('/card/', ''))}
 						/>
 					}
-				/>
+				/> */}
 				<Route path="/signin" element={<Login />} />
 				<Route path="/signup" element={<Register />} />
 				<Route path="/favourites" element={<Favourites />} />

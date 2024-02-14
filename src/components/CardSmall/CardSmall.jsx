@@ -7,7 +7,8 @@ import FavouritesButton from '../../assets/ui-kit/FavouritesButton/FavouritesBut
 import CloseButton from '../../assets/ui-kit/CloseButton/CloseButton'; // Добавил иконку удаления
 
 function CardSmall({ card, onSave, onDelete }) {
-	const { address, name, schedules, image } = card; // Поменял с adress на address так как в базе address
+	const { address, name, schedules, image } = card;
+
 	const navigate = useNavigate();
 
 	const handleClick = () => {

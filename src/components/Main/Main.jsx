@@ -6,11 +6,11 @@ import TagSection from '../TagSection/TagSection';
 import MainSection from '../MainSection/MainSection';
 import HorizontalLine from '../HorizontalLine/HorizontalLine';
 
-function Main({ cards }) {
+function Main() {
 	return (
 		<main className={styles.main}>
 			<TagSection />
-			<MainSection cards={cards} />
+			<MainSection />
 		</main>
 	);
 }

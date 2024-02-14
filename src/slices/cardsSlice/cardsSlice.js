@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import { api } from '../apiSlice/apiSlice';
 import { cardsArray } from '../../utils/cardsArray';
 
-const initialState = cardsArray;
+const initialState = [];
 
 const cardsSlice = createSlice({
 	name: 'cards',
