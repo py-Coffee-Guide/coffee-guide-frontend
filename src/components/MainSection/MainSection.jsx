@@ -18,10 +18,10 @@ function MainSection() {
 					</div>
 				</>
 			) : (
-				<>
+				<div className={styles.message_container}>
 					<h3 className={styles.heading}>Пo вашему запросу ничего не наӣдено</h3>
 					<p className={styles.text}>Попробуӣте изменить параметры или ввести запрос по-другому </p>
-				</>
+				</div>
 			)}
 		</section>
 	);

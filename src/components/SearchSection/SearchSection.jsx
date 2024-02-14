@@ -51,6 +51,7 @@ function SearchSection() {
 
 		// передаем отфильтрованные карточки в стейт
 		dispatch(setFilteredCards(result));
+		dispatch(setCards(result));
 		console.log('popup', isPopupOpened);
 	};
 
