@@ -6,7 +6,7 @@ function Button({ type, text, size, disabled, onClick }) {
 	const btnClassName = cn(styles.button, styles[size]);
 
 	return (
-		<button type={type} className={btnClassName} disabled={disabled} onClick={onClick}>
+		<button onClick={onClick} type={type} className={btnClassName} disabled={disabled}>
 			<p>{text}</p>
 		</button>
 	);

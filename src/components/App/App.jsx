@@ -21,11 +21,10 @@ function App() {
 	const location = useLocation();
 	const theme = useSelector(state => state.theme);
 	const cards = useSelector(state => state.cards);
-
+	// const { user } = useSelector(state => state);
 	console.log('cards state ==>', cards);
 
 	// a0303f06-4ef8-4bd2-bef5-7e2e5e6b3ff6
-	// const { user } = useSelector(state => state);
 	return (
 		<div className={styles.root}>
 			<Header />

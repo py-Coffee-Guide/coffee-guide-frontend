@@ -19,7 +19,7 @@ function SearchSection() {
 	const [inputValue, setInputVlaue] = useState('');
 	const [placeholder, setPlaceholder] = useState('Название кофеӣни / адрес');
 	const [isQuery, setIsQuery] = useState(false);
-	const [isSearchSuccess, setIsSearchSuccess] = useState(false);
+	const [isPopupOpened, setIsPopupOpened] = useState(false);
 
 	// функция фильтрации карточек
 	const onFilter = (inputValue, cardsArray) => {
@@ -37,7 +37,7 @@ function SearchSection() {
 			});
 		}
 
-		searchResult.length > 0 ? setIsSearchSuccess(true) : setIsSearchSuccess(false);
+		searchResult.length > 0 ? setIsPopupOpened(true) : setIsPopupOpened(false);
 		return searchResult;
 	};
 
@@ -51,6 +51,8 @@ function SearchSection() {
 
 		// передаем отфильтрованные карточки в стейт
 		dispatch(setFilteredCards(result));
+		dispatch(setCards(result));
+		console.log('popup', isPopupOpened);
 	};
 
 	const handleSubmit = e => {
@@ -62,7 +64,7 @@ function SearchSection() {
 
 			dispatch(clear());
 			dispatch(setCards(result));
-			setIsSearchSuccess(false);
+			setIsPopupOpened(false);
 			navigate('/');
 		}
 	};
@@ -76,7 +78,7 @@ function SearchSection() {
 					value={inputValue}
 					onChange={handleChange}
 				/>
-				<SearchResult isVisible={isSearchSuccess} />
+				<SearchResult isPopupOpened={isPopupOpened} setIsPopupOpened={setIsPopupOpened} />
 			</div>
 			<Button onClick={handleSubmit} text="найти" size="small" />
 		</section>

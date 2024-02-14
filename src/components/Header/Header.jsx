@@ -24,7 +24,6 @@ const FullRenderedSection = () => (
 
 function Header() {
 	const location = useLocation();
-
 	const dispatch = useDispatch();
 
 	return (
