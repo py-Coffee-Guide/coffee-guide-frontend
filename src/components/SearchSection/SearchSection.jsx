@@ -51,6 +51,7 @@ function SearchSection() {
 
 		// передаем отфильтрованные карточки в стейт
 		dispatch(setFilteredCards(result));
+		console.log('popup', isPopupOpened);
 	};
 
 	const handleSubmit = e => {
@@ -76,7 +77,7 @@ function SearchSection() {
 					value={inputValue}
 					onChange={handleChange}
 				/>
-				<SearchResult isVisible={isPopupOpened} />
+				<SearchResult isPopupOpened={isPopupOpened} setIsPopupOpened={setIsPopupOpened} />
 			</div>
 			<Button onClick={handleSubmit} text="найти" size="small" />
 		</section>
