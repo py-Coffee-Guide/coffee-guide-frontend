@@ -6,18 +6,10 @@ import { setCard } from '../../slices/cardSlice/cardSlice';
 import styles from './SearchResult.module.scss';
 import CardMedium from '../CardMedium/CardMedium';
 
-function SearchResult({ isPopupOpened, fullCard, setFullCard }) {
+function SearchResult({ isPopupOpened }) {
 	const filteredCards = useSelector(state => state.filteredCards);
 	const card = useSelector(state => state.card);
 	const dispatch = useDispatch();
-
-	function handleClick(item) {
-		console.log('click', item.id);
-		console.log('fullCard', fullCard);
-
-		// dispatch(setCard(item));
-		setFullCard(item);
-	}
 
 	const resultClassName = cn(
 		styles.result_container,
@@ -29,13 +21,7 @@ function SearchResult({ isPopupOpened, fullCard, setFullCard }) {
 			<ul className={styles.result}>
 				{filteredCards.slice(0, 4).map(item => (
 					<li className={styles.item} key={item.id}>
-						<Link
-							onClick={() => {
-								handleClick(item);
-							}}
-							to={`/card/${item.id}`}
-							className={styles.link}
-						>
+						<Link to={`/card/${item.id}`} className={styles.link}>
 							<p className={styles.title}>{item.name}</p>
 							<address className={styles.address}>{item.address}</address>
 						</Link>

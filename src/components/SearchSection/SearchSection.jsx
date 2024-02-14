@@ -12,7 +12,7 @@ import styles from './SearchSection.module.scss';
 import Button from '../../assets/ui-kit/Button/Button';
 import SearchResult from '../SearchResult/SearchResult';
 
-function SearchSection({ fullCard, setFullCard }) {
+function SearchSection() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
@@ -76,7 +76,7 @@ function SearchSection({ fullCard, setFullCard }) {
 					value={inputValue}
 					onChange={handleChange}
 				/>
-				<SearchResult isPopupOpened={isPopupOpened} fullCard={fullCard} setFullCard={setFullCard} />
+				<SearchResult isVisible={isPopupOpened} />
 			</div>
 			<Button onClick={handleSubmit} text="найти" size="small" />
 		</section>

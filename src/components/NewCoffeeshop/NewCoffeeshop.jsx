@@ -3,8 +3,9 @@ import { useState } from 'react';
 import styles from './NewCoffeeshop.module.scss';
 import CheckBox from '../../assets/ui-kit/CheckBox/CheckBox';
 import Button from '../../assets/ui-kit/Button/Button';
+import CloseButton from '../../assets/ui-kit/CloseButton/CloseButton';
 
-function NewCoffeeshop() {
+function NewCoffeeshop({ onClose }) {
 	const [showPopupCoffeeTypes, setShowPopupCoffeeTypes] = useState(false);
 	const [showPopupAlternatives, setShowPopupAlternatives] = useState(false);
 	const [textHidden, setTextHidden] = useState(true);
@@ -23,6 +24,9 @@ function NewCoffeeshop() {
 
 	return (
 		<section className={styles.container}>
+			<div className={styles.close}>
+				<CloseButton onClick={onClose} size="default" />
+			</div>
 			<div className={styles.container_main}>
 				<div className={styles.container}>
 					<h3 className={styles.title}> Название кофейни</h3>

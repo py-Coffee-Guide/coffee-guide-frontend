@@ -3,27 +3,27 @@ import { useDispatch } from 'react-redux';
 import { reset } from '../../slices/cardsSlice/cardsSlice';
 
 import logoPath from '../../assets/images/logo.svg';
+import iconPath from '../../assets/images/profile-icon.svg';
 import Theme from '../Theme/Theme';
 import SearchSection from '../SearchSection/SearchSection';
 
 import styles from './Header.module.scss';
 
-const FullRenderedSection = ({ fullCard, setFullCard }) => (
+const FullRenderedSection = () => (
 	<>
-		<SearchSection fullCard={fullCard} setFullCard={setFullCard} />
+		<SearchSection />
 		<nav className={styles.align_container}>
 			<div className={styles.favourites}>
 				<div className={styles.icon} />
-				<p>Избранное</p>
+				<p className={styles.text}>Избранное</p>
 			</div>
 			<Theme />
 		</nav>
 	</>
 );
 
-function Header({ fullCard, setFullCard }) {
+function Header() {
 	const location = useLocation();
-
 	const dispatch = useDispatch();
 
 	return (
@@ -35,10 +35,18 @@ function Header({ fullCard, setFullCard }) {
 					</button>
 				</Link>
 
-				{!['/signin', '/signup'].some(path => location.pathname.match(path)) ? (
-					<FullRenderedSection fullCard={fullCard} setFullCard={setFullCard} />
+				{!['/signin', '/signup', '/profile'].some(path => location.pathname.match(path)) ? (
+					<FullRenderedSection />
 				) : (
-					<Theme />
+					<nav className={styles.align_container}>
+						{location.pathname.match('/profile') && (
+							<div className={styles.profile}>
+								<img src={iconPath} className={styles.profile_icon} alt="profile" />
+								<p className={styles.text}>pochta@email.ru</p>
+							</div>
+						)}
+						<Theme />
+					</nav>
 				)}
 			</div>
 		</header>

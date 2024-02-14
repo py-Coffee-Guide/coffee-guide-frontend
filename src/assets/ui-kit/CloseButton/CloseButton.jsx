@@ -4,17 +4,12 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 import styles from './CloseButton.module.scss';
 
-function CloseButton({ size, theme }) {
+function CloseButton({ size, theme, onClick }) {
 	// const [isOpen, setIsOpen] = useState(true);
 	const buttonClassName = cn(styles.default, styles[size]);
 
 	return (
-		<button
-			type="button"
-			className={buttonClassName}
-			// onClick={() => setIsOpen(false)}
-			aria-label="CloseButton"
-		/>
+		<button type="button" className={buttonClassName} onClick={onClick} aria-label="CloseButton" />
 	);
 }
 
