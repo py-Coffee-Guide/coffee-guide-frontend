@@ -1,6 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { reset } from '../../slices/cardsSlice/cardsSlice';
+
+import { api } from '../../slices/apiSlice/apiSlice';
 
 import logoPath from '../../assets/images/logo.svg';
 import iconPath from '../../assets/images/profile-icon.svg';
@@ -24,7 +26,6 @@ const FullRenderedSection = () => (
 
 function Header() {
 	const location = useLocation();
-
 	const dispatch = useDispatch();
 
 	return (

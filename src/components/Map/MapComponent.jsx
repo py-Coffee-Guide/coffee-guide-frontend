@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Map, Placemark, FullscreenControl } from '@pbe/react-yandex-maps';
 import cn from 'classnames';
 
-import { api } from '../../slices/apiSlice/apiSlice';
+import { useGetCardsQuery } from '../../slices/apiSlice/apiSlice';
 
 import BalloonModal from '../BalloonModal/BalloonModal';
 import CardSmall from '../CardSmall/CardSmall';
@@ -13,12 +13,21 @@ import { cardsArray } from '../../utils/cardsArray';
 import styles from './MapComponent.module.scss';
 import location from '../../assets/images/location-pin.svg';
 
-function MapComponent({ cards }) {
+function MapComponent() {
 	const [isActive, setIsActive] = useState(false);
 	const [isCard, setIsCard] = useState({});
 	const [place, setPlace] = useState({});
-
+	const offsetCounter = useSelector(state => state.offset);
 	const mapContainerClassName = cn(styles.container);
+
+	const { cards } = useGetCardsQuery(
+		{ offset: offsetCounter },
+		{
+			selectFromResult: ({ data }) => ({
+				cards: data?.results,
+			}),
+		},
+	);
 
 	const handleOpenBalloon = () => {
 		setIsActive(true);

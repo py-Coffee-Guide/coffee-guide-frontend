@@ -7,10 +7,12 @@ export const api = createApi({
 	endpoints: build => ({
 		getCards: build.query({
 			query: args => {
-				const { page, roasters, tags, alternatives } = args;
+				const { page, roasters, tags, alternatives, limit, offset } = args;
 				return {
 					url: 'cafes',
 					params: {
+						limit,
+						offset,
 						page,
 						roasters,
 						tags,
@@ -25,6 +27,7 @@ export const api = createApi({
 			// 	return currentArg !== previousArg;
 			// },
 		}),
+
 		getCardById: build.query({
 			query: id => `cafes/${id}`,
 		}),
