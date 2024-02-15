@@ -19,7 +19,8 @@ function CardMedium() {
 		return <p>LOADING....</p>;
 	}
 
-	const { address, alternatives, description, id, image, name, roasters, schedules, tags } = data;
+	const { address, alternatives, description, id, image, name, roasters, schedules, tags, drinks } =
+		data;
 	const imgClassName = cn(styles.img, { [styles.img_null]: !image });
 
 	console.log(data);
@@ -77,14 +78,9 @@ function CardMedium() {
 					<h3 className={cn(styles.tag2, styles.tag)}>Напитки</h3>
 					<div className={cn(styles.list2)}>
 						<ul className={cn(styles.list)}>
-							<li>Эспрессо: 200 ₽ </li>
-							<li>Капучино: 300 ₽ </li>
-							<li>Американо: 300 ₽ </li>
-						</ul>
-						<ul className={cn(styles.list)}>
-							<li>Латте: 200 ₽ </li>
-							<li>Флэт-уайт: 400 ₽ </li>
-							<li>Фильтр-кофе: 400 ₽ </li>
+							{drinks.map(item => (
+								<li key={item.id}>{`${item.name} ${item.cost} ₽`} </li>
+							))}
 						</ul>
 					</div>
 
