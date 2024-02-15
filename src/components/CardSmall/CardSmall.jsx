@@ -11,7 +11,7 @@ function CardSmall({ card, onSave, onDelete }) {
 
 	const navigate = useNavigate();
 
-	const handleClick = () => {
+	const handleClick = card => {
 		navigate(`/card/${card.id}`, { state: { key: card.id } });
 	};
 
@@ -26,7 +26,7 @@ function CardSmall({ card, onSave, onDelete }) {
 					alt="фото кофейни"
 					onClick={() => handleClick(card)}
 				/>
-				{/* <div className={styles.favourite}></div> */}
+
 				<div className={styles.favourite}>
 					<FavouritesButton />
 				</div>
@@ -39,8 +39,8 @@ function CardSmall({ card, onSave, onDelete }) {
 					{schedules.map(item => (
 						<li key={item.id} className={styles.schedules_item}>
 							<p> {item.name}</p>
-							<p> {item.start}</p>
-							<p> {item.end}</p>
+							<p> {item.start.slice(0, -3)}</p>
+							<p> {item.end.slice(0, -3)}</p>
 						</li>
 					))}
 				</ul>

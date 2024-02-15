@@ -1,26 +1,28 @@
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+
 import cn from 'classnames';
 import styles from './CardMedium.module.scss';
+
 import BackButton from '../../assets/ui-kit/BackButton/BackButton';
+import FavouritesButton from '../../assets/ui-kit/FavouritesButton/FavouritesButton';
+import nullImage from '../../assets/images/logo.svg';
 
-// import photo from '../../assets/images/photo/66be5a14bddf717c1205b56a1ed80d15.jpg';
+import { useGetCardByIdQuery } from '../../slices/apiSlice/apiSlice';
 
-function CardMedium({ card, onSave, onDelete }) {
+function CardMedium() {
+	const location = useLocation();
 	const theme = useSelector(state => state.theme);
-	console.log('card from Medium ==>', card);
-	const {
-		address,
-		alternative,
-		description,
-		drink,
-		filter,
-		id,
-		image,
-		name,
-		roaster,
-		schedule,
-		tag,
-	} = card;
+	const { data = {}, isLoading } = useGetCardByIdQuery(location.state.key);
+
+	if (isLoading) {
+		return <p>LOADING....</p>;
+	}
+
+	const { address, alternatives, description, id, image, name, roasters, schedules, tags } = data;
+	const imgClassName = cn(styles.img, { [styles.img_null]: !image });
+
+	console.log(data);
 
 	return (
 		<section className={styles.container}>
@@ -38,22 +40,30 @@ function CardMedium({ card, onSave, onDelete }) {
 					</button>
 				</div>
 				<div className={styles.info}>
-					<div className={styles.point_icon} />
-					<p>{address}</p>
-					<div className={styles.schedule_icon} />
-					<div>
-						{' '}
-						<p>{schedule[0].text}</p>
-						<p>{schedule[0].text}</p>
+					<div className={styles.info_container}>
+						<div className={styles.point_icon} />
+						<p>{address.name}</p>
+					</div>
+					<div className={styles.info_container}>
+						<div className={styles.schedule_icon} />
+						<ul className={styles.schedules}>
+							{schedules.map(item => (
+								<li key={item.id} className={styles.schedules_item}>
+									<p> {item.name}</p>
+									<p> {item.start.slice(0, -3)}</p>
+									<p> {item.end.slice(0, -3)}</p>
+								</li>
+							))}
+						</ul>
 					</div>
 				</div>
 			</div>
 			<div className={styles.desription}>
 				<div className={styles.photo}>
-					<img className={styles.img} src={image} alt="фото кофейни" />
+					<img className={imgClassName} src={!image ? nullImage : image} alt="фото кофейни" />
 					<div className={styles.favourites}>
 						{' '}
-						<button type="button" className={styles.save} aria-label="добавить в избранное" />
+						<FavouritesButton type="button" />
 					</div>
 				</div>
 				<div className={styles.features}>
@@ -80,24 +90,27 @@ function CardMedium({ card, onSave, onDelete }) {
 
 					<h3 className={cn(styles.tag3, styles.tag)}>Обжарщик</h3>
 					<ul className={cn(styles.list3, styles.list)}>
-						<li>Adept x Common Coffee</li>
+						{roasters.map(item => (
+							<li key={item.id}>
+								<p>{item.name}</p>
+							</li>
+						))}
 					</ul>
 					<h3 className={cn(styles.tag4, styles.tag)}>Альтернатива</h3>
 					<div className={cn(styles.list4, styles.list)}>
-						<ul className={cn(styles.list)}>
-							<li>V60</li>
-							<li>Кемекс</li>
-						</ul>
-						<ul className={cn(styles.list)}>
-							<li>Френч-пресс</li>
-							<li>Аэропресс</li>
-						</ul>
+						{alternatives.map(item => (
+							<li key={item.id}>
+								<p>{item.name}</p>
+							</li>
+						))}
 					</div>
 					<h3 className={cn(styles.tag5, styles.tag)}>Дополнительно</h3>
 					<ul className={cn(styles.list5, styles.list)}>
-						<li>Можно с животными</li>
-						<li>Продажа зерна </li>
-						<li>Декаф </li>
+						{tags.map(item => (
+							<li key={item.id}>
+								<p>{item.name}</p>
+							</li>
+						))}
 					</ul>
 				</div>
 			</div>

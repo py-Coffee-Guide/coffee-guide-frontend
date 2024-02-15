@@ -10,7 +10,7 @@ const cardsSlice = createSlice({
 	reducers: {
 		reset: () => initialState,
 		clear: () => [],
-		setCards: (state, action) => [...state, ...action.payload],
+		setCards: (state, action) => [...state, action.payload],
 	},
 });
 

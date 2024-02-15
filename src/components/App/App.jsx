@@ -37,19 +37,13 @@ function App() {
 
 	// a0303f06-4ef8-4bd2-bef5-7e2e5e6b3ff6
 	// const { user } = useSelector(state => state);
+	// card={cards.find(item => item.id === location.pathname.replace('/card/', ''))}
 	return (
 		<div className={styles.root}>
 			<Header />
 			<Routes>
 				<Route path="/" element={<Main />} />
-				{/* <Route
-					path="/card/:cardId"
-					element={
-						<CardMedium
-							card={cards.find(item => item.id === location.pathname.replace('/card/', ''))}
-						/>
-					}
-				/> */}
+				<Route path="/card/:cardId" element={<CardMedium />} />
 				<Route path="/signin" element={<Login />} />
 				<Route path="/signup" element={<Register />} />
 				<Route path="/favourites" element={<Favourites />} />
