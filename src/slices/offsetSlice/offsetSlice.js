@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 
 const offsetSlice = createSlice({
 	name: 'offset',
-	initialState: 0,
+	initialState: 1,
 	reducers: {
-		increment: state => state + 6,
+		increment: state => state + 1,
 	},
 });
 

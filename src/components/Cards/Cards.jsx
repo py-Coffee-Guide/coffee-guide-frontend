@@ -13,7 +13,7 @@ function Cards() {
 	const dispatch = useDispatch();
 	const offsetCounter = useSelector(state => state.offset);
 	const { cards, isLoading } = useGetCardsQuery(
-		{ offset: offsetCounter },
+		{ page: offsetCounter },
 		{
 			selectFromResult: ({ data }) => ({
 				cards: data?.results,

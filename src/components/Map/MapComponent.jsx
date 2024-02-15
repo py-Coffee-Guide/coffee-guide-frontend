@@ -21,7 +21,7 @@ function MapComponent() {
 	const mapContainerClassName = cn(styles.container);
 
 	const { cards } = useGetCardsQuery(
-		{ offset: offsetCounter },
+		{ page: offsetCounter },
 		{
 			selectFromResult: ({ data }) => ({
 				cards: data?.results,
