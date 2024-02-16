@@ -16,10 +16,6 @@ function Cards() {
 
 	const offsetCounter = useSelector(state => state.offset);
 
-	useEffect(() => {
-		localStorage.setItem('favourite', JSON.stringify(saved));
-	}, [saved]);
-
 	const { cards, isLoading } = useGetCardsQuery(
 		{ page: offsetCounter },
 		{

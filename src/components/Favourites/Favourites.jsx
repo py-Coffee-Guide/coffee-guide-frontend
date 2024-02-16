@@ -6,9 +6,8 @@ import styles from './Favourites.module.scss';
 
 function Favourites() {
 	const theme = useSelector(state => state.theme);
-	const favourite = JSON.parse(localStorage.getItem('favourite')) || [];
+	const saved = useSelector(state => state.favourites.favourites);
 
-	console.log(favourite);
 	return (
 		<section className={styles.container}>
 			<div className={styles.back_button}>
@@ -16,7 +15,7 @@ function Favourites() {
 			</div>
 			<div className={styles.cardlist}>
 				<ul>
-					{favourite.map(item => (
+					{saved.map(item => (
 						<li key={item.id}>
 							<CardSmall card={item} />
 						</li>

@@ -8,7 +8,13 @@ const favouritesSlice = createSlice({
 
 	reducers: {
 		addToFavourite: (state, action) => {
-			state.favourites.push({ ...action.payload, isLiked: true });
+			if (!state.favourites.some(i => i.id === action.payload.id)) {
+				state.favourites.push(action.payload);
+				localStorage.setItem('favourite', JSON.stringify(state.favourites));
+			} else {
+				state.favourites = state.favourites.filter(i => i.id !== action.payload.id);
+				localStorage.setItem('favourite', JSON.stringify(state.favourites));
+			}
 		},
 	},
 });

@@ -74,7 +74,7 @@ function CardMedium() {
 					<img className={imgClassName} src={!image ? nullImage : image} alt="фото кофейни" />
 					<div className={styles.favourites}>
 						{' '}
-						<FavouritesButton type="button" />
+						<FavouritesButton type="button" card={data} />
 					</div>
 				</div>
 				<div className={styles.features}>

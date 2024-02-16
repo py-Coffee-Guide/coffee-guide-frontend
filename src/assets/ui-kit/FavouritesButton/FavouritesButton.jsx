@@ -8,9 +8,10 @@ import styles from './FavouritesButton.module.scss';
 import { addToFavourite } from '../../../slices/favouritesSlice/favouritesSlice';
 
 function FavouritesButton({ type, theme, active, onClick, card }) {
-	const { isLiked } = useSelector(state => state.favourites.favourites);
-	console.log(isLiked);
-	const buttonClassName = cn(styles.default, { [styles.active]: false });
+	const savedCard = useSelector(state => state.favourites.favourites);
+	const isLiked = savedCard.some(i => i.id === card.id);
+
+	const buttonClassName = cn(styles.default, { [styles.active]: isLiked });
 	const dispatch = useDispatch();
 	return (
 		<button
