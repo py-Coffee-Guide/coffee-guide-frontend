@@ -1,22 +1,22 @@
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import styles from './FavouritesButton.module.scss';
 
-function FavouritesButton({ type, theme, active }) {
-	const [isActive, setIsActive] = useState(active);
+import { addToFavourite } from '../../../slices/favouritesSlice/favouritesSlice';
 
-	const buttonClassName = cn(styles.default);
-	const buttonActiveClassName = cn(styles.default, styles.active);
-
+function FavouritesButton({ type, theme, active, onClick, card }) {
+	const { isLiked } = useSelector(state => state.favourites.favourites);
+	console.log(isLiked);
+	const buttonClassName = cn(styles.default, { [styles.active]: false });
+	const dispatch = useDispatch();
 	return (
 		<button
 			type={type}
-			className={isActive ? buttonActiveClassName : buttonClassName}
-			onClick={() => {
-				setIsActive(!isActive);
-			}}
+			className={buttonClassName}
+			onClick={() => dispatch(addToFavourite(card))}
 			aria-label="FavouritesButton"
 		/>
 	);

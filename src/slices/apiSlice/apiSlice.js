@@ -27,7 +27,6 @@ export const api = createApi({
 			// 	return currentArg !== previousArg;
 			// },
 		}),
-
 		getCardById: build.query({
 			query: id => `cafes/${id}`,
 		}),

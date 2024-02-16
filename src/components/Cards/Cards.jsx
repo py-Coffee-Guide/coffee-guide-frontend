@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setCards } from '../../slices/cardsSlice/cardsSlice';
 import { useGetCardsQuery } from '../../slices/apiSlice/apiSlice';
 
+import { addToFavourite } from '../../slices/favouritesSlice/favouritesSlice';
 import { increment } from '../../slices/offsetSlice/offsetSlice';
 
 import CardSmall from '../CardSmall/CardSmall';
@@ -11,7 +12,14 @@ import styles from './Cards.module.scss';
 
 function Cards() {
 	const dispatch = useDispatch();
+	const saved = useSelector(state => state.favourites.favourites);
+
 	const offsetCounter = useSelector(state => state.offset);
+
+	useEffect(() => {
+		localStorage.setItem('favourite', JSON.stringify(saved));
+	}, [saved]);
+
 	const { cards, isLoading } = useGetCardsQuery(
 		{ page: offsetCounter },
 		{
@@ -20,6 +28,7 @@ function Cards() {
 			}),
 		},
 	);
+
 	return (
 		<div className={styles.container}>
 			<ul>

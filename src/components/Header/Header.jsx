@@ -15,10 +15,10 @@ const FullRenderedSection = () => (
 	<>
 		<SearchSection />
 		<nav className={styles.align_container}>
-			<div className={styles.favourites}>
+			<Link to="/favourites" className={styles.favourites}>
 				<div className={styles.icon} />
 				<p className={styles.text}>Избранное</p>
-			</div>
+			</Link>
 			<Theme />
 		</nav>
 	</>
