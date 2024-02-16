@@ -23,8 +23,6 @@ function CardMedium() {
 		data;
 	const imgClassName = cn(styles.img, { [styles.img_null]: !image });
 
-	console.log(data);
-
 	return (
 		<section className={styles.container}>
 			<BackButton type="button" theme={theme} text="Назад" />

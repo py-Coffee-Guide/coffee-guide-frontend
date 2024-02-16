@@ -20,6 +20,9 @@ function Cards() {
 			}),
 		},
 	);
+
+	console.log('cards ==>', cards);
+
 	return (
 		<div className={styles.container}>
 			<ul>

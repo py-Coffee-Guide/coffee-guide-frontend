@@ -31,7 +31,18 @@ export const api = createApi({
 		getCardById: build.query({
 			query: id => `cafes/${id}`,
 		}),
+
+		getAddresses: build.query({
+			query: args => {
+				const { id, lat, lon, name } = args;
+				return {
+					url: 'addresses',
+					params: { id, lat, lon, name },
+				};
+			},
+		}),
 	}),
 });
 
-export const { useGetCardsQuery, useGetCardByIdQuery, useLazyGetCardsQuery } = api;
+export const { useGetCardsQuery, useGetCardByIdQuery, useLazyGetCardsQuery, useGetAddressesQuery } =
+	api;
