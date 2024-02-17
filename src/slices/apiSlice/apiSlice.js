@@ -7,16 +7,14 @@ export const api = createApi({
 	endpoints: build => ({
 		getCards: build.query({
 			query: args => {
-				const { page, roasters, tags, alternatives, limit, offset } = args;
+				const { page, limit, offset, availables } = args;
 				return {
 					url: 'cafes',
 					params: {
 						limit,
 						offset,
 						page,
-						roasters,
-						tags,
-						alternatives,
+						availables,
 					},
 				};
 			},

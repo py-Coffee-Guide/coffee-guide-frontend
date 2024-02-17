@@ -17,17 +17,7 @@ function MapComponent() {
 	const [isActive, setIsActive] = useState(false);
 	const [isCard, setIsCard] = useState({});
 	const [place, setPlace] = useState({});
-	const offsetCounter = useSelector(state => state.offset);
-	const mapContainerClassName = cn(styles.container);
-
-	const { cards } = useGetCardsQuery(
-		{ page: offsetCounter },
-		{
-			selectFromResult: ({ data }) => ({
-				cards: data?.results,
-			}),
-		},
-	);
+	const card = useSelector(state => state.cards);
 
 	const handleOpenBalloon = () => {
 		setIsActive(true);
@@ -39,7 +29,7 @@ function MapComponent() {
 	};
 
 	return (
-		<div className={mapContainerClassName}>
+		<div className={styles.container}>
 			<Map
 				defaultState={{ center: [55.75, 37.57], zoom: 11 }}
 				width="inherit"
@@ -49,7 +39,7 @@ function MapComponent() {
 				instanceRef={setPlace}
 				onClick={handleCloseBalloon}
 			>
-				{cards?.map(card => (
+				{card?.map(card => (
 					<Placemark
 						key={card.id}
 						geometry={[card.address.lat, card.address.lon]}
