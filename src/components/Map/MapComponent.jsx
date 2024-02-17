@@ -17,7 +17,7 @@ function MapComponent() {
 	const [isActive, setIsActive] = useState(false);
 	const [isCard, setIsCard] = useState({});
 	const [place, setPlace] = useState({});
-	const card = useSelector(state => state.cards);
+	const card = useSelector(state => state.cards.cards);
 
 	const handleOpenBalloon = () => {
 		setIsActive(true);

@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setCards } from '../../slices/cardsSlice/cardsSlice';
 import { useGetCardsQuery } from '../../slices/apiSlice/apiSlice';
 
-import { addToFavourite } from '../../slices/favouritesSlice/favouritesSlice';
 import { increment } from '../../slices/offsetSlice/offsetSlice';
 
 import CardSmall from '../CardSmall/CardSmall';
@@ -12,7 +11,7 @@ import styles from './Cards.module.scss';
 
 function Cards() {
 	const dispatch = useDispatch();
-	const card = useSelector(state => state.cards);
+	const card = useSelector(state => state.cards.cards);
 	const offsetCounter = useSelector(state => state.offset);
 	const { cards, isFetching, isLoading, isSuccess, isError } = useGetCardsQuery(
 		{ page: offsetCounter },
