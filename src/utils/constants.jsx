@@ -25,3 +25,10 @@ export const BASE_TAGS = [
 		tag: 'sweater',
 	},
 ];
+
+export const SPECIAL_EXTRAS = [
+	{ id: 1, text: 'Можно с животными' },
+	{ id: 2, text: 'Продажа зерна' },
+	{ id: 3, text: 'Декаф' },
+];
+export const ADD_INPUT = [];
