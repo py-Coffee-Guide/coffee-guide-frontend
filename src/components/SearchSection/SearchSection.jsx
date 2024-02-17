@@ -45,7 +45,7 @@ function SearchSection() {
 		setInputVlaue(e.target.value);
 
 		// сбрасываем стейт перед новой фильтрацией
-		// dispatch(resetFilteredCards());
+		dispatch(clearFiltered());
 		const result = onFilter(e.target.value, cardsArray);
 
 		// передаем отфильтрованные карточки в стейт
