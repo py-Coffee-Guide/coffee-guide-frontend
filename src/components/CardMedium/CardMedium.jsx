@@ -13,7 +13,7 @@ import { useGetCardByIdQuery } from '../../slices/apiSlice/apiSlice';
 function CardMedium() {
 	const location = useLocation();
 	const theme = useSelector(state => state.theme);
-	const { data = {}, isLoading } = useGetCardByIdQuery(location.state.key);
+	const { data, isLoading } = useGetCardByIdQuery(location.state.key);
 
 	if (isLoading) {
 		return <p>LOADING....</p>;
@@ -31,6 +31,7 @@ function CardMedium() {
 		additionals,
 		drinks,
 	} = data;
+
 	const imgClassName = cn(styles.img, { [styles.img_null]: !image });
 
 	return (
