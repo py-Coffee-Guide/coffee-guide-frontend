@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setFilteredCards, resetFilteredCards } from '../../slices/filteredCards/filteredCards';
-import { setCards, clear } from '../../slices/cardsSlice/cardsSlice';
-import { useGetAddressesQuery } from '../../slices/apiSlice/apiSlice';
-
-import { cardsArray } from '../../utils/cardsArray';
+import { setFiltered, clearFiltered } from '../../slices/cardsSlice/cardsSlice';
 
 // import cn from 'classnames';
 
@@ -16,9 +12,6 @@ import SearchResult from '../SearchResult/SearchResult';
 function SearchSection() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const addresses = useGetAddressesQuery({});
-
-	console.log('addresses ==>', addresses);
 
 	const [inputValue, setInputVlaue] = useState('');
 	const [placeholder, setPlaceholder] = useState('Название кофеӣни / адрес');
@@ -43,30 +36,8 @@ function SearchSection() {
 		return searchResult;
 	};
 
-	// const onFilter = (inputValue, cardsArray) => {
-	// 	localStorage.setItem('inputValue', JSON.stringify(inputValue));
-	// 	localStorage.setItem('cards', JSON.stringify(cardsArray));
-
-	// 	// переменная для сохрарения результата поиска
-	// 	let searchResult = [];
-	// 	if (inputValue) {
-	// 		searchResult = cardsArray.filter(item => {
-	// 			const searchText =
-	// 				item.name.toLowerCase().includes(inputValue.toLowerCase()) ||
-	// 				item.address.toLowerCase().includes(inputValue.toLowerCase());
-	// 			return searchText;
-	// 		});
-	// 	}
-
-	// 	searchResult.length > 0 ? setIsSearchSuccess(true) : setIsSearchSuccess(false);
-	// 	return searchResult;
-	// };
-
 	const handleChange = e => {
 		setInputVlaue(e.target.value);
-		dispatch(resetFilteredCards());
-		const result = onFilter(e.target.value, addresses);
-		dispatch(setFilteredCards(result));
 	};
 
 	// const handleChange = e => {
@@ -92,8 +63,8 @@ function SearchSection() {
 	// 	} else {
 	// 		const result = onFilter(inputValue, cardsArray);
 
-	// 		dispatch(clear());
-	// 		dispatch(setCards(result));
+	// 		dispatch(clearFiltered());
+	// 		dispatch(setFiltered(result));
 	// 		setIsSearchSuccess(false);
 	// 		navigate('/');
 	// 	}

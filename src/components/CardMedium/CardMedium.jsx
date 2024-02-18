@@ -19,8 +19,18 @@ function CardMedium() {
 		return <p>LOADING....</p>;
 	}
 
-	const { address, alternatives, description, id, image, name, roasters, schedules, tags, drinks } =
-		data;
+	const {
+		address,
+		alternatives,
+		description,
+		id,
+		image,
+		name,
+		roasters,
+		schedules,
+		additionals,
+		drinks,
+	} = data;
 	const imgClassName = cn(styles.img, { [styles.img_null]: !image });
 
 	return (
@@ -62,7 +72,7 @@ function CardMedium() {
 					<img className={imgClassName} src={!image ? nullImage : image} alt="фото кофейни" />
 					<div className={styles.favourites}>
 						{' '}
-						<FavouritesButton type="button" />
+						<FavouritesButton type="button" card={data} />
 					</div>
 				</div>
 				<div className={styles.features}>
@@ -100,7 +110,7 @@ function CardMedium() {
 					</div>
 					<h3 className={cn(styles.tag5, styles.tag)}>Дополнительно</h3>
 					<ul className={cn(styles.list5, styles.list)}>
-						{tags.map(item => (
+						{additionals.map(item => (
 							<li key={item.id}>
 								<p>{item.name}</p>
 							</li>

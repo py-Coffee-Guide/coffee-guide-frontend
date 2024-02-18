@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 
@@ -6,7 +7,7 @@ import styles from './CardSmall.module.scss';
 import FavouritesButton from '../../assets/ui-kit/FavouritesButton/FavouritesButton';
 import CloseButton from '../../assets/ui-kit/CloseButton/CloseButton'; // Добавил иконку удаления
 
-function CardSmall({ card, onSave, onDelete }) {
+function CardSmall({ card, onSave, onDelete, onClick }) {
 	const { address, name, schedules, image } = card;
 
 	const navigate = useNavigate();
@@ -15,7 +16,7 @@ function CardSmall({ card, onSave, onDelete }) {
 		navigate(`/card/${card.id}`, { state: { key: card.id } });
 	};
 
-	const photoClassName = cn(styles.photo, [!image && styles.photo_null]);
+	const photoClassName = cn(styles.photo, { [styles.photo_null]: !image });
 
 	return (
 		<div className={styles.card}>
@@ -28,7 +29,7 @@ function CardSmall({ card, onSave, onDelete }) {
 				/>
 
 				<div className={styles.favourite}>
-					<FavouritesButton />
+					<FavouritesButton card={card} />
 				</div>
 			</div>
 
@@ -36,13 +37,13 @@ function CardSmall({ card, onSave, onDelete }) {
 				<h3 className={styles.title}>{name}</h3>
 				<p className={styles.text}>{address.name}</p>
 				<ul className={styles.schedules}>
-					{schedules.map(item => (
+					{/* {schedules.map(item => (
 						<li key={item.id} className={styles.schedules_item}>
 							<p> {item.name}</p>
 							<p> {item.start.slice(0, -3)}</p>
 							<p> {item.end.slice(0, -3)}</p>
 						</li>
-					))}
+					))} */}
 				</ul>
 			</div>
 		</div>
