@@ -27,12 +27,12 @@ function Cards() {
 
 	const handleClick = () => {
 		dispatch(increment());
+		dispatch(setCards(cards));
 	};
 
 	return (
 		<div className={styles.container}>
 			<ul>
-				{card?.map(card => (
 				{card?.map(card => (
 					<li key={card.id}>
 						<CardSmall card={card} />
