@@ -13,9 +13,9 @@ function TagButton({ text, type, tag, theme, active, onClick }) {
 	const btnClassName = cn(styles.button, { [styles.checked]: isActive });
 	const textClassName = cn(styles.text);
 
-	const handleClick = tag => {
+	const handleClick = () => {
 		setIsActive(!isActive);
-		console.log(tag);
+		onClick();
 	};
 
 	return (
