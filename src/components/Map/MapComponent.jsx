@@ -8,8 +8,6 @@ import { useGetCardsQuery } from '../../slices/apiSlice/apiSlice';
 import BalloonModal from '../BalloonModal/BalloonModal';
 import CardSmall from '../CardSmall/CardSmall';
 
-import { cardsArray } from '../../utils/cardsArray';
-
 import styles from './MapComponent.module.scss';
 import location from '../../assets/images/location-pin.svg';
 
