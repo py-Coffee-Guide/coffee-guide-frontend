@@ -24,6 +24,7 @@ export const api = createApi({
 			},
 			providesTags: ['Cards'],
 		}),
+
 		getCardById: build.query({
 			query: id => `cafes/${id}`,
 		}),

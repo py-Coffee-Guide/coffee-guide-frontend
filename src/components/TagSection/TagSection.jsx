@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import styles from './TagSection.module.scss';
 import { BASE_TAGS } from '../../utils/constants';
 
-import { setFilter } from '../../slices/cardsSlice/cardsSlice';
+import { setFilter, clearCards } from '../../slices/cardsSlice/cardsSlice';
 
 import TagButton from '../../assets/ui-kit/TagButton/TagButton';
 import HorizontalLine from '../HorizontalLine/HorizontalLine';
@@ -13,6 +13,7 @@ function TagSection() {
 
 	const handleClick = item => {
 		dispatch(setFilter(item));
+		dispatch(clearCards());
 	};
 	return (
 		<>
