@@ -5,7 +5,6 @@ import { api } from '../slices/apiSlice/apiSlice';
 import offsetSlice from '../slices/offsetSlice/offsetSlice';
 import themeReducer from '../slices/themeSlice/themeSlice';
 import cardsReducer from '../slices/cardsSlice/cardsSlice';
-import filteredCardsReducer from '../slices/filteredCards/filteredCards';
 
 const store = configureStore({
 	reducer: {
@@ -14,7 +13,6 @@ const store = configureStore({
 		offset: offsetSlice,
 		theme: themeReducer,
 		cards: cardsReducer,
-		filteredCards: filteredCardsReducer,
 	},
 	middleware: getDefaultMiddleware => getDefaultMiddleware().concat(api.middleware),
 });

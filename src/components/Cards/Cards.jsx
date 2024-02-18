@@ -11,8 +11,9 @@ import styles from './Cards.module.scss';
 
 function Cards() {
 	const dispatch = useDispatch();
+	const card = useSelector(state => state.cards.cards);
 	const offsetCounter = useSelector(state => state.offset);
-	const { cards, isLoading } = useGetCardsQuery(
+	const { cards, isFetching, isLoading, isSuccess, isError } = useGetCardsQuery(
 		{ page: offsetCounter },
 		{
 			selectFromResult: ({ data }) => ({
@@ -21,20 +22,25 @@ function Cards() {
 		},
 	);
 
-	console.log('cards ==>', cards);
+	const handleClick = () => {
+		dispatch(increment());
+		dispatch(setCards(cards));
+	};
 
 	return (
 		<div className={styles.container}>
 			<ul>
-				{cards?.map(card => (
+				{card?.map(card => (
 					<li key={card.id}>
 						<CardSmall card={card} />
 					</li>
 				))}
 			</ul>
-			<button type="button" className={styles.more} onClick={() => dispatch(increment())}>
-				Показать больше кофеен
-			</button>
+			{!isError && (
+				<button type="button" className={styles.more} onClick={handleClick}>
+					Показать больше кофеен
+				</button>
+			)}
 		</div>
 	);
 }

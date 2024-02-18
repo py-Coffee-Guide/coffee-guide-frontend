@@ -45,10 +45,11 @@
 	display: flex;
 	align-items: center;
 	margin-right: 66px;
+	cursor: pointer;
+	text-decoration: none;
 	.icon {
 		width: 44px;
 		height: 44px;
-		cursor: pointer;
 		background-image: url('../../assets/images/favourites.svg');
 		background-repeat: no-repeat;
 		background-position: center;

@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setFilteredCards, resetFilteredCards } from '../../slices/filteredCards/filteredCards';
-import { setCards, clear } from '../../slices/cardsSlice/cardsSlice';
-import { useGetAddressesQuery } from '../../slices/apiSlice/apiSlice';
+import { setFiltered, clearFiltered } from '../../slices/cardsSlice/cardsSlice';
 
 import { cardsArray } from '../../utils/cardsArray';
 
@@ -16,9 +14,6 @@ import SearchResult from '../SearchResult/SearchResult';
 function SearchSection() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const addresses = useGetAddressesQuery({});
-
-	console.log('addresses ==>', addresses);
 
 	const [inputValue, setInputVlaue] = useState('');
 	const [placeholder, setPlaceholder] = useState('Название кофеӣни / адрес');
@@ -64,9 +59,13 @@ function SearchSection() {
 
 	const handleChange = e => {
 		setInputVlaue(e.target.value);
-		dispatch(resetFilteredCards());
-		const result = onFilter(e.target.value, addresses);
-		dispatch(setFilteredCards(result));
+
+		// сбрасываем стейт перед новой фильтрацией
+		dispatch(clearFiltered());
+		const result = onFilter(e.target.value, cardsArray);
+
+		// передаем отфильтрованные карточки в стейт
+		dispatch(setFiltered(result));
 	};
 
 	// const handleChange = e => {
@@ -83,21 +82,17 @@ function SearchSection() {
 
 	const handleSubmit = e => {
 		e.preventDefault();
+		if (!isQuery) {
+			setPlaceholder('Нужно ввести ключевое слово');
+		} else {
+			const result = onFilter(inputValue, cardsArray);
+
+			dispatch(clearFiltered());
+			dispatch(setFiltered(result));
+			setIsSearchSuccess(false);
+			navigate('/');
+		}
 	};
-
-	// const handleSubmit = e => {
-	// 	e.preventDefault();
-	// 	if (!isQuery) {
-	// 		setPlaceholder('Нужно ввести ключевое слово');
-	// 	} else {
-	// 		const result = onFilter(inputValue, cardsArray);
-
-	// 		dispatch(clear());
-	// 		dispatch(setCards(result));
-	// 		setIsSearchSuccess(false);
-	// 		navigate('/');
-	// 	}
-	// };
 
 	return (
 		<section className={styles.container}>
