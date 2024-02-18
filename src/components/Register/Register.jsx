@@ -12,44 +12,19 @@ import Button from '../../assets/ui-kit/Button/Button';
 
 function Register() {
 	const navigate = useNavigate();
-	// const [inputValues, setInputValues] = useState({});
+	// const [inputValues, setInputValues] = useState([]);
 
 	const inputValues = {
-		name: 'user',
-		email: 'user@email.com',
-		organization_inn: '6320052778',
+		name: 'user3',
+		email: 'user3@email.com',
+		organization_inn: '7723517121',
 	};
 	console.log('inputValues ==>', inputValues);
 
 	const { data = [], isLoading } = useGetUsersQuery();
-	console.log('users ==>', data);
+	// console.log('users ==>', data);
 
 	const [addUser, { isError }] = useAddUserMutation();
-
-	const handleAddUser = async () => {
-		if (inputValues) {
-			await addUser(inputValues).unwrap();
-			// setInputValues({});
-		}
-	};
-
-	// function handleReg() {
-	// 	const inputValues ={
-	// 		name: 'user',
-	// 		email: 'user@example.com',
-	// 		organization_inn: '6320052778',
-	// 	}
-	// 	console.log('inputValues ==>', inputValues);
-
-	// 	const { name, email, organization_inn } = inputValues;
-
-	// 	testApi
-	// 		.register(name, email, organization_inn)
-	// 		.then(data => {
-	// 			console.log('data reg ==>', data);
-	// 		})
-	// 		.catch(err => console.log(err));
-	// }
 
 	const {
 		register,
@@ -58,6 +33,14 @@ function Register() {
 		reset,
 		formState: { errors },
 	} = useForm({ defaultValues: { email: '', organization_inn: '', name: '' }, mode: 'onChange' });
+
+	const handleAddUser = async () => {
+		if (inputValues) {
+			await addUser(inputValues).unwrap();
+			// setInputValues(getValues());
+			// setInputValues({});
+		}
+	};
 
 	const onSubmit = userData => {
 		// метод из апи POST user
@@ -121,10 +104,7 @@ function Register() {
 					</div>
 					<Button
 						// onClick={() => handleReg()}
-						onClick={() => {
-							// setInputValues(JSON.stringify(getValues()));
-							handleAddUser();
-						}}
+						onClick={() => handleAddUser()}
 						type="submit"
 						size="large"
 						text="получить пароль"

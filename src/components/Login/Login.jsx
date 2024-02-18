@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import cn from 'classnames';
 import styles from './Login.module.scss';
 import { useLoginMutation } from '../../slices/apiSlice/apiSlice';
+import { setUser } from '../../slices/userSlice/userSlice';
 
 import Button from '../../assets/ui-kit/Button/Button';
 
@@ -11,21 +12,23 @@ function Login() {
 
 	const {
 		register,
+		watch,
 		handleSubmit,
 		reset,
 		formState: { errors },
 	} = useForm({ defaultValues: { email: '', password: '' }, mode: 'onChange' });
 
 	const inputValues = {
-		password: 'usSDV23er',
-		username: 'user',
+		password: 'coffee_git_project2024',
+		username: 'admin_coffee_gid',
 	};
 
 	const [login, { isError }] = useLoginMutation();
 
-	const handleAddUser = async () => {
+	const handleLogin = async () => {
 		if (inputValues) {
 			await login(inputValues).unwrap();
+			setUser(inputValues);
 			// setInputValues({});
 		}
 	};
@@ -60,7 +63,7 @@ function Login() {
 						/>
 						{errors.password && <span className={styles.error}>{errors.password?.message}</span>}
 					</div>
-					<Button onClick={() => handleAddUser()} type="submit" size="large" text="войти" />
+					<Button onClick={() => handleLogin()} type="submit" size="large" text="войти" />
 				</form>
 				<div className={styles.links}>
 					<p>Впервые у нас?</p>

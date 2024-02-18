@@ -3,13 +3,14 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const api = createApi({
 	reducerPath: 'api',
 	baseQuery: fetchBaseQuery({
+		// baseUrl: 'http://coffee-gid.ddns.net/api/v1/',
 		baseUrl: 'http://127.0.0.1:8000/api/v1/',
 		prepareHeaders: headers => {
 			headers.set('Content-type', 'application/json');
 			return headers;
 		},
 	}),
-	tagTypes: ['Cards'],
+	tagTypes: ['Cards', 'Users'],
 	endpoints: build => ({
 		getCards: build.query({
 			query: args => {
@@ -37,6 +38,10 @@ export const api = createApi({
 
 		getUsers: build.query({
 			query: () => 'users',
+			providesTags: result =>
+				result
+					? [...result.map(({ id }) => ({ type: 'Users', id })), { type: 'Users', id: 'LIST' }]
+					: [{ type: 'Users', id: 'LIST' }],
 		}),
 
 		addUser: build.mutation({
@@ -45,6 +50,7 @@ export const api = createApi({
 				method: 'POST',
 				body,
 			}),
+			invalidatesTags: [{ type: 'Users', id: 'LIST' }],
 		}),
 
 		login: build.mutation({
@@ -54,6 +60,14 @@ export const api = createApi({
 				body,
 			}),
 		}),
+
+		// deleteUser: build.mutation({
+		// 	query: id => ({
+		// 		url: `users/${id}/`,
+		// 		method: 'DELETE',
+		// 	}),
+		// 	invalidatesTags: [{ type: 'Users', id: 'LIST' }],
+		// }),
 	}),
 });
 
@@ -64,4 +78,5 @@ export const {
 	useGetUsersQuery,
 	useAddUserMutation,
 	useLoginMutation,
+	useDeleteUserMutation,
 } = api;
