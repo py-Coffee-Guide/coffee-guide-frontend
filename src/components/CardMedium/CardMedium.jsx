@@ -97,6 +97,7 @@ function CardMedium() {
 					<div className={styles.favourites}>
 						{' '}
 						<FavouritesButton type="button" card={data} />
+						<FavouritesButton type="button" card={data} />
 					</div>
 				</div>
 				<div className={styles.features}>
@@ -134,6 +135,7 @@ function CardMedium() {
 					</div>
 					<h3 className={cn(styles.tag5, styles.tag)}>Дополнительно</h3>
 					<ul className={cn(styles.list5, styles.list)}>
+						{additionals.map(item => (
 						{additionals.map(item => (
 							<li key={item.id}>
 								<p>{item.name}</p>

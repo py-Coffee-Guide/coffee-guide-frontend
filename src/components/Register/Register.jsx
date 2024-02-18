@@ -1,22 +1,51 @@
+import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import cn from 'classnames';
 import styles from './Register.module.scss';
 
+import { useAddUserMutation, useGetUsersQuery } from '../../slices/apiSlice/apiSlice';
+
+import * as testApi from '../../utils/testApi';
+
 import Button from '../../assets/ui-kit/Button/Button';
 
 function Register() {
 	const navigate = useNavigate();
+	// const [inputValues, setInputValues] = useState([]);
+
+	const inputValues = {
+		name: 'user3',
+		email: 'user3@email.com',
+		organization_inn: '7723517121',
+	};
+	console.log('inputValues ==>', inputValues);
+
+	const { data = [], isLoading } = useGetUsersQuery();
+	// console.log('users ==>', data);
+
+	const [addUser, { isError }] = useAddUserMutation();
 
 	const {
 		register,
+		getValues,
 		handleSubmit,
 		reset,
 		formState: { errors },
 	} = useForm({ defaultValues: { email: '', organization_inn: '', name: '' }, mode: 'onChange' });
 
-	const onSubmit = data => {
-		console.log(data);
+	const handleAddUser = async () => {
+		if (inputValues) {
+			await addUser(inputValues).unwrap();
+			// setInputValues(getValues());
+			// setInputValues({});
+		}
+	};
+
+	const onSubmit = userData => {
+		// метод из апи POST user
+
+		console.log(userData);
 		navigate('/signin', { replace: true });
 		reset();
 	};
@@ -73,7 +102,13 @@ function Register() {
 						/>
 						{errors.name && <span className={styles.error}>{errors.name?.message}</span>}
 					</div>
-					<Button type="submit" size="large" text="получить пароль" />
+					<Button
+						// onClick={() => handleReg()}
+						onClick={() => handleAddUser()}
+						type="submit"
+						size="large"
+						text="получить пароль"
+					/>
 				</form>
 
 				<div className={styles.links}>
