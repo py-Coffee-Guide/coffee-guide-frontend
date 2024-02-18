@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { Map, Placemark } from '@pbe/react-yandex-maps';
 
 import cn from 'classnames';
 import styles from './CardMedium.module.scss';
@@ -9,6 +10,8 @@ import FavouritesButton from '../../assets/ui-kit/FavouritesButton/FavouritesBut
 import nullImage from '../../assets/images/logo.svg';
 
 import { useGetCardByIdQuery } from '../../slices/apiSlice/apiSlice';
+
+import locationImg from '../../assets/images/location-pin.svg';
 
 function CardMedium() {
 	const location = useLocation();
@@ -45,7 +48,27 @@ function CardMedium() {
 					<p>{description}</p>
 				</div>
 				<div className={styles.map}>
-					<div className={styles.map_mini} />
+					<div className={styles.map_mini}>
+						<Map
+							defaultState={{ center: [address.lat, address.lon], zoom: 11 }}
+							width="inherit"
+							height="inherit"
+							modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
+							options={{ exitFullscreenByEsc: true, yandexMapDisablePoiInteractivity: true }}
+						>
+							<Placemark
+								geometry={[address.lat, address.lon]}
+								options={{
+									preset: 'islands#circleIcon',
+									iconLayout: 'default#image',
+									iconImageHref: locationImg,
+									iconImageSize: [30, 30],
+									hideIconOnBalloonOpen: false,
+									balloonCloseButton: false,
+								}}
+							/>
+						</Map>
+					</div>
 					<button className={styles.button} type="button">
 						Построить маршрут
 					</button>

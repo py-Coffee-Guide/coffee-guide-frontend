@@ -45,11 +45,11 @@ function SearchSection() {
 		setInputVlaue(e.target.value);
 
 		// сбрасываем стейт перед новой фильтрацией
-		dispatch(clearFiltered());
-		const result = onFilter(e.target.value, cardsArray);
+		// dispatch(clearFiltered());
+		// const result = onFilter(e.target.value, cardsArray);
 
-		// передаем отфильтрованные карточки в стейт
-		dispatch(setFiltered(result));
+		// // передаем отфильтрованные карточки в стейт
+		// dispatch(setFiltered(result));
 	};
 
 	const handleSubmit = e => {

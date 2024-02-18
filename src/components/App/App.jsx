@@ -10,8 +10,6 @@ import NotFound from '../NotFound/NotFound';
 import Register from '../Register/Register';
 import Profile from '../Profile/Profile';
 
-import { card } from '../../utils/card';
-
 import styles from './App.module.scss';
 
 function App() {

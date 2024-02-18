@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 
 import styles from './SearchResult.module.scss';
-import CardMedium from '../CardMedium/CardMedium';
 
 function SearchResult({ isVisible }) {
 	const filteredCards = useSelector(state => state.cards.filtered);
