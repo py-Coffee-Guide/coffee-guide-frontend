@@ -9,7 +9,9 @@ const cardsSlice = createSlice({
 		filters: [],
 	},
 	reducers: {
-		setCards: (state, action) => [...state.cards, ...action.payload],
+		setCards: (state, action) => {
+			state.cards = [...state.cards, ...action.payload];
+		},
 		setFiltered: (state, action) => {
 			state.filtered = [...state.filtered, ...action.payload];
 		},

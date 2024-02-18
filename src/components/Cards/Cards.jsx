@@ -25,10 +25,6 @@ function Cards() {
 		{ refetchOnMountOrArgChange: true },
 	);
 
-	if (isLoading) {
-		<p>loading....</p>;
-	}
-
 	const handleClick = () => {
 		dispatch(increment());
 	};

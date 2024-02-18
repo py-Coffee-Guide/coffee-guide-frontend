@@ -20,7 +20,7 @@ function SearchResult({ isVisible }) {
 	return (
 		<div className={resultClassName}>
 			<ul className={styles.result}>
-				{filteredCards.slice(0, 4).map(item => (
+				{filteredCards?.map(item => (
 					<li onClick={() => handleClick(item)} className={styles.item} key={item.id}>
 						<p className={styles.title}>{item.name}</p>
 						<address className={styles.address}>{item.address.name}</address>

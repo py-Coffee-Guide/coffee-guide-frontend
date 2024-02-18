@@ -18,10 +18,10 @@ function SearchSection() {
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const { data, isError } = useGetFilteredCardsQuery(inputValue);
+	const { data, isLoading } = useGetFilteredCardsQuery(inputValue);
 
-	console.log('inputValue ==>', inputValue);
-	console.log('isQuery ==>', isQuery);
+	// console.log('inputValue ==>', inputValue);
+	// console.log('isQuery ==>', isQuery);
 
 	const handleChange = e => {
 		setInputVlaue(e.target.value);
