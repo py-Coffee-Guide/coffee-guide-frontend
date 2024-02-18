@@ -14,6 +14,7 @@
 			width: 268px;
 			list-style: none;
 			margin-bottom: 12px;
+
 			&:nth-last-child(-n + 2) {
 				margin-bottom: 0;
 			}
@@ -22,4 +23,14 @@
 }
 .container::-webkit-scrollbar {
 	display: none;
+}
+
+.card {
+	padding: 0;
+	border: none;
+	font: inherit;
+	color: inherit;
+	background-color: transparent;
+	cursor: pointer;
+	text-decoration: none;
 }
