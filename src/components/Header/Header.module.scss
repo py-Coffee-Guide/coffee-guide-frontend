@@ -47,6 +47,10 @@
 	margin-right: 66px;
 	cursor: pointer;
 	text-decoration: none;
+	&:hover {
+		background-color: var(--hover);
+		border-radius: 12px;
+	}
 }
 
 .icon {

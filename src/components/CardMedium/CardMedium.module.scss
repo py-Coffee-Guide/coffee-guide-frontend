@@ -1,9 +1,10 @@
+@use '../../assets/fonts/fonts_list.scss' as *;
+
 $text-font: 'SourceSansPro-Regular';
 $header-font: 'Lora-Bold';
-$color: var(--text-color);
 
 @mixin base-icon {
-	width: 16px;
+	width: 20px;
 	height: 20px;
 	margin-right: 8px;
 	background-repeat: no-repeat;
@@ -13,8 +14,8 @@ $color: var(--text-color);
 .container {
 	margin: 36px auto 76px;
 	max-width: 1132px;
-	font-family: $text-font;
-	color: $color;
+	@include font($sans, 18px, 20px, 0.18px);
+	color: var(--text-color);
 }
 
 .back {
@@ -56,12 +57,10 @@ $color: var(--text-color);
 
 .title {
 	width: 556px;
-	font-family: $header-font;
 	margin-right: 20px;
 	h1 {
+		@include font($lora, 40px, 51px, .4px);
 		margin: 0;
-		font-size: 40px;
-		letter-spacing: 0.4px;
 	}
 	p {
 		margin: 25px 0;
@@ -110,16 +109,27 @@ $color: var(--text-color);
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	color: var(--text-color-alternative)
 }
 
 .point_icon {
 	@include base-icon();
-	background-image: url(../../assets/images/point.svg);
+	background-image: url(../../assets/images/ui-kit-icons/point.svg);
+}
+
+.point_icon_dark {
+	@include base-icon();
+	background-image: url(../../assets/images/ui-kit-icons/point-dark.svg);
 }
 
 .schedule_icon {
 	@include base-icon();
-	background-image: url(../../assets/images/clock.svg);
+	background-image: url(../../assets/images/ui-kit-icons/clock.svg);
+}
+
+.schedule_icon_dark {
+	@include base-icon();
+	background-image: url(../../assets/images/ui-kit-icons/clock-dark.svg);
 }
 
 .schedules {
@@ -173,9 +183,9 @@ $color: var(--text-color);
 .features {
 	margin-left: 20px;
 	display: grid;
-	grid-template-rows: repeat(5, 1fr);
-	grid-template-columns: 175px 1fr;
-	gap: 12px;
+	grid-template-rows: repeat(5, auto);
+	grid-template-columns: 192px 1fr;
+	gap: 28px 20px;
 	grid-template-areas:
 		'tag1 list1'
 		'tag2 list2'
@@ -186,7 +196,7 @@ $color: var(--text-color);
 
 .tag {
 	margin: 0;
-	font-family: $header-font;
+	@include font($lora, 18px, 24px);
 }
 
 .tag1 {
@@ -213,33 +223,18 @@ $color: var(--text-color);
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	padding-right: 12px;
 	position: relative;
-}
-
-.list:first-child::after {
-	position: absolute;
-	content: '';
-	height: 65%;
-	width: 1px;
-	background: rgba(23, 22, 20, 0.2);
-	right: 0;
-	top: 0;
-}
-
-.list:last-child {
-	padding-left: 12px;
+	@include font($sans, 16px, 28px, 0.18px);
 }
 
 .list1 {
 	grid-area: list1;
-	list-style-image: url(../../assets/images/list-item.svg);
-	list-style-position: inside;
+	list-style-image: url(../../assets/images/ui-kit-icons/list-item.svg);
+	list-style-position: outside;
 }
 
 .list2 {
 	grid-area: list2;
-	display: flex;
 }
 
 .list3 {
@@ -248,7 +243,6 @@ $color: var(--text-color);
 
 .list4 {
 	grid-area: list4;
-	display: flex;
 }
 
 .list4 {

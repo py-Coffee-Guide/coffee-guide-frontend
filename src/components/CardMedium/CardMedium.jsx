@@ -74,11 +74,11 @@ function CardMedium() {
 				</div>
 				<div className={styles.info}>
 					<div className={styles.info_container}>
-						<div className={styles.point_icon} />
+						<div className={theme === 'light' ? styles.point_icon : styles.point_icon_dark} />
 						<p>{address.name}</p>
 					</div>
 					<div className={styles.info_container}>
-						<div className={styles.schedule_icon} />
+						<div className={theme === 'light' ? styles.schedule_icon : styles.schedule_icon_dark} />
 						<ul className={styles.schedules}>
 							{schedules.map(item => (
 								<li key={item.id} className={styles.schedules_item}>
@@ -111,7 +111,7 @@ function CardMedium() {
 					<div className={cn(styles.list2)}>
 						<ul className={cn(styles.list)}>
 							{drinks.map(item => (
-								<li key={item.id}>{`${item.name} ${item.cost} ₽`} </li>
+								<li key={item.id}>{`${item.name}: ${item.cost} ₽`} </li>
 							))}
 						</ul>
 					</div>
@@ -119,25 +119,19 @@ function CardMedium() {
 					<h3 className={cn(styles.tag3, styles.tag)}>Обжарщик</h3>
 					<ul className={cn(styles.list3, styles.list)}>
 						{roasters.map(item => (
-							<li key={item.id}>
-								<p>{item.name}</p>
-							</li>
+							<li key={item.id}>{item.name}</li>
 						))}
 					</ul>
 					<h3 className={cn(styles.tag4, styles.tag)}>Альтернатива</h3>
 					<div className={cn(styles.list4, styles.list)}>
 						{alternatives.map(item => (
-							<li key={item.id}>
-								<p>{item.name}</p>
-							</li>
+							<li key={item.id}>{item.name}</li>
 						))}
 					</div>
 					<h3 className={cn(styles.tag5, styles.tag)}>Дополнительно</h3>
 					<ul className={cn(styles.list5, styles.list)}>
 						{additionals.map(item => (
-							<li key={item.id}>
-								<p>{item.name}</p>
-							</li>
+							<li key={item.id}>{item.name}</li>
 						))}
 					</ul>
 				</div>
