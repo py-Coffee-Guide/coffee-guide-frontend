@@ -97,7 +97,6 @@ function CardMedium() {
 					<div className={styles.favourites}>
 						{' '}
 						<FavouritesButton type="button" card={data} />
-						<FavouritesButton type="button" card={data} />
 					</div>
 				</div>
 				<div className={styles.features}>

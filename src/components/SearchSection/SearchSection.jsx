@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setFiltered, clearFiltered } from '../../slices/cardsSlice/cardsSlice';
-import { useGetFilteredCardsQuery } from '../../slices/apiSlice/apiSlice';
+// import { useGetFilteredCardsQuery } from '../../slices/apiSlice/apiSlice';
 
 // import cn from 'classnames';
 
@@ -18,7 +18,7 @@ function SearchSection() {
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const { data, isLoading } = useGetFilteredCardsQuery(inputValue);
+	// const { data, isLoading } = useGetFilteredCardsQuery(inputValue);
 
 	// console.log('inputValue ==>', inputValue);
 	// console.log('isQuery ==>', isQuery);
@@ -30,7 +30,7 @@ function SearchSection() {
 		}
 
 		dispatch(clearFiltered());
-		dispatch(setFiltered(data.results));
+		// dispatch(setFiltered(data.results));
 	};
 
 	const handleSubmit = e => {
@@ -39,7 +39,7 @@ function SearchSection() {
 			setPlaceholder('Нужно ввести ключевое слово');
 		} else {
 			dispatch(clearFiltered());
-			dispatch(setFiltered(data.results));
+			// dispatch(setFiltered(data.results));
 			setIsSearchSuccess(false);
 			navigate('/');
 		}

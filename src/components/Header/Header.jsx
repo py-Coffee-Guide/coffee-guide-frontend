@@ -17,6 +17,7 @@ const FullRenderedSection = () => (
 				<div className={styles.icon} />
 				<p className={styles.text}>Избранное</p>
 			</Link>
+
 			<Theme />
 		</nav>
 	</>

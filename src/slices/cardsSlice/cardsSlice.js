@@ -10,8 +10,12 @@ const cardsSlice = createSlice({
 	},
 	reducers: {
 		setCards: (state, action) => {
-			state.cards = [...state.cards, ...action.payload];
+			state.cards.push(...action.payload);
 		},
+		clearCards: state => {
+			state.cards = [];
+		},
+
 		setFiltered: (state, action) => {
 			state.filtered = [...state.filtered, ...action.payload];
 		},
@@ -39,6 +43,7 @@ const cardsSlice = createSlice({
 
 export const {
 	setCards,
+	clearCards,
 	setFavourites,
 	setFiltered,
 	clearFiltered,
