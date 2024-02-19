@@ -1,7 +1,7 @@
 @use '../../assets/fonts/fonts_list.scss' as *;
 
-$text-font: 'SourceSansPro-Regular';
-$header-font: 'Lora-Bold';
+// $text-font: 'SourceSansPro-Regular';
+// $header-font: 'Lora-Bold';
 
 @mixin base-icon {
 	width: 20px;
@@ -59,16 +59,11 @@ $header-font: 'Lora-Bold';
 	width: 556px;
 	margin-right: 20px;
 	h1 {
-		@include font($lora, 40px, 51px, .4px);
+		@include font($lora, 40px, 51px, 0.4px);
 		margin: 0;
 	}
 	p {
 		margin: 25px 0;
-
-		font-family: $text-font;
-		font-size: 18px;
-		line-height: 20px; /* 111.111% */
-		letter-spacing: 0.18px;
 	}
 }
 
@@ -109,7 +104,7 @@ $header-font: 'Lora-Bold';
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	color: var(--text-color-alternative)
+	color: var(--text-color-alternative);
 }
 
 .point_icon {

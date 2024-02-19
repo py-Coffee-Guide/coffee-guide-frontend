@@ -25,7 +25,7 @@
 
 .link {
 	text-decoration: none;
-	color: #3da083;
+	color: var(--decoration-color);
 	opacity: 1;
 	margin-right: 60px;
 	transition: opacity 0.3s ease-in;
