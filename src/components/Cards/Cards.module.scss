@@ -2,7 +2,7 @@
 
 .container {
 	width: 556px;
-	height: 612px;
+	height: 704px;
 	border-radius: 16px;
 	overflow-y: scroll;
 	display: flex;
@@ -40,7 +40,8 @@
 .more {
 	margin: 26px auto 80px;
 	@include font($sans, 16px, 18px, 0);
-	color: #3da083;
+	background-color: transparent;
+	color: var(--decoration-color);
 	border: 0;
 	padding: 0;
 	cursor: pointer;
