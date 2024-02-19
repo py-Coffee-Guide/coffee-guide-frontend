@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setCards, clearCards } from '../../slices/cardsSlice/cardsSlice';
-import { useGetCardsQuery, useLazyGetCardsQuery } from '../../slices/apiSlice/apiSlice';
+import { useGetCardsQuery } from '../../slices/apiSlice/apiSlice';
 
 import { increment } from '../../slices/offsetSlice/offsetSlice';
 
@@ -18,7 +18,7 @@ function Cards() {
 
 	const { data, isLoading, isSuccess, isFetching, refetch } = useGetCardsQuery(
 		{ page: offsetCounter, availables: filters.join('') },
-		{ refetchOnMountOrArgChange: true },
+		{ refetchOnMountOrArgChange: false },
 	);
 
 	useEffect(() => {

@@ -29,6 +29,19 @@ export const api = createApi({
 			query: id => `cafes/${id}`,
 		}),
 
+		getFilteredCards: build.query({
+			query: args => {
+				const { name, address } = args;
+				return {
+					url: `cafes`,
+					params: {
+						name,
+						address,
+					},
+				};
+			},
+		}),
+
 		getUsers: build.query({
 			query: () => 'users',
 			providesTags: result =>
@@ -67,7 +80,7 @@ export const api = createApi({
 export const {
 	useGetCardsQuery,
 	useGetCardByIdQuery,
-	useLazyGetCardsQuery,
+	useGetFilteredCardsQuery,
 	useGetUsersQuery,
 	useAddUserMutation,
 	useLoginMutation,
