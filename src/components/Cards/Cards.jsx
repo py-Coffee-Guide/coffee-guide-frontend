@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import queryString from 'query-string';
 
-import { setCards, clearCards } from '../../slices/cardsSlice/cardsSlice';
-import { useGetCardsQuery, useLazyGetCardsQuery } from '../../slices/apiSlice/apiSlice';
+import { setCards, clearCards, setFiltered, clear } from '../../slices/cardsSlice/cardsSlice';
+import { useGetCardsQuery } from '../../slices/apiSlice/apiSlice';
 
-import { increment } from '../../slices/offsetSlice/offsetSlice';
+import { increment, reset } from '../../slices/offsetSlice/offsetSlice';
 
 import CardSmall from '../CardSmall/CardSmall';
 import styles from './Cards.module.scss';
@@ -14,17 +15,25 @@ function Cards() {
 	const dispatch = useDispatch();
 	const card = useSelector(state => state.cards.cards);
 	const filters = useSelector(state => state.cards.filters);
+	const query = useSelector(state => state.cards.query);
 	const offsetCounter = useSelector(state => state.offset);
 
 	const { data, isLoading, isSuccess, isFetching, refetch } = useGetCardsQuery(
-		{ page: offsetCounter, availables: filters.join('') },
+		{
+			name: query,
+			address: query,
+			page: offsetCounter,
+			availables: queryString.stringify({ availables: [...filters] }),
+		},
 		{ refetchOnMountOrArgChange: true },
 	);
 
 	useEffect(() => {
-		refetch();
-		if (isSuccess) {
+		if (isSuccess && !query) {
 			dispatch(setCards(data.results));
+		}
+		if (query) {
+			dispatch(setFiltered(data.results));
 		}
 	}, [data]);
 
@@ -36,7 +45,7 @@ function Cards() {
 		return <p>loading....</p>;
 	}
 
-	// console.log(card);
+	console.log(data);
 
 	return (
 		<div className={styles.container}>

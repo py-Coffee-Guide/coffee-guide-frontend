@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { clear, clearFiltered } from '../../slices/cardsSlice/cardsSlice';
+import { clearCards, clearFiltered } from '../../slices/cardsSlice/cardsSlice';
 
 import logo from '../../assets/images/logo.svg';
 import logoDark from '../../assets/images/logo-dark.svg';
@@ -37,7 +37,13 @@ function Header() {
 		<header className={styles.header}>
 			<div className={styles.container}>
 				<Link to="/">
-					<button type="button" onClick={() => dispatch(clearFiltered())} className={styles.logo}>
+					<button
+						type="button"
+						onClick={() => {
+							dispatch(clearFiltered());
+						}}
+						className={styles.logo}
+					>
 						{theme === 'light' ? (
 							<img className={styles.logo} src={logo} alt="Лого" />
 						) : (

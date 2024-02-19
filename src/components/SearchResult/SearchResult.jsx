@@ -6,7 +6,7 @@ import styles from './SearchResult.module.scss';
 
 function SearchResult({ isVisible }) {
 	const navigate = useNavigate();
-	const filteredCards = useSelector(state => state.cards.filtered);
+	const cards = useSelector(state => state.cards.filtered);
 
 	const handleClick = card => {
 		navigate(`/card/${card.id}`, { state: { key: card.id } });
@@ -20,7 +20,7 @@ function SearchResult({ isVisible }) {
 	return (
 		<div className={resultClassName}>
 			<ul className={styles.result}>
-				{filteredCards?.map(item => (
+				{cards?.slice(0, 4).map(item => (
 					<li onClick={() => handleClick(item)} className={styles.item} key={item.id}>
 						<p className={styles.title}>{item.name}</p>
 						<address className={styles.address}>{item.address.name}</address>
