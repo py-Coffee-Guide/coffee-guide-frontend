@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './TagSection.module.scss';
 import { BASE_TAGS } from '../../utils/constants';
@@ -10,6 +10,7 @@ import HorizontalLine from '../HorizontalLine/HorizontalLine';
 
 function TagSection() {
 	const dispatch = useDispatch();
+	const theme = useSelector(state => state.theme);
 
 	const handleClick = item => {
 		dispatch(setFilter(item));
@@ -21,7 +22,12 @@ function TagSection() {
 				<ul>
 					{BASE_TAGS.map(item => (
 						<li key={item.id}>
-							<TagButton text={item.text} tag={item.tag} onClick={() => handleClick(item.end)} />
+							<TagButton
+								text={item.text}
+								tag={item.tag}
+								theme={theme}
+								onClick={() => handleClick(item.end)}
+							/>
 						</li>
 					))}
 				</ul>

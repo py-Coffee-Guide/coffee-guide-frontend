@@ -14,7 +14,7 @@ function SearchSection() {
 	const [inputValue, setInputVlaue] = useState('');
 	const [placeholder, setPlaceholder] = useState('Название кофеӣни / адрес');
 	const [isQuery, setIsQuery] = useState(false);
-	const [isSearchSuccess, setIsSearchSuccess] = useState(true);
+	const [isSearchSuccess, setIsSearchSuccess] = useState(false);
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
