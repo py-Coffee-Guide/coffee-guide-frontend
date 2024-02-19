@@ -24,10 +24,16 @@ export const api = createApi({
 			},
 			providesTags: ['Cards'],
 		}),
+
 		getCardById: build.query({
 			query: id => `cafes/${id}`,
 		}),
 
+		getFilteredCards: build.query({
+			query: value => `cafes/?name=${value}`,
+		}),
+
+		// USER REDUCERS
 		getUsers: build.query({
 			query: () => 'users',
 			providesTags: result =>
@@ -67,6 +73,7 @@ export const {
 	useGetCardsQuery,
 	useGetCardByIdQuery,
 	useLazyGetCardsQuery,
+	useGetFilteredCardsQuery,
 	useGetUsersQuery,
 	useAddUserMutation,
 	useLoginMutation,

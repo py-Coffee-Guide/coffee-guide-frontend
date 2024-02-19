@@ -136,7 +136,6 @@ function CardMedium() {
 					<h3 className={cn(styles.tag5, styles.tag)}>Дополнительно</h3>
 					<ul className={cn(styles.list5, styles.list)}>
 						{additionals.map(item => (
-						{additionals.map(item => (
 							<li key={item.id}>
 								<p>{item.name}</p>
 							</li>

@@ -7,7 +7,6 @@ import styles from './TagButton.module.scss';
 import { TAG_ICONS } from './TagIcons';
 
 function TagButton({ text, type, tag, theme, active, onClick }) {
-function TagButton({ text, type, tag, theme, active, onClick }) {
 	const [isActive, setIsActive] = useState(active);
 	const { light, dark } = TAG_ICONS[tag];
 
@@ -21,7 +20,6 @@ function TagButton({ text, type, tag, theme, active, onClick }) {
 
 	return (
 		<button type={type} className={btnClassName} onClick={() => handleClick(tag)}>
-		<button type={type} className={btnClassName} onClick={() => handleClick(tag)}>
 			<img src={light.toString()} className={styles.icon} alt="icon" />
 			<p className={textClassName}>{text}</p>
 		</button>
@@ -31,7 +29,6 @@ function TagButton({ text, type, tag, theme, active, onClick }) {
 TagButton.propTypes = {
 	type: PropTypes.oneOf(['submit', 'button']),
 	theme: PropTypes.oneOf(['light', 'dark']),
-	tag: PropTypes.oneOf(['alternative', 'submarine', 'lactose_free_milk', 'la_marzocco', 'sweater']),
 	tag: PropTypes.oneOf(['alternative', 'submarine', 'lactose_free_milk', 'la_marzocco', 'sweater']),
 	active: PropTypes.bool,
 };
