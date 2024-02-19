@@ -78,7 +78,6 @@ $base-width: 364px;
 	&::placeholder {
 		@include font($sans, 18px, 20px, 0.18px);
 		color: #809992;
-		text-transform: uppercase;
 	}
 	&:focus {
 		border-color: #3da083;

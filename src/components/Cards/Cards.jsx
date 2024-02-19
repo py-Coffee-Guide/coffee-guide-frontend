@@ -36,7 +36,7 @@ function Cards() {
 		return <p>loading....</p>;
 	}
 
-	console.log(card);
+	// console.log(card);
 
 	return (
 		<div className={styles.container}>

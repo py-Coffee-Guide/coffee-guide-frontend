@@ -17,7 +17,15 @@ import styles from './App.module.scss';
 function App() {
 	const [loggedIn, setLoggedIn] = useState(!!localStorage.token);
 
-	console.log('loggedIn:', loggedIn);
+	const tokenCheck = () => {
+		if (localStorage.token) {
+			setLoggedIn(true);
+		}
+	};
+
+	useEffect(() => {
+		tokenCheck();
+	}, []);
 
 	return (
 		<div className={styles.root}>

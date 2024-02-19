@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import cn from 'classnames';
@@ -18,27 +19,28 @@ function Login() {
 		formState: { errors },
 	} = useForm({ defaultValues: { email: '', password: '' }, mode: 'onChange' });
 
-	const inputValues = {
+	const watchInputs = {
 		password: 'coffee_git_project2024',
 		username: 'admin_coffee_gid',
 	};
 
 	const [login, { isError }] = useLoginMutation();
+	// const watchInputs = watch();
+	console.log('watchInputs:', watchInputs);
 
 	const handleLogin = async () => {
-		if (inputValues) {
-			await login(inputValues)
+		if (watchInputs) {
+			await login(watchInputs)
+				// возвращает объект с ответом сервера
 				.unwrap()
 				.then(data => {
 					if (data.auth_token) {
 						localStorage.setItem('token', data.auth_token);
 					}
-
-					console.log('token:', data.auth_token);
+					// console.log('token:', data.auth_token);
 				})
 				.catch(rejected => console.error(rejected));
-			setUser(inputValues);
-			// setInputValues({});
+			// setUser(inputValues);
 		}
 	};
 
@@ -57,7 +59,7 @@ function Login() {
 						<input
 							{...register('email', { required: 'Необходимо ввести почту или ИНН' })}
 							className={inputItemClassName('email')}
-							placeholder="почта / инн"
+							placeholder="Почта / ИНН"
 						/>
 						{errors.email && <span className={styles.error}>{errors.email?.message}</span>}
 					</div>
@@ -68,11 +70,11 @@ function Login() {
 								required: 'Необходимо ввести пароль',
 							})}
 							className={inputItemClassName('password')}
-							placeholder="пароль"
+							placeholder="Пароль"
 						/>
 						{errors.password && <span className={styles.error}>{errors.password?.message}</span>}
 					</div>
-					<Button onClick={() => handleLogin()} type="submit" size="large" text="войти" />
+					<Button onClick={() => handleLogin()} type="submit" size="large" text="Войти" />
 				</form>
 				<div className={styles.links}>
 					<p>Впервые у нас?</p>

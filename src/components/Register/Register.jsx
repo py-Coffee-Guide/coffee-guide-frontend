@@ -66,7 +66,7 @@ function Register() {
 								},
 							})}
 							className={inputItemClassName('email')}
-							placeholder="почта"
+							placeholder="Почта"
 						/>
 						{errors.email && <span className={styles.error}>{errors.email?.message}</span>}
 					</div>
@@ -81,7 +81,7 @@ function Register() {
 								},
 							})}
 							className={inputItemClassName('organization_inn')}
-							placeholder="инн"
+							placeholder="ИНН"
 						/>
 						{errors.organization_inn && (
 							<span className={styles.error}>{errors.organization_inn?.message}</span>
@@ -98,7 +98,7 @@ function Register() {
 								},
 							})}
 							className={inputItemClassName('name')}
-							placeholder="название организации"
+							placeholder="Название организации"
 						/>
 						{errors.name && <span className={styles.error}>{errors.name?.message}</span>}
 					</div>
@@ -107,7 +107,7 @@ function Register() {
 						onClick={() => handleAddUser()}
 						type="submit"
 						size="large"
-						text="получить пароль"
+						text="Получить пароль"
 					/>
 				</form>
 
