@@ -12,16 +12,17 @@ function TagSection() {
 	const dispatch = useDispatch();
 
 	const handleClick = item => {
-		dispatch(setFilter(item));
+		dispatch(setFilter(item.tag));
 		dispatch(clearCards());
 	};
+
 	return (
 		<>
 			<section className={styles.tags}>
 				<ul>
 					{BASE_TAGS.map(item => (
 						<li key={item.id}>
-							<TagButton text={item.text} tag={item.tag} onClick={() => handleClick(item.end)} />
+							<TagButton text={item.text} tag={item.tag} onClick={() => handleClick(item)} />
 						</li>
 					))}
 				</ul>

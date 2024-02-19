@@ -7,15 +7,18 @@ const cardsSlice = createSlice({
 		favourites: JSON.parse(localStorage.getItem('favourites')) || [],
 		filtered: [],
 		filters: [],
+		query: '',
 	},
 	reducers: {
 		setCards: (state, action) => {
 			state.cards.push(...action.payload);
 		},
+		setQuery: (state, action) => {
+			state.query = action.payload;
+		},
 		clearCards: state => {
 			state.cards = [];
 		},
-
 		setFiltered: (state, action) => {
 			state.filtered = [...state.filtered, ...action.payload];
 		},
@@ -49,6 +52,7 @@ export const {
 	clearFiltered,
 	addToFavourite,
 	setFilter,
+	setQuery,
 	clear,
 	reset,
 } = cardsSlice.actions;

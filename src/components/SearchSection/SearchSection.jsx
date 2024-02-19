@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -7,70 +7,71 @@ import {
 	clearCards,
 	clearFiltered,
 	setFiltered,
+	setQuery,
+	clear,
 } from '../../slices/cardsSlice/cardsSlice';
-import { useGetFilteredCardsQuery } from '../../slices/apiSlice/apiSlice';
+import { useGetCardsQuery } from '../../slices/apiSlice/apiSlice';
 
 // import cn from 'classnames';
 
 import styles from './SearchSection.module.scss';
 import Button from '../../assets/ui-kit/Button/Button';
 import SearchResult from '../SearchResult/SearchResult';
+import { set } from '../../slices/themeSlice/themeSlice';
 
 function SearchSection() {
-	const {
-		register,
-		reset,
-		handleSubmit,
-		formState: { errors },
-	} = useForm({
-		defaultValues: {
-			text: '',
-		},
-	});
+	const query = useSelector(state => state.cards.query);
+	const filtered = useSelector(state => state.cards.filtered);
+	const debounce = (func, delay) => {
+		let timer;
+		return function debounced(...args) {
+			clearTimeout(timer);
+			timer = setTimeout(() => {
+				func(...args);
+			}, delay);
+		};
+	};
 
-	const [inputValue, setInputVlaue] = useState('');
+	const [inputValue, setInputValue] = useState('');
 	const [placeholder, setPlaceholder] = useState('Название кофеӣни / адрес');
+	const [isOpen, setIsOpen] = useState(false);
 
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
-	const { data, isLoading, isSuccess, refetch } = useGetFilteredCardsQuery({
-		name: inputValue,
-		address: inputValue,
-	});
+
+	const sendRequest = useCallback(inputValue => {
+		dispatch(setQuery(inputValue));
+		setIsOpen(true);
+	}, []);
+
+	const debouncedSendRequest = useMemo(() => debounce(sendRequest, 1000), [sendRequest]);
 
 	const handleChange = e => {
-		setInputVlaue(e.target.value);
+		const { value } = e.target;
+		setInputValue(value);
 		dispatch(clearFiltered());
-		dispatch(setFiltered(data.results));
+		debouncedSendRequest(value);
 	};
 
-	useEffect(() => {
-		handleChange();
-	}, [inputValue]);
-
-	const onSubmit = data => {
-		dispatch(setCards(data.results));
-		reset();
+	const handleSubmit = e => {
+		e.preventDefault();
+		dispatch(clearCards());
+		dispatch(setCards(filtered));
+		setInputValue('');
+		setIsOpen(false);
 	};
 
-	console.log(inputValue);
-
-	if (isLoading) {
-		return <p>loading....</p>;
-	}
 	return (
-		<form className={styles.container} onSubmit={handleSubmit(onSubmit)} noValidate>
+		<form className={styles.container} onSubmit={e => handleSubmit(e)} noValidate>
 			<div className={styles.input_container}>
 				<input
-					{...register('text', { required: true })}
 					className={styles.input}
 					placeholder={placeholder}
 					value={inputValue}
 					onChange={handleChange}
 				/>
-				<SearchResult isVisible={inputValue !== ''} />
+				<SearchResult isVisible={isOpen} />
 			</div>
-			<Button type="submit" text="найти" size="small" />
+			<Button type="submit" text="найти" size="small" disabled={!query} />
 		</form>
 	);
 }
