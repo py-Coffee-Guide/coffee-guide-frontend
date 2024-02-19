@@ -20,7 +20,6 @@ $base-width: 364px;
 	min-height: 44px;
 	text-align: center;
 	color: var(--text-color-alternative);
-
 }
 
 .links {
@@ -31,7 +30,6 @@ $base-width: 364px;
 	align-items: center;
 	justify-content: space-between;
 	color: var(--text-color);
-
 }
 
 .link {
@@ -75,9 +73,7 @@ $base-width: 364px;
 	height: 50px;
 	background-color: transparent;
 	box-shadow: var(--box-shadow);
-
 	color: var(--text-color);
-
 	box-sizing: border-box;
 	&::placeholder {
 		@include font($sans, 18px, 20px, 0.18px);

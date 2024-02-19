@@ -102,7 +102,7 @@ function NewCoffeeshop({ onClose }) {
 							</div>
 						</div>
 					</li>
-					<li className={styles.input_container}>
+					<li className={styles.input_container} style={{ flexDirection: 'column' }}>
 						<div className={styles.input_aligner_row} style={{ justifyContent: 'flex-start' }}>
 							<label htmlFor="cafe_drink" className={styles.input_label}>
 								Напитки
@@ -123,7 +123,7 @@ function NewCoffeeshop({ onClose }) {
 								/>
 							</div>
 						</div>
-						<p>+ добавить</p>
+						<p className={styles.input_add}>+ добавить напиток</p>
 					</li>
 					<li className={styles.input_container}>
 						<div className={styles.input_aligner_row} style={{ justifyContent: 'flex-start' }}>
@@ -144,7 +144,10 @@ function NewCoffeeshop({ onClose }) {
 						<label htmlFor="cafe_roasters" className={styles.input_label}>
 							Обжарщики
 						</label>
-						<input type="text" id="cafe_roasters" className={styles.input_item} />
+						<div>
+							<input type="text" id="cafe_roasters" className={styles.input_item} />
+							<p className={styles.input_add}>+ добавить обжарщика</p>
+						</div>
 					</li>
 
 					<li className={styles.input_container}>

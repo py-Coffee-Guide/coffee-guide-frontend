@@ -4,7 +4,8 @@ import { clear, clearFiltered } from '../../slices/cardsSlice/cardsSlice';
 
 import logo from '../../assets/images/logo.svg';
 import logoDark from '../../assets/images/logo-dark.svg';
-import iconPath from '../../assets/images/profile-icon.svg';
+import icon from '../../assets/images/profile-icon.svg';
+import iconDark from '../../assets/images/profile-icon-dark.svg';
 import Theme from '../Theme/Theme';
 import SearchSection from '../SearchSection/SearchSection';
 
@@ -51,7 +52,11 @@ function Header() {
 					<nav className={styles.align_container}>
 						{location.pathname.match('/profile') && (
 							<div className={styles.profile}>
-								<img src={iconPath} className={styles.profile_icon} alt="profile" />
+								<img
+									src={theme === 'light' ? icon : iconDark}
+									className={styles.profile_icon}
+									alt="profile"
+								/>
 								<p className={styles.text}>pochta@email.ru</p>
 							</div>
 						)}
