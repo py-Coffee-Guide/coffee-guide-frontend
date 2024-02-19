@@ -56,7 +56,7 @@ function SearchSection() {
 				/>
 				<SearchResult isVisible={isSearchSuccess} />
 			</div>
-			<Button onClick={handleSubmit} text="найти" size="small" />
+			<Button onClick={handleSubmit} text="Найти" size="small" />
 		</section>
 	);
 }

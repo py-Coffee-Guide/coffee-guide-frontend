@@ -1,5 +1,7 @@
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Login from '../Login/Login';
@@ -13,6 +15,10 @@ import Profile from '../Profile/Profile';
 import styles from './App.module.scss';
 
 function App() {
+	const [loggedIn, setLoggedIn] = useState(!!localStorage.token);
+
+	console.log('loggedIn:', loggedIn);
+
 	return (
 		<div className={styles.root}>
 			<Header />
@@ -21,8 +27,14 @@ function App() {
 				<Route path="/card/:cardId" element={<CardMedium />} />
 				<Route path="/signin" element={<Login />} />
 				<Route path="/signup" element={<Register />} />
-				<Route path="/favourites" element={<Favourites />} />
-				<Route path="/profile" element={<Profile />} />
+
+				<Route
+					path="/favourites"
+					element={<ProtectedRoute element={Favourites} loggedIn={loggedIn} />}
+				/>
+
+				<Route path="/profile" element={<ProtectedRoute element={Profile} loggedIn={loggedIn} />} />
+
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 			<Footer />

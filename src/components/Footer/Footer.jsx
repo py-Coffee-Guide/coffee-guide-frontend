@@ -21,7 +21,7 @@ function Footer() {
 
 					<div className={styles.aligner}>
 						<NavLink to="/signin" className={styles.link_profile}>
-							<h3>CoffeeGuide Pro</h3>
+							<h3>Coffeeguide PRO</h3>
 						</NavLink>
 						<h3>&copy;Copyright 2024 CoffeeGuide</h3>
 					</div>

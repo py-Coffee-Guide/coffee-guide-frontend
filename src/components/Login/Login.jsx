@@ -27,7 +27,16 @@ function Login() {
 
 	const handleLogin = async () => {
 		if (inputValues) {
-			await login(inputValues).unwrap();
+			await login(inputValues)
+				.unwrap()
+				.then(data => {
+					if (data.auth_token) {
+						localStorage.setItem('token', data.auth_token);
+					}
+
+					console.log('token:', data.auth_token);
+				})
+				.catch(rejected => console.error(rejected));
 			setUser(inputValues);
 			// setInputValues({});
 		}

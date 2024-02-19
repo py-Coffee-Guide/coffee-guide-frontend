@@ -12,7 +12,7 @@
 }
 
 .container {
-	margin: 36px auto 76px;
+	margin: 36px auto 120px;
 	max-width: 1132px;
 	@include font($sans, 18px, 20px, 0.18px);
 	color: var(--text-color);
@@ -28,12 +28,6 @@
 	background-color: transparent;
 	cursor: pointer;
 	transition: opacity 0.3s ease-in-out;
-	.back_icon {
-		width: 26px;
-		height: 26px;
-		margin-right: 8px;
-		background-image: url(../../assets/images/back.svg);
-	}
 	&:hover {
 		opacity: 0.8;
 	}
@@ -84,7 +78,7 @@
 	align-items: center;
 	border: none;
 	border-radius: 8px;
-	background: #ebebeb;
+	background: var(--button);
 	font-size: 14px;
 	line-height: 18px; /* 128.571% */
 	letter-spacing: 0.14px;

@@ -40,7 +40,7 @@
 	background-size: 22px 22px;
 	&::placeholder {
 		@include font($sans, 18px, 20px, 0.18px);
-		color: var(--line-color);
+		color: var(--placeholder);
 		text-transform: none;
 		opacity: 1;
 		transition: opacity 0.3s ease;

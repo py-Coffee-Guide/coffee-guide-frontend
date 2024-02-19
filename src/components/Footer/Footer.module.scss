@@ -14,6 +14,7 @@
 .container {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	width: 1132px;
 	flex-direction: row;
 	color: var(--text-footer);
@@ -21,12 +22,11 @@
 	h3 {
 		padding: 0;
 		margin: 0;
-		text-transform: uppercase;
 		font-weight: 400;
 	}
 
 	p {
-		margin-top: 8px;
+		margin: 8px 0 0 0;
 		color: rgba(127, 127, 127, 1);
 	}
 }
