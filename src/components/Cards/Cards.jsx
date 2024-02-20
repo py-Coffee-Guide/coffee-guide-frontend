@@ -22,10 +22,10 @@ function Cards() {
 		{
 			name: query,
 			address: query,
-			page: offsetCounter,
+			page: '',
 			availables: queryString.stringify({ availables: [...filters] }),
 		},
-		{ refetchOnMountOrArgChange: true },
+		{ refetchOnMountOrArgChange: false },
 	);
 
 	useEffect(() => {

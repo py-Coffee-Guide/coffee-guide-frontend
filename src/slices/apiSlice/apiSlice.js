@@ -19,7 +19,7 @@ export const api = createApi({
 				return {
 					url: `cafes?${availables}`,
 					params: {
-						page,
+						...(page && { page }),
 						...(name && { name }),
 						...(address && { address }),
 					},

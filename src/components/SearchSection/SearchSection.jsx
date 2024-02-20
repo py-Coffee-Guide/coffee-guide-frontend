@@ -69,7 +69,7 @@ function SearchSection() {
 					value={inputValue}
 					onChange={handleChange}
 				/>
-				<SearchResult isVisible={isOpen} />
+				<SearchResult isVisible={query && isOpen} />
 			</div>
 			<Button type="submit" text="найти" size="small" disabled={!query} />
 		</form>
