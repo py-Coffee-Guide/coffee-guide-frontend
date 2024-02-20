@@ -4,7 +4,7 @@ export const api = createApi({
 	reducerPath: 'api',
 	baseQuery: fetchBaseQuery({
 		// baseUrl: 'http://coffee-gid.ddns.net/api/v1/',
-		baseUrl: 'http://127.0.0.1:8000/api/v1/',
+		baseUrl: 'https://127.0.0.1:8000/api/v1/',
 		prepareHeaders: headers => {
 			headers.set('Content-type', 'application/json');
 			return headers;

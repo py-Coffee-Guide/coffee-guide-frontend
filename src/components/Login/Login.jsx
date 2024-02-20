@@ -19,13 +19,15 @@ function Login() {
 		formState: { errors },
 	} = useForm({ defaultValues: { email: '', password: '' }, mode: 'onChange' });
 
-	const watchInputs = {
-		password: 'coffee_git_project2024',
-		username: 'admin_coffee_gid',
-	};
+	// const watchInputs = {
+	// 	// password: 'K70HyXRHx',
+	// 	// username: 'inboxmail76@gmail.com',
+	// 	password: 'coffee_git_project2024',
+	// 	username: 'admin_coffee_gid',
+	// };
 
 	const [login, { isError }] = useLoginMutation();
-	// const watchInputs = watch();
+	const watchInputs = watch();
 	console.log('watchInputs:', watchInputs);
 
 	const handleLogin = async () => {
