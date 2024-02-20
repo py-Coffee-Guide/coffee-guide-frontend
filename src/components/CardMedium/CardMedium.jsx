@@ -1,26 +1,42 @@
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import { Map, Placemark } from '@pbe/react-yandex-maps';
+
 import cn from 'classnames';
 import styles from './CardMedium.module.scss';
+
 import BackButton from '../../assets/ui-kit/BackButton/BackButton';
+import FavouritesButton from '../../assets/ui-kit/FavouritesButton/FavouritesButton';
+import nullImage from '../../assets/images/logo.svg';
 
-// import photo from '../../assets/images/photo/66be5a14bddf717c1205b56a1ed80d15.jpg';
+import { useGetCardByIdQuery } from '../../slices/apiSlice/apiSlice';
 
-function CardMedium({ card, onSave, onDelete }) {
+import locationImg from '../../assets/images/location-pin.svg';
+
+function CardMedium() {
+	const location = useLocation();
 	const theme = useSelector(state => state.theme);
-	console.log('card from Medium ==>', card);
+	const { data, isLoading } = useGetCardByIdQuery(location.state.key);
+
+	if (isLoading) {
+		return <p>LOADING....</p>;
+	}
+
 	const {
 		address,
-		alternative,
+		alternatives,
+		availables,
 		description,
-		drink,
-		filter,
 		id,
 		image,
 		name,
-		roaster,
-		schedule,
-		tag,
-	} = card;
+		roasters,
+		schedules,
+		additionals,
+		drinks,
+	} = data;
+
+	const imgClassName = cn(styles.img, { [styles.img_null]: !image });
 
 	return (
 		<section className={styles.container}>
@@ -32,72 +48,92 @@ function CardMedium({ card, onSave, onDelete }) {
 					<p>{description}</p>
 				</div>
 				<div className={styles.map}>
-					<div className={styles.map_mini} />
+					<div className={styles.map_mini}>
+						<Map
+							defaultState={{ center: [address.lat, address.lon], zoom: 11 }}
+							width="inherit"
+							height="inherit"
+							modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
+							options={{ exitFullscreenByEsc: true, yandexMapDisablePoiInteractivity: true }}
+						>
+							<Placemark
+								geometry={[address.lat, address.lon]}
+								options={{
+									preset: 'islands#circleIcon',
+									iconLayout: 'default#image',
+									iconImageHref: locationImg,
+									iconImageSize: [30, 30],
+									hideIconOnBalloonOpen: false,
+									balloonCloseButton: false,
+								}}
+							/>
+						</Map>
+					</div>
 					<button className={styles.button} type="button">
 						Построить маршрут
 					</button>
 				</div>
 				<div className={styles.info}>
-					<div className={styles.point_icon} />
-					<p>{address}</p>
-					<div className={styles.schedule_icon} />
-					<div>
-						{' '}
-						<p>{schedule[0].text}</p>
-						<p>{schedule[0].text}</p>
+					<div className={styles.info_container}>
+						<div className={theme === 'light' ? styles.point_icon : styles.point_icon_dark} />
+						<p>{address.name}</p>
+					</div>
+					<div className={styles.info_container}>
+						<div className={theme === 'light' ? styles.schedule_icon : styles.schedule_icon_dark} />
+						<ul className={styles.schedules}>
+							{schedules.map(item => (
+								<li key={item.id} className={styles.schedules_item}>
+									<p> {item.name}</p>
+									<p> {item.start.slice(0, -3)}</p>
+									<p> {item.end.slice(0, -3)}</p>
+								</li>
+							))}
+						</ul>
 					</div>
 				</div>
 			</div>
 			<div className={styles.desription}>
 				<div className={styles.photo}>
-					<img className={styles.img} src={image} alt="фото кофейни" />
+					<img className={imgClassName} src={!image ? nullImage : image} alt="фото кофейни" />
 					<div className={styles.favourites}>
 						{' '}
-						<button type="button" className={styles.save} aria-label="добавить в избранное" />
+						<FavouritesButton type="button" card={data} />
 					</div>
 				</div>
 				<div className={styles.features}>
 					<h3 className={cn(styles.tag1, styles.tag)}>Доступно</h3>
 					<ul className={cn(styles.list1, styles.list)}>
-						<li>Безлактозное</li>
-						<li>Submarine</li>
-						<li>Альтернатива</li>
+						{availables.map(item => (
+							<li key={item.id}>{item.name}</li>
+						))}
 					</ul>
 
 					<h3 className={cn(styles.tag2, styles.tag)}>Напитки</h3>
 					<div className={cn(styles.list2)}>
 						<ul className={cn(styles.list)}>
-							<li>Эспрессо: 200 ₽ </li>
-							<li>Капучино: 300 ₽ </li>
-							<li>Американо: 300 ₽ </li>
-						</ul>
-						<ul className={cn(styles.list)}>
-							<li>Латте: 200 ₽ </li>
-							<li>Флэт-уайт: 400 ₽ </li>
-							<li>Фильтр-кофе: 400 ₽ </li>
+							{drinks.map(item => (
+								<li key={item.id}>{`${item.name}: ${item.cost} ₽`} </li>
+							))}
 						</ul>
 					</div>
 
 					<h3 className={cn(styles.tag3, styles.tag)}>Обжарщик</h3>
 					<ul className={cn(styles.list3, styles.list)}>
-						<li>Adept x Common Coffee</li>
+						{roasters.map(item => (
+							<li key={item.id}>{item.name}</li>
+						))}
 					</ul>
 					<h3 className={cn(styles.tag4, styles.tag)}>Альтернатива</h3>
 					<div className={cn(styles.list4, styles.list)}>
-						<ul className={cn(styles.list)}>
-							<li>V60</li>
-							<li>Кемекс</li>
-						</ul>
-						<ul className={cn(styles.list)}>
-							<li>Френч-пресс</li>
-							<li>Аэропресс</li>
-						</ul>
+						{alternatives.map(item => (
+							<li key={item.id}>{item.name}</li>
+						))}
 					</div>
 					<h3 className={cn(styles.tag5, styles.tag)}>Дополнительно</h3>
 					<ul className={cn(styles.list5, styles.list)}>
-						<li>Можно с животными</li>
-						<li>Продажа зерна </li>
-						<li>Декаф </li>
+						{additionals.map(item => (
+							<li key={item.id}>{item.name}</li>
+						))}
 					</ul>
 				</div>
 			</div>

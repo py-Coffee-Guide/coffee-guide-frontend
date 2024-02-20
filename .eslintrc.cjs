@@ -39,7 +39,13 @@ module.exports = {
 		'react/jsx-props-no-spreading': 'off',
 		'react/function-component-definition': 'off',
 		'react/button-has-type': 'off',
+		'no-underscore-dangle': 'off',
+		'class-methods-use-this': 'off',
 		'jsx-a11y/no-noninteractive-element-interactions': 'off',
 		'jsx-a11y/click-events-have-key-events': 'off',
+		'no-param-reassign': 'off',
+		'jsx-a11y/label-has-associated-control': 'off',
+		'arrow-body-style': 'off',
+		'react/no-array-index-key': 'off',
 	},
 };

@@ -1,40 +1,69 @@
-import { Link, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { reset } from '../../slices/cardsSlice/cardsSlice';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+	clearCards,
+	clearFiltered,
+	clearQuery,
+	clearFilters,
+} from '../../slices/cardsSlice/cardsSlice';
+import { reset } from '../../slices/offsetSlice/offsetSlice';
 
-import logoPath from '../../assets/images/logo.svg';
-import iconPath from '../../assets/images/profile-icon.svg';
+import logo from '../../assets/images/logo.svg';
+import logoDark from '../../assets/images/logo-dark.svg';
+import icon from '../../assets/images/profile-icon.svg';
+import iconDark from '../../assets/images/profile-icon-dark.svg';
 import Theme from '../Theme/Theme';
 import SearchSection from '../SearchSection/SearchSection';
 
 import styles from './Header.module.scss';
 
-const FullRenderedSection = () => (
-	<>
-		<SearchSection />
-		<nav className={styles.align_container}>
-			<div className={styles.favourites}>
-				<div className={styles.icon} />
-				<p className={styles.text}>Избранное</p>
-			</div>
-			<Theme />
-		</nav>
-	</>
-);
+const FullRenderedSection = () => {
+	const theme = useSelector(state => state.theme);
+
+	return (
+		<>
+			<SearchSection />
+			<nav className={styles.align_container}>
+				<Link to="/favourites" className={styles.favourites}>
+					<div className={theme === 'light' ? styles.icon : styles.icon_dark} />
+					<p className={styles.text}>Избранное</p>
+				</Link>
+				<Theme />
+			</nav>
+		</>
+	);
+};
 
 function Header() {
 	const location = useLocation();
-
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
+	const theme = useSelector(state => state.theme);
+	const offset = useSelector(state => state.offset);
 
 	return (
 		<header className={styles.header}>
 			<div className={styles.container}>
-				<Link to="/">
-					<button type="button" onClick={() => dispatch(reset())} className={styles.logo}>
-						<img className={styles.logo} src={logoPath} alt="Лого" />{' '}
+				<div>
+					<button
+						type="button"
+						onClick={() => {
+							// dispatch(clearFilters());
+							dispatch(clearFiltered());
+							dispatch(clearQuery());
+							dispatch(clearCards());
+							dispatch(reset());
+							navigate('/', 0);
+						}}
+						className={styles.logo}
+					>
+						{theme === 'light' ? (
+							<img className={styles.logo} src={logo} alt="Лого" />
+						) : (
+							<img className={styles.logo} src={logoDark} alt="Лого" />
+						)}
 					</button>
-				</Link>
+				</div>
 
 				{!['/signin', '/signup', '/profile'].some(path => location.pathname.match(path)) ? (
 					<FullRenderedSection />
@@ -42,7 +71,11 @@ function Header() {
 					<nav className={styles.align_container}>
 						{location.pathname.match('/profile') && (
 							<div className={styles.profile}>
-								<img src={iconPath} className={styles.profile_icon} alt="profile" />
+								<img
+									src={theme === 'light' ? icon : iconDark}
+									className={styles.profile_icon}
+									alt="profile"
+								/>
 								<p className={styles.text}>pochta@email.ru</p>
 							</div>
 						)}

@@ -45,14 +45,28 @@
 	display: flex;
 	align-items: center;
 	margin-right: 66px;
-	.icon {
-		width: 44px;
-		height: 44px;
-		cursor: pointer;
-		background-image: url('../../assets/images/favourites.svg');
-		background-repeat: no-repeat;
-		background-position: center;
+	cursor: pointer;
+	text-decoration: none;
+	&:hover {
+		background-color: var(--hover);
+		border-radius: 12px;
 	}
+}
+
+.icon {
+	width: 44px;
+	height: 44px;
+	background-image: url('../../assets/images/ui-kit-icons/favorites-no-background.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.icon_dark {
+	width: 44px;
+	height: 44px;
+	background-image: url('../../assets/images/ui-kit-icons/favorites.svg');
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .text {

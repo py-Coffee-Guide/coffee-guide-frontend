@@ -9,9 +9,9 @@ import App from './components/App/App';
 import store from './store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-	<BrowserRouter basename="/coffee-guide-frontend/">
+	<BrowserRouter>
 		<Provider store={store}>
-			<YMaps query={{ apikey: 'a0303f06-4ef8-4bd2-bef5-7e2e5e6b3ff6', lang: 'ru_RU' }}>
+			<YMaps query={{ apikey: import.meta.env.VITE_MAP_API, lang: 'ru_RU' }}>
 				<App />
 			</YMaps>
 		</Provider>

@@ -1,27 +1,36 @@
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { favourites } from '../../utils/favourites';
+import cn from 'classnames';
 import BackButton from '../../assets/ui-kit/BackButton/BackButton';
 import CardSmall from '../CardSmall/CardSmall';
 import styles from './Favourites.module.scss';
 
 function Favourites() {
 	const theme = useSelector(state => state.theme);
+	const saved = useSelector(state => state.cards.favourites);
+	const cardlistClassName = cn(styles.cardlist, styles.cardlist_favourite);
 
 	return (
 		<section className={styles.container}>
 			<div className={styles.back_button}>
 				<BackButton type="button" theme={theme} text="Назад" />
 			</div>
-			<div className={styles.cardlist}>
+			{saved.length === 0 && (
+				<div className={styles.no_favourites}>
+					<p className={styles.text}>В избранном пока ничего нет.</p>
+					<div className={theme === 'light' ? styles.coffee_cup : styles.coffee_cup_dark} />
+				</div>
+			)}
+
+			<div className={cardlistClassName}>
 				<ul>
-					{favourites.map(item => (
+					{saved.map(item => (
 						<li key={item.id}>
 							<CardSmall card={item} />
 						</li>
 					))}
 				</ul>
 			</div>
-			{/* <Cards /> */}
 		</section>
 	);
 }

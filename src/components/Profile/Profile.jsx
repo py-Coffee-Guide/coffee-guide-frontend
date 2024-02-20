@@ -5,11 +5,8 @@ import Button from '../../assets/ui-kit/Button/Button';
 import CardSmall from '../CardSmall/CardSmall';
 import NewCoffeeshop from '../NewCoffeeshop/NewCoffeeshop';
 
-import { cards } from '../../utils/cards';
-
 function Profile() {
 	const [isOpen, setIsOpen] = useState(false);
-	console.log(isOpen);
 	return isOpen ? (
 		<NewCoffeeshop onClose={() => setIsOpen(false)} />
 	) : (
@@ -23,15 +20,16 @@ function Profile() {
 				/>
 			</div>
 			<div className={styles.content}>
-				<ul className={styles.grid}>
+				{/* <ul className={styles.grid}>
 					{cards.map(item => (
 						<li key={item.id}>
 							<CardSmall card={item} />
 						</li>
 					))}
-				</ul>
+				</ul> */}
 				<p className={styles.text}>
-					В случае если у вас возникли вопросы, напишите нам admin@gmail.com
+					Добро пожаловать в COFFEE GUIDE! У вас пока нет добавленных кофеен. Если ваша кофейня уже
+					есть на сайте свяжитесь с нами admin@gmail.com
 				</p>
 			</div>
 		</section>
