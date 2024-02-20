@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import styles from './BackButton.module.scss';
 import lightIcon from '../../images/back.svg';
 import darkIcon from '../../images/back-dark.svg';
