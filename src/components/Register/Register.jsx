@@ -11,16 +11,7 @@ import Button from '../../assets/ui-kit/Button/Button';
 function Register() {
 	const navigate = useNavigate();
 
-	// const inputValues = {
-	// 	name: 'user3',
-	// 	email: 'user3@email.com',
-	// 	organization_inn: '7723517121',
-	// };
-	// console.log('inputValues ==>', inputValues);
-
 	const { data = [], isLoading } = useGetUsersQuery();
-	// console.log('users ==>', data);
-
 	const [addUser, { isError }] = useAddUserMutation();
 
 	const {
@@ -32,7 +23,6 @@ function Register() {
 	} = useForm({ defaultValues: { email: '', organization_inn: '', name: '' }, mode: 'onChange' });
 
 	const watchInputs = watch();
-	console.log('watchInputs:', watchInputs);
 
 	const handleAddUser = async () => {
 		if (watchInputs) {
@@ -44,9 +34,6 @@ function Register() {
 	};
 
 	const onSubmit = userData => {
-		// метод из апи POST user
-
-		console.log(userData);
 		navigate('/signin', { replace: true });
 		reset();
 	};

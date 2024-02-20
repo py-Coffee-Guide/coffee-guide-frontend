@@ -41,6 +41,8 @@ function Header() {
 	const theme = useSelector(state => state.theme);
 	const offset = useSelector(state => state.offset);
 
+	const handleClick = () => {};
+
 	return (
 		<header className={styles.header}>
 			<div className={styles.container}>
@@ -70,14 +72,21 @@ function Header() {
 				) : (
 					<nav className={styles.align_container}>
 						{location.pathname.match('/profile') && (
-							<div className={styles.profile}>
-								<img
-									src={theme === 'light' ? icon : iconDark}
-									className={styles.profile_icon}
-									alt="profile"
-								/>
-								<p className={styles.text}>pochta@email.ru</p>
-							</div>
+							<>
+								<div className={styles.profile}>
+									<img
+										src={theme === 'light' ? icon : iconDark}
+										className={styles.profile_icon}
+										alt="profile"
+									/>
+									<p className={styles.text}>pochta@email.ru</p>
+								</div>
+								<div className={styles.button_container}>
+									<button type="button" className={styles.button_quit} onClick={handleClick}>
+										Выйти
+									</button>
+								</div>
+							</>
 						)}
 						<Theme />
 					</nav>

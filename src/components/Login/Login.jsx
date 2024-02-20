@@ -27,7 +27,6 @@ function Login() {
 
 	const [login, { isError }] = useLoginMutation();
 	const watchInputs = watch();
-	console.log('watchInputs:', watchInputs);
 
 	const handleLogin = async () => {
 		if (watchInputs) {
@@ -46,6 +45,7 @@ function Login() {
 	const onSubmit = data => {
 		reset();
 	};
+
 	const inputItemClassName = type => cn(styles.input, [errors[type] && styles.input_error]);
 
 	return (
@@ -54,7 +54,13 @@ function Login() {
 				<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
 					<div className={styles.input_container}>
 						<input
-							{...register('username', { required: 'Необходимо ввести почту или ИНН' })}
+							{...register('username', {
+								required: 'Необходимо ввести почту или ИНН',
+								pattern: {
+									value: /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/g,
+									message: 'Введите корректный email',
+								},
+							})}
 							className={inputItemClassName('email')}
 							placeholder="Почта / ИНН"
 						/>
