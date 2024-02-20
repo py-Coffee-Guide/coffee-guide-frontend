@@ -75,9 +75,11 @@ function CardMedium() {
 							/>
 						</Map>
 					</div>
-					<button className={styles.button} type="button">
-						Построить маршрут
-					</button>
+					<a href={`https://yandex.ru/maps/?pt=${address.lon},${address.lat}&z=15`}>
+						<button className={styles.button} type="button">
+							Построить маршрут
+						</button>
+					</a>
 				</div>
 				<div className={styles.info}>
 					<div className={styles.info_container}>

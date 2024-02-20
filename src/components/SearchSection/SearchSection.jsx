@@ -7,6 +7,7 @@ import {
 	clearCards,
 	clearFiltered,
 	setFiltered,
+	clearQuery,
 	setQuery,
 } from '../../slices/cardsSlice/cardsSlice';
 
@@ -17,6 +18,7 @@ import SearchResult from '../SearchResult/SearchResult';
 function SearchSection() {
 	const query = useSelector(state => state.cards.query);
 	const filtered = useSelector(state => state.cards.filtered);
+	const navigate = useNavigate();
 	const debounce = (func, delay) => {
 		let timer;
 		return function debounced(...args) {
@@ -34,15 +36,23 @@ function SearchSection() {
 	const dispatch = useDispatch();
 
 	const sendRequest = useCallback(inputValue => {
-		dispatch(setQuery(inputValue));
-		setIsOpen(true);
+		if (inputValue !== '') {
+			dispatch(setQuery(inputValue));
+			setIsOpen(true);
+		} else {
+			setIsOpen(false);
+		}
 	}, []);
 
-	const debouncedSendRequest = useMemo(() => debounce(sendRequest, 1000), [sendRequest]);
+	const debouncedSendRequest = useMemo(() => debounce(sendRequest, 500), [sendRequest]);
 
 	const handleChange = e => {
 		const { value } = e.target;
 		setInputValue(value);
+		if (value === '') {
+			dispatch(clearQuery());
+			dispatch(clearCards());
+		}
 		dispatch(clearFiltered());
 		debouncedSendRequest(value);
 	};
@@ -53,6 +63,7 @@ function SearchSection() {
 		dispatch(setCards(filtered));
 		setInputValue('');
 		setIsOpen(false);
+		navigate('/', { replace: false });
 	};
 
 	return (
@@ -64,7 +75,7 @@ function SearchSection() {
 					value={inputValue}
 					onChange={handleChange}
 				/>
-				<SearchResult isVisible={query && isOpen} />
+				<SearchResult isVisible={isOpen} />
 			</div>
 			<Button type="submit" text="Найти" size="small" disabled={!query} />
 		</form>

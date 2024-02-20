@@ -13,28 +13,6 @@ import styles from './Cards.module.scss';
 function Cards({ data }) {
 	const dispatch = useDispatch();
 	const card = useSelector(state => state.cards.cards);
-	// const filters = useSelector(state => state.cards.filters);
-	// const query = useSelector(state => state.cards.query);
-	// const offsetCounter = useSelector(state => state.offset);
-
-	// const { data, isLoading, isSuccess, isFetching, refetch } = useGetCardsQuery(
-	// 	{
-	// 		name: query,
-	// 		address: query,
-	// 		page: offsetCounter,
-	// 		availables: queryString.stringify({ availables: [...filters] }),
-	// 	},
-	// 	{ refetchOnMountOrArgChange: false },
-	// );
-
-	// useEffect(() => {
-	// 	if (isSuccess && !query) {
-	// 		dispatch(setCards(data.results));
-	// 	}
-	// 	if (query) {
-	// 		dispatch(setFiltered(data.results));
-	// 	}
-	// }, [data]);
 
 	const handleClick = () => {
 		dispatch(increment());

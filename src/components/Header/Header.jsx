@@ -41,24 +41,22 @@ function Header() {
 	const theme = useSelector(state => state.theme);
 	const offset = useSelector(state => state.offset);
 
-	const handleClick = () => {};
+	const handleClick = () => {
+		if (location.pathname !== '/') {
+			navigate('/', { replace: true });
+		}
+		dispatch(clearFiltered());
+		dispatch(clearQuery());
+		dispatch(clearCards());
+		dispatch(reset());
+		navigate(0);
+	};
 
 	return (
 		<header className={styles.header}>
 			<div className={styles.container}>
 				<div>
-					<button
-						type="button"
-						onClick={() => {
-							// dispatch(clearFilters());
-							dispatch(clearFiltered());
-							dispatch(clearQuery());
-							dispatch(clearCards());
-							dispatch(reset());
-							navigate('/', 0);
-						}}
-						className={styles.logo}
-					>
+					<button type="button" onClick={handleClick} className={styles.logo}>
 						{theme === 'light' ? (
 							<img className={styles.logo} src={logo} alt="Лого" />
 						) : (
