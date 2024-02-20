@@ -10,7 +10,7 @@ import { increment } from '../../slices/offsetSlice/offsetSlice';
 import CardSmall from '../CardSmall/CardSmall';
 import styles from './Cards.module.scss';
 
-function Cards() {
+function Cards({ setSearchSuccess }) {
 	const dispatch = useDispatch();
 	const card = useSelector(state => state.cards.cards);
 	const filters = useSelector(state => state.cards.filters);
@@ -33,6 +33,10 @@ function Cards() {
 		}
 		if (query) {
 			dispatch(setFiltered(data.results));
+			setSearchSuccess(true);
+		}
+		if (query && data.results.length === 0) {
+			setSearchSuccess(false);
 		}
 	}, [data]);
 

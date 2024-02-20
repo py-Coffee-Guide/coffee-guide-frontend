@@ -58,6 +58,7 @@ function SearchSection() {
 	return (
 		<form className={styles.container} onSubmit={e => handleSubmit(e)} noValidate>
 			<div className={styles.input_container}>
+				<div className={styles.search_icon} />
 				<input
 					className={styles.input}
 					placeholder={placeholder}
