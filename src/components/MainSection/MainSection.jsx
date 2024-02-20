@@ -1,18 +1,50 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import queryString from 'query-string';
+
+import { setCards, clearCards, setFiltered } from '../../slices/cardsSlice/cardsSlice';
+import { useGetCardsQuery } from '../../slices/apiSlice/apiSlice';
+
 import styles from './MainSection.module.scss';
 
 import Cards from '../Cards/Cards';
 import MapComponent from '../Map/MapComponent';
+import Preloader from '../Preloader/Preloader';
 
 function MainSection({ cards, expandList }) {
-	const filteredCards = useSelector(state => state.cards.filtered);
-	const query = useSelector(state => state.cards.query);
-
 	const [searchSuccess, setSearchSuccess] = useState(true);
 
-	console.log('searchSuccess:', searchSuccess);
-	console.log('query:', query);
+	const dispatch = useDispatch();
+	const filters = useSelector(state => state.cards.filters);
+	const query = useSelector(state => state.cards.query);
+	const offsetCounter = useSelector(state => state.offset);
+
+	const { data, isLoading, isSuccess, isFetching, refetch } = useGetCardsQuery(
+		{
+			name: query,
+			address: query,
+			page: offsetCounter,
+			availables: queryString.stringify({ availables: [...filters] }),
+		},
+		{ refetchOnMountOrArgChange: false },
+	);
+
+	useEffect(() => {
+		if (isSuccess && !query) {
+			dispatch(setCards(data.results));
+		}
+		if (query) {
+			dispatch(setFiltered(data.results));
+			setSearchSuccess(true);
+		}
+		if (query && data.results.length === 0) {
+			setSearchSuccess(false);
+		}
+	}, [data]);
+
+	if (isLoading) {
+		return <Preloader />;
+	}
 
 	return (
 		<section className={styles.main}>
@@ -25,7 +57,7 @@ function MainSection({ cards, expandList }) {
 				<>
 					<p className={styles.text}>Подобрали для тебя кофейни</p>
 					<div className={styles.container}>
-						<Cards cards={cards} expandList={expandList} setSearchSuccess={setSearchSuccess} />
+						<Cards data={data} cards={cards} expandList={expandList} />
 						<MapComponent cards={cards} />
 					</div>
 				</>
