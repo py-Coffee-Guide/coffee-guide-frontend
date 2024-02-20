@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import queryString from 'query-string';
 
 export const api = createApi({
 	reducerPath: 'api',
@@ -14,11 +15,13 @@ export const api = createApi({
 	endpoints: build => ({
 		getCards: build.query({
 			query: args => {
-				const { page, availables } = args;
+				const { page, availables, name, address } = args;
 				return {
 					url: `cafes?${availables}`,
 					params: {
 						page,
+						...(name && { name }),
+						...(address && { address }),
 					},
 				};
 			},
@@ -72,8 +75,6 @@ export const api = createApi({
 export const {
 	useGetCardsQuery,
 	useGetCardByIdQuery,
-	useLazyGetCardsQuery,
-	useGetFilteredCardsQuery,
 	useGetUsersQuery,
 	useAddUserMutation,
 	useLoginMutation,

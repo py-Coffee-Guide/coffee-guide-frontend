@@ -13,9 +13,10 @@ function TagSection() {
 	const theme = useSelector(state => state.theme);
 
 	const handleClick = item => {
-		dispatch(setFilter(item));
+		dispatch(setFilter(item.tag));
 		dispatch(clearCards());
 	};
+
 	return (
 		<>
 			<section className={styles.tags}>
@@ -26,7 +27,7 @@ function TagSection() {
 								text={item.text}
 								tag={item.tag}
 								theme={theme}
-								onClick={() => handleClick(item.end)}
+								onClick={() => handleClick(item)}
 							/>
 						</li>
 					))}

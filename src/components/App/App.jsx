@@ -36,10 +36,7 @@ function App() {
 				<Route path="/signin" element={<Login />} />
 				<Route path="/signup" element={<Register />} />
 
-				<Route
-					path="/favourites"
-					element={<ProtectedRoute element={Favourites} loggedIn={loggedIn} />}
-				/>
+				<Route path="/favourites" element={<Favourites />} />
 
 				<Route path="/profile" element={<ProtectedRoute element={Profile} loggedIn={loggedIn} />} />
 

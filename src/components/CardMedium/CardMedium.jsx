@@ -25,6 +25,7 @@ function CardMedium() {
 	const {
 		address,
 		alternatives,
+		availables,
 		description,
 		id,
 		image,
@@ -102,9 +103,9 @@ function CardMedium() {
 				<div className={styles.features}>
 					<h3 className={cn(styles.tag1, styles.tag)}>Доступно</h3>
 					<ul className={cn(styles.list1, styles.list)}>
-						<li>Безлактозное</li>
-						<li>Submarine</li>
-						<li>Альтернатива</li>
+						{availables.map(item => (
+							<li key={item.id}>{item.name}</li>
+						))}
 					</ul>
 
 					<h3 className={cn(styles.tag2, styles.tag)}>Напитки</h3>
