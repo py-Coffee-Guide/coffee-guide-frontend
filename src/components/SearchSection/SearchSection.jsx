@@ -71,7 +71,7 @@ function SearchSection() {
 				/>
 				<SearchResult isVisible={query && isOpen} />
 			</div>
-			<Button type="submit" text="найти" size="small" disabled={!query} />
+			<Button type="submit" text="Найти" size="small" disabled={!query} />
 		</form>
 	);
 }
