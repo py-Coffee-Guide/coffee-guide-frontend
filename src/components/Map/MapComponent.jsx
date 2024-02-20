@@ -11,16 +11,18 @@ import CardSmall from '../CardSmall/CardSmall';
 import styles from './MapComponent.module.scss';
 import location from '../../assets/images/location-pin.svg';
 import locationActive from '../../assets/images/location-pin-active.svg';
+import locationHover from '../../assets/images/location-pin-hover.svg';
 
 import { changeActive } from '../../slices/cardsSlice/cardsSlice';
 
 function MapComponent() {
 	const dispatch = useDispatch();
 	const card = useSelector(state => state.cards.cards);
+	const [pinImage, setPinImage] = useState(false);
 	const [isActive, setIsActive] = useState(false);
 	const [isCard, setIsCard] = useState({});
 	const [place, setPlace] = useState({});
-
+	const [ref, setRef] = useState();
 	const handleOpenBalloon = id => {
 		dispatch(changeActive({ id }));
 		setIsActive(true);
@@ -32,12 +34,12 @@ function MapComponent() {
 		dispatch(changeActive({ id: '' }));
 	};
 
-	const handleClick = card => {
+	const handleClick = item => {
 		setTimeout(() => {
-			handleOpenBalloon(card.id);
-			setIsCard(card);
+			handleOpenBalloon(item.id);
+			setIsCard(item);
 			document
-				.getElementById(`card/${card.id}`)
+				.getElementById(`card/${item.id}`)
 				.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
 		}, 0);
 	};
@@ -53,14 +55,14 @@ function MapComponent() {
 				instanceRef={setPlace}
 				onClick={handleCloseBalloon}
 			>
-				{card?.map(card => (
+				{card?.map(item => (
 					<Placemark
-						key={card.id}
-						geometry={[card.address.lat, card.address.lon]}
+						key={item.id}
+						geometry={[item.address.lat, item.address.lon]}
 						options={{
 							preset: 'islands#circleIcon',
 							iconLayout: 'default#image',
-							iconImageHref: card.key === card.id && isActive ? locationActive : location,
+							iconImageHref: location,
 							iconImageSize: [30, 30],
 							hideIconOnBalloonOpen: false,
 							balloonCloseButton: false,
@@ -68,10 +70,10 @@ function MapComponent() {
 						properties={{
 							balloonContent: `<div id="balloon-comp" class=${styles.map_hint} ></div>`,
 						}}
-						onClick={() => handleClick(card)}
+						onClick={() => handleClick(item)}
 					/>
 				))}
-				<FullscreenControl options={{ visible: true }} data={{ content: '<p>BLABLABLA</p>' }} />
+				<FullscreenControl options={{ visible: true }} />
 			</Map>
 			{isActive && (
 				<BalloonModal elementId="balloon-comp">

@@ -46,8 +46,6 @@ function Cards() {
 		return <p>loading....</p>;
 	}
 
-	console.log(data);
-
 	return (
 		<div className={styles.container}>
 			<ul>
