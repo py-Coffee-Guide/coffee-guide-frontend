@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import queryString from 'query-string';
 
-import { setCards, clearCards, setFiltered, clear } from '../../slices/cardsSlice/cardsSlice';
+import { setCards, clearCards, setFiltered } from '../../slices/cardsSlice/cardsSlice';
 import { useGetCardsQuery } from '../../slices/apiSlice/apiSlice';
 
-import { increment, reset } from '../../slices/offsetSlice/offsetSlice';
+import { increment } from '../../slices/offsetSlice/offsetSlice';
 
 import CardSmall from '../CardSmall/CardSmall';
 import styles from './Cards.module.scss';
@@ -22,7 +22,7 @@ function Cards() {
 		{
 			name: query,
 			address: query,
-			page: '',
+			page: offsetCounter,
 			availables: queryString.stringify({ availables: [...filters] }),
 		},
 		{ refetchOnMountOrArgChange: false },

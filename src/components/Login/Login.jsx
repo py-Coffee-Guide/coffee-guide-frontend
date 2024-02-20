@@ -32,7 +32,6 @@ function Login() {
 	const handleLogin = async () => {
 		if (watchInputs) {
 			await login(watchInputs)
-				// возвращает объект с ответом сервера
 				.unwrap()
 				.then(data => {
 					if (data.auth_token) {
@@ -41,13 +40,10 @@ function Login() {
 					}
 				})
 				.catch(rejected => console.error(rejected));
-			// setUser(inputValues);
 		}
 	};
 
 	const onSubmit = data => {
-		console.log(data);
-		// navigate('/profile', { replace: true });
 		reset();
 	};
 	const inputItemClassName = type => cn(styles.input, [errors[type] && styles.input_error]);

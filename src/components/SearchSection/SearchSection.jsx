@@ -8,11 +8,7 @@ import {
 	clearFiltered,
 	setFiltered,
 	setQuery,
-	clear,
 } from '../../slices/cardsSlice/cardsSlice';
-import { useGetCardsQuery } from '../../slices/apiSlice/apiSlice';
-
-// import cn from 'classnames';
 
 import styles from './SearchSection.module.scss';
 import Button from '../../assets/ui-kit/Button/Button';

@@ -16,6 +16,9 @@ const cardsSlice = createSlice({
 		setQuery: (state, action) => {
 			state.query = action.payload;
 		},
+		clearQuery: state => {
+			state.query = '';
+		},
 		clearCards: state => {
 			state.cards = [];
 		},
@@ -28,6 +31,9 @@ const cardsSlice = createSlice({
 			} else {
 				state.filters = state.filters.filter(i => i !== action.payload);
 			}
+		},
+		clearFilters: state => {
+			state.filters = [];
 		},
 		addToFavourite: (state, action) => {
 			if (!state.favourites.some(i => i.id === action.payload.id)) {
@@ -52,8 +58,8 @@ export const {
 	clearFiltered,
 	addToFavourite,
 	setFilter,
+	clearFilters,
 	setQuery,
-	clear,
-	reset,
+	clearQuery,
 } = cardsSlice.actions;
 export default cardsSlice.reducer;

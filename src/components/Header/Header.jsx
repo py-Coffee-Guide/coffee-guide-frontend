@@ -1,6 +1,12 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearCards, clearFiltered } from '../../slices/cardsSlice/cardsSlice';
+import {
+	clearCards,
+	clearFiltered,
+	clearQuery,
+	clearFilters,
+} from '../../slices/cardsSlice/cardsSlice';
+import { reset } from '../../slices/offsetSlice/offsetSlice';
 
 import logo from '../../assets/images/logo.svg';
 import logoDark from '../../assets/images/logo-dark.svg';
@@ -31,16 +37,23 @@ const FullRenderedSection = () => {
 function Header() {
 	const location = useLocation();
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const theme = useSelector(state => state.theme);
+	const offset = useSelector(state => state.offset);
 
 	return (
 		<header className={styles.header}>
 			<div className={styles.container}>
-				<Link to="/">
+				<div>
 					<button
 						type="button"
 						onClick={() => {
+							// dispatch(clearFilters());
 							dispatch(clearFiltered());
+							dispatch(clearQuery());
+							dispatch(clearCards());
+							dispatch(reset());
+							navigate('/', 0);
 						}}
 						className={styles.logo}
 					>
@@ -50,7 +63,7 @@ function Header() {
 							<img className={styles.logo} src={logoDark} alt="Лого" />
 						)}
 					</button>
-				</Link>
+				</div>
 
 				{!['/signin', '/signup', '/profile'].some(path => location.pathname.match(path)) ? (
 					<FullRenderedSection />

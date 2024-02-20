@@ -19,7 +19,7 @@ export const api = createApi({
 				return {
 					url: `cafes?${availables}`,
 					params: {
-						...(page && { page }),
+						...(page && !name && !address && { page }),
 						...(name && { name }),
 						...(address && { address }),
 					},
@@ -32,8 +32,16 @@ export const api = createApi({
 			query: id => `cafes/${id}`,
 		}),
 
-		getFilteredCards: build.query({
-			query: value => `cafes/?name=${value}`,
+		addCard: build.mutation({
+			query: body => ({
+				url: 'cafes',
+				method: 'POST',
+				body,
+			}),
+			providesTags: result =>
+				result
+					? [...result.map(({ id }) => ({ type: 'Cards', id })), { type: 'Cards', id: 'LIST' }]
+					: [{ type: 'Cards', id: 'LIST' }],
 		}),
 
 		// USER REDUCERS
