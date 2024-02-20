@@ -16,6 +16,7 @@ function Cards() {
 	const card = useSelector(state => state.cards.cards);
 	const filters = useSelector(state => state.cards.filters);
 	const query = useSelector(state => state.cards.query);
+
 	const offsetCounter = useSelector(state => state.offset);
 
 	const { data, isLoading, isSuccess, isFetching, refetch } = useGetCardsQuery(

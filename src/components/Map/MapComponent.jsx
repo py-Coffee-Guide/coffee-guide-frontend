@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Map, Placemark, FullscreenControl } from '@pbe/react-yandex-maps';
 import cn from 'classnames';
@@ -10,20 +10,36 @@ import CardSmall from '../CardSmall/CardSmall';
 
 import styles from './MapComponent.module.scss';
 import location from '../../assets/images/location-pin.svg';
+import locationActive from '../../assets/images/location-pin-active.svg';
+
+import { changeActive } from '../../slices/cardsSlice/cardsSlice';
 
 function MapComponent() {
+	const dispatch = useDispatch();
+	const card = useSelector(state => state.cards.cards);
 	const [isActive, setIsActive] = useState(false);
 	const [isCard, setIsCard] = useState({});
 	const [place, setPlace] = useState({});
-	const card = useSelector(state => state.cards.cards);
 
-	const handleOpenBalloon = () => {
+	const handleOpenBalloon = id => {
+		dispatch(changeActive({ id }));
 		setIsActive(true);
 	};
 
 	const handleCloseBalloon = () => {
 		setIsActive(false);
 		place.balloon.close();
+		dispatch(changeActive({ id: '' }));
+	};
+
+	const handleClick = card => {
+		setTimeout(() => {
+			handleOpenBalloon(card.id);
+			setIsCard(card);
+			document
+				.getElementById(`card/${card.id}`)
+				.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+		}, 0);
 	};
 
 	return (
@@ -44,7 +60,7 @@ function MapComponent() {
 						options={{
 							preset: 'islands#circleIcon',
 							iconLayout: 'default#image',
-							iconImageHref: location,
+							iconImageHref: card.key === card.id && isActive ? locationActive : location,
 							iconImageSize: [30, 30],
 							hideIconOnBalloonOpen: false,
 							balloonCloseButton: false,
@@ -52,12 +68,7 @@ function MapComponent() {
 						properties={{
 							balloonContent: `<div id="balloon-comp" class=${styles.map_hint} ></div>`,
 						}}
-						onClick={() => {
-							setTimeout(() => {
-								handleOpenBalloon();
-								setIsCard(card);
-							}, 0);
-						}}
+						onClick={() => handleClick(card)}
 					/>
 				))}
 				<FullscreenControl options={{ visible: true }} data={{ content: '<p>BLABLABLA</p>' }} />

@@ -12,6 +12,10 @@ $font-title: 'Lora-Bold';
 	}
 }
 
+.card_active {
+	box-shadow: 1px 1px 4px 0px rgba(70, 119, 104, 0.4);
+}
+
 .photo_container {
 	display: grid;
 }

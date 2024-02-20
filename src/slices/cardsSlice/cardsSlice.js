@@ -8,10 +8,14 @@ const cardsSlice = createSlice({
 		filtered: [],
 		filters: [],
 		query: '',
+		active: { isActive: false, id: '' },
 	},
 	reducers: {
 		setCards: (state, action) => {
 			state.cards.push(...action.payload);
+		},
+		clearCards: state => {
+			state.cards = [];
 		},
 		setQuery: (state, action) => {
 			state.query = action.payload;
@@ -19,8 +23,9 @@ const cardsSlice = createSlice({
 		clearQuery: state => {
 			state.query = '';
 		},
-		clearCards: state => {
-			state.cards = [];
+		changeActive: (state, action) => {
+			state.active.isActive = !state.active.isActive;
+			state.active.id = action.payload.id;
 		},
 		setFiltered: (state, action) => {
 			state.filtered = [...state.filtered, ...action.payload];
@@ -61,5 +66,6 @@ export const {
 	clearFilters,
 	setQuery,
 	clearQuery,
+	changeActive,
 } = cardsSlice.actions;
 export default cardsSlice.reducer;
