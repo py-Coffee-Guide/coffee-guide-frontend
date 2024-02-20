@@ -105,7 +105,7 @@ function NewCoffeeshop({ onClose }) {
 							})}
 						</div>
 					</li>
-					{/* <li className={styles.input_container}>
+					<li className={styles.input_container}>
 						<div className={styles.input_aligner_row}>
 							<label htmlFor="schedules" className={styles.input_label}>
 								Сб - Вс
@@ -135,7 +135,7 @@ function NewCoffeeshop({ onClose }) {
 								<CheckBox text="Круглосуточно" />
 							</div>
 						</div>
-					</li> */}
+					</li>
 					<li className={styles.input_container} style={{ flexDirection: 'column' }}>
 						<div className={styles.input_aligner_row} style={{ justifyContent: 'flex-start' }}>
 							<label htmlFor="cafe_drink" className={styles.input_label}>
