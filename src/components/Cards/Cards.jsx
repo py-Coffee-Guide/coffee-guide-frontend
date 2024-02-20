@@ -9,7 +9,6 @@ import { increment } from '../../slices/offsetSlice/offsetSlice';
 
 import CardSmall from '../CardSmall/CardSmall';
 import styles from './Cards.module.scss';
-import { set } from '../../slices/themeSlice/themeSlice';
 
 function Cards() {
 	const dispatch = useDispatch();
@@ -45,7 +44,7 @@ function Cards() {
 		return <p>loading....</p>;
 	}
 
-	console.log(data);
+	console.log('cards', data);
 
 	return (
 		<div className={styles.container}>

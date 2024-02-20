@@ -13,7 +13,6 @@ import {
 import styles from './SearchSection.module.scss';
 import Button from '../../assets/ui-kit/Button/Button';
 import SearchResult from '../SearchResult/SearchResult';
-import { set } from '../../slices/themeSlice/themeSlice';
 
 function SearchSection() {
 	const query = useSelector(state => state.cards.query);
